@@ -1,0 +1,53 @@
+body, html {
+    height: 100%;
+}
+
+.parallax { 
+    /* The image used */
+    background-image: url("img/ub_back.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    color: white;
+}
+
+@media only screen and (max-device-width: 1366px) {
+    .parallax {
+        background-attachment: scroll;
+    }
+}
+
+.title {
+  font-family: sans-serif;
+  font-weight: 600;
+  color: #fff;
+  padding: 24px 0 24px 0;
+  letter-spacing: 1px;
+  font-size: 72px;
+  text-align: center;
+}
+
+.sub.title {
+  font-size: 24px;
+}
+
+.header {
+  min-height: 600px;
+  padding-top: 200px;
+}
+
+.whiteback {
+  background-color: #fff;
+}
+
+h1.display-1.text-center {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
