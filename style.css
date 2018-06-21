@@ -1,11 +1,11 @@
 html {
     height: 100%;
-    font-size: 10px;
+    font-size: 16px;
 }
 
 @media (max-width: 575.98px) {  
   html {
-    font-size: 6px;
+    font-size: 10px;
   }
  }
 
@@ -35,9 +35,9 @@ html {
   font-family: sans-serif;
   font-weight: 600;
   color: #fff;
-  padding: 2.4rem 0 2.4rem 0;
+  padding: 1.5rem 0 1.5rem 0;
   letter-spacing: 1px;
-  font-size: 7.2rem;
+  font-size: 4.5rem;
   text-align: center;
 }
 
@@ -46,8 +46,9 @@ html {
 }
 
 .header {
-  min-height: 60rem;
-  padding-top: 10rem;
+  min-height: 37.5rem;
+  padding-top: 6.25rem;
+  padding-bottom: 3rem;
 }
 
 .whiteback {
@@ -55,7 +56,10 @@ html {
 }
 
 h1.display-1.text-center {
-  margin-top: 5rem;
-  margin-bottom: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 }
 
+div.container.map {
+  min-height: 500px;
+}
