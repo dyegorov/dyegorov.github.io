@@ -1,6 +1,13 @@
-body, html {
+html {
     height: 100%;
+    font-size: 10px;
 }
+
+@media (max-width: 575.98px) {  
+  html {
+    font-size: 6px;
+  }
+ }
 
 .parallax { 
     /* The image used */
@@ -28,19 +35,19 @@ body, html {
   font-family: sans-serif;
   font-weight: 600;
   color: #fff;
-  padding: 24px 0 24px 0;
+  padding: 2.4rem 0 2.4rem 0;
   letter-spacing: 1px;
-  font-size: 72px;
+  font-size: 7.2rem;
   text-align: center;
 }
 
 .sub.title {
-  font-size: 24px;
+  font-size: 2.4rem;
 }
 
 .header {
-  min-height: 600px;
-  padding-top: 200px;
+  min-height: 60rem;
+  padding-top: 20rem;
 }
 
 .whiteback {
@@ -48,6 +55,7 @@ body, html {
 }
 
 h1.display-1.text-center {
-  margin-top: 50px;
-  margin-bottom: 30px;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
 }
+
