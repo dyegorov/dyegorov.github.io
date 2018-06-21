@@ -63,3 +63,7 @@ h1.display-1.text-center {
 div.container.map {
   min-height: 500px;
 }
+
+div.carousel-item {
+  max-height: 40rem;
+}
