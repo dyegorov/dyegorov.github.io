@@ -47,9 +47,10 @@ html {
 }
 
 .header {
-  min-height: 37.5rem;
+  max-height: 30rem;
   padding-top: 6.25rem;
   padding-bottom: 3rem;
+  background-image: url('./img/header_background.png')
 }
 
 .whiteback {
