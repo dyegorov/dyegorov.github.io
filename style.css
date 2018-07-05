@@ -50,7 +50,8 @@ html {
   max-height: 30rem;
   padding-top: 6.25rem;
   padding-bottom: 3rem;
-  background-image: url('./img/header_background.png')
+  background-image: url('./img/header_background.png');
+  
 }
 
 .whiteback {
