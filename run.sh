@@ -1,1 +1,0 @@
-sudo docker run --name ubotanika -d -p 3000:80 urbanbotanika-nginx
