@@ -1,0 +1,224 @@
+@font-face {
+  font-family: "TT Hoves";
+  src: local("../fonts/TT Hoves Regular"), local("TT-Hoves-Regular"),
+    url("../fonts/TTHoves-Regular.woff2") format("woff2"),
+    url("../fonts/TTHoves-Regular.woff") format("woff"),
+    url("../fonts/TTHoves-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TT Hoves";
+  src: local("../fonts/TT Hoves Medium"), local("TT-Hoves-Medium"),
+    url("../fonts/TTHoves-Medium.woff2") format("woff2"),
+    url("../fonts/TTHoves-Medium.woff") format("woff"),
+    url("../fonts/TTHoves-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*:after,
+*:before {
+  display: block;
+  line-height: 1;
+}
+
+input:invalid {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+input:moz-submit-invalid {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+textarea:invalid {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+textarea:moz-submit-invalid {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+img {
+  border: 0;
+  display: block;
+}
+
+ul,
+ol {
+  padding-left: 0;
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ol {
+  list-style-position: inside;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+[data-src] {
+  opacity: 0;
+}
+[data-src][src] {
+  opacity: 1;
+  -webkit-transition-duration: 400ms;
+  transition-duration: 400ms;
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+body {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  min-width: 360px;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-family: "TT Hoves";
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  font-size: 18px;
+  color: #333333;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  font-family: "TT Hoves", sans-serif;
+  isolation: isolate;
+}
+
+@media (max-width: 768px) {
+  body {
+    letter-spacing: -0.01em;
+    font-size: 12px;
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+body::-webkit-scrollbar:horizontal {
+  height: 0;
+}
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+body::-webkit-scrollbar-thumb {
+  background: #97fc47;
+  border-radius: 14px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+@media screen and (max-width: 768px) {
+  body {
+    display: block;
+  }
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+a {
+  color: #333333;
+  -webkit-transition: 300ms ease-out;
+  transition: 300ms ease-out;
+  text-decoration: none;
+  position: relative;
+}
+a:hover {
+  text-decoration: none;
+  color: #808080;
+}
+
+textarea,
+button,
+select,
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="search"],
+input[type="password"],
+input[type="file"],
+input[type="submit"] {
+  -webkit-appearance: none;
+  appearance: auto;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  background: #97fc47;
+  border-radius: 10px;
+  height: 50px;
+  gap: 8px;
+  padding: 0 50px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-size: 18px;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  button {
+    font-size: 10px;
+    width: 100%;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+.h2 {
+  font-size: 40px;
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .h2 {
+    font-size: 20px;
+  }
+}

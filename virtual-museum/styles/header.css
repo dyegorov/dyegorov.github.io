@@ -1,0 +1,142 @@
+.header {
+  position: fixed;
+  top: 32px;
+  max-width: 1312px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 99;
+  width: calc(100% - 60px);
+  border-radius: 10px;
+  backdrop-filter: blur(20px);
+  height: 64px;
+}
+
+.logo img {
+  height: 38px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+.nav__item {
+  position: relative;
+}
+
+.nav__item::before {
+  content: " ";
+  width: 1px;
+  height: 24px;
+  background: #808080;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -33px;
+}
+
+.nav li:nth-child(1) .nav__item::before {
+  display: none;
+}
+
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transition: -webkit-transform 400ms;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: none;
+  position: absolute;
+  top: 4px;
+  right: 10px;
+}
+
+.hamRotate.active {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.line {
+  fill: none;
+  -webkit-transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: #000;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.ham4 .top {
+  stroke-dasharray: 40 121;
+}
+
+.ham4 .bottom {
+  stroke-dasharray: 40 121;
+}
+
+.ham4.active .top {
+  stroke-dashoffset: -68px;
+}
+
+.ham4.active .bottom {
+  stroke-dashoffset: -68px;
+}
+
+.nav--mobile {
+  display: none;
+}
+
+.nav--mobile a {
+  display: block;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 16px 0;
+}
+
+.nav--mobile a.active {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+@media (max-width: 768px) {
+  .ham {
+    display: block;
+  }
+  .header {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    background: #fff;
+    width: 100%;
+    height: 48px;
+    padding: 0 10px;
+  }
+
+  .logo img {
+    height: 30px;
+  }
+  .nav {
+    display: none;
+  }
+
+  .nav--mobile {
+    position: fixed;
+    top: 48px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 40px 10px;
+    height: calc(100vh - 20px);
+  }
+}
