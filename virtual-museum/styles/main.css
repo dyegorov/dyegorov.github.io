@@ -5,8 +5,8 @@
 }
 
 .topslider__item.slick-slide {
-	height: calc(100vh - 48px);
-	/* height: 100dvh; */
+	height: 100vh;
+	height: 100dvh;
 	position: relative;
 	min-height: 476px;
 }
@@ -76,6 +76,9 @@
 }
 
 @media (max-width: 768px) {
+	.topslider__item.slick-slide {
+		height: calc(100vh - 48px);
+	}
 	.slick-dots {
 		gap: 6px;
 		padding: 0 10px;
