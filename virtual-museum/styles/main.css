@@ -2,6 +2,8 @@
 	min-height: 100vh;
 	min-height: 100dvh;
 	overflow: hidden;
+	isolation: isolate;
+	position: relative;
 }
 
 .topslider__item.slick-slide {
@@ -67,7 +69,6 @@
 	font-size: 80px;
 	font-weight: 500;
 	margin-bottom: 26px;
-	letter-spacing: -0.03em;
 }
 
 .topslider__text {
