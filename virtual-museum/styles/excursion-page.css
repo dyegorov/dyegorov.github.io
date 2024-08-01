@@ -27,7 +27,7 @@
 }
 
 .player {
-	position: fixed;
+	position: absolute;
 	top: 40px;
 	right: 40px;
 	display: flex;
@@ -36,6 +36,10 @@
 	font-size: 14px;
 	z-index: 999;
 	color: #fff;
+}
+
+.player.playing .toplay {
+	display: none;
 }
 
 .player__btn {
@@ -57,6 +61,20 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%) rotate(90deg);
+	margin-top: -2px;
+	margin-right: -2px;
+}
+
+.player .play.topause {
+	display: none;
+}
+
+.player.playing {
+	position: fixed;
+}
+
+.player.playing .play.topause {
+	display: block;
 }
 
 .bold {
@@ -205,6 +223,7 @@
 	.player .overlay {
 		width: 36px;
 		height: 36px;
+		margin: 0;
 	}
 	.player .overlay .desktop {
 		display: none;
@@ -335,10 +354,26 @@
 
 .learnmore {
 	display: block;
-	margin-top: 40px;
+}
+
+.learnmore .link {
 	font-weight: 600;
 	line-height: 120%;
+	margin-top: 40px;
 	letter-spacing: -0.18px;
+	display: block;
+}
+
+.learnmore__content {
+	display: none;
+}
+
+.onplay .learnmore__content {
+	display: block;
+}
+
+.onplay .learnmore .link {
+	display: none;
 }
 
 @media (max-width: 1024px) {
@@ -349,7 +384,7 @@
 		min-height: auto;
 	}
 	.double iframe {
-		height: 500px;
+		height: 400px;
 	}
 	.double__aside--map {
 		position: sticky;
@@ -430,6 +465,20 @@
 		rgba(51, 51, 51, 0) 59.5%,
 		rgba(51, 51, 51, 0.8) 100%
 	);
+	transition: 300ms ease-in-out;
+}
+
+.excursion__block::after {
+	content: " ";
+	position: fixed;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.4);
+	transition: 300ms ease-in-out;
+	opacity: 0;
 }
 
 .excursion__picture {
@@ -439,6 +488,28 @@
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+}
+
+.textoverflowing {
+	max-height: 500px;
+	overflow: scroll;
+	position: relative;
+}
+
+.onplay .textoverflowing {
+	mask-image: url(../images/textmask.svg);
+}
+
+.textoverflowing:after {
+	content: " ";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.excursion__block.onplay::after {
+	opacity: 1;
 }
 
 .excursion__block .excursion__herocontent {
@@ -467,6 +538,18 @@
 
 .exc__player {
 	margin-bottom: 40px;
+}
+
+.exc__player .topause {
+	display: none;
+}
+
+.exc__player.playing .toplay {
+	display: none;
+}
+
+.exc__player.playing .topause {
+	display: block;
 }
 
 .exc__player,
@@ -575,6 +658,54 @@
 	.watch img {
 		width: 44px;
 		height: 44px;
+		object-fit: contain;
+	}
+}
+
+.excursion__block--panoram::before,
+.excursion__block--panoram::after {
+	transition: 300ms ease-in;
+}
+
+.excursion__block--panoram.onplay::before,
+.excursion__block--panoram.onplay::after {
+	opacity: 0;
+}
+
+.excursion__block--panoram.onplay > * {
+	display: none;
+}
+
+.closepanoram {
+	position: absolute;
+	top: 40px;
+	right: 40px;
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	background: transparent;
+	z-index: 9;
+	display: none;
+}
+
+.excursion__block--panoram.onplay .closepanoram,
+.excursion__block--panoram.onplay .excursion__picture {
+	display: block;
+}
+
+@media (max-width: 1024px) {
+	.closepanoram {
+		width: 40px;
+		height: 40px;
+		top: 20px;
+		right: 20px;
+	}
+	.closepanoram svg {
+		width: 40px;
+		height: 40px;
 		object-fit: contain;
 	}
 }

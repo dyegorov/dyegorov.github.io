@@ -150,6 +150,61 @@ body {
 	}
 }
 
+* {
+	-ms-overflow-style: none;
+	overflow: -moz-scrollbars-none;
+}
+*::-webkit-scrollbar {
+	-webkit-appearance: none;
+	width: 0 !important;
+	height: 0 !important;
+	display: none !important;
+	opacity: 0;
+	background-color: transparent;
+}
+*::-moz-scrollbar {
+	width: 0 !important;
+	height: 0 !important;
+	display: none !important;
+	opacity: 0;
+	background-color: transparent;
+}
+*::-webkit-scrollbar:horizontal {
+	width: 0 !important;
+	height: 0 !important;
+	display: none !important;
+	opacity: 0;
+	background-color: transparent;
+}
+*::-webkit-scrollbar-thumb {
+	width: 0 !important;
+	height: 0 !important;
+	opacity: 0;
+	background: rgba(255, 255, 255, 0);
+	background-color: transparent;
+	display: none !important;
+}
+*::-webkit-scrollbar-track-piece {
+	width: 0 !important;
+	height: 0 !important;
+	opacity: 0;
+	background: rgba(255, 255, 255, 0);
+	background-color: transparent;
+	display: none !important;
+}
+*::-webkit-scrollbar-thumb:hover {
+	background: transparent;
+	opacity: 0;
+}
+*::-webkit-scrollbar-track {
+	opacity: 0;
+	background: transparent;
+	background-color: transparent;
+	width: 0 !important;
+	height: 0 !important;
+	display: none !important;
+}
+
 body::-webkit-scrollbar {
 	width: 8px;
 }

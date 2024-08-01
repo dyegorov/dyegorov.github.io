@@ -56,7 +56,7 @@
 				Выйти
 			</button>
 
-			<div class="player">
+			<div id="mainplayer" class="player">
 				Аудио
 				<span class="bold">45:34</span>
 				<button class="player__btn">
@@ -67,7 +67,6 @@
 							viewBox="-10 -10 100 100"
 							version="1.1"
 							xmlns="http://www.w3.org/2000/svg"
-							style="transform: rotate(-90deg)"
 							class="desktop"
 						>
 							<circle
@@ -111,7 +110,7 @@
 						</svg>
 					</div>
 
-					<div class="play">
+					<div class="play toplay">
 						<svg
 							width="15"
 							height="16"
@@ -121,6 +120,23 @@
 						>
 							<path
 								d="M13.9063 6.75509C14.8646 7.30838 14.8646 8.69162 13.9062 9.24491L3.125 15.4695C2.16667 16.0228 0.968749 15.3311 0.968749 14.2246L0.96875 1.77544C0.96875 0.668854 2.16667 -0.0227634 3.125 0.530531L13.9063 6.75509Z"
+								fill="white"
+							/>
+						</svg>
+					</div>
+
+					<div class="play topause">
+						<svg
+							width="16"
+							height="20"
+							viewBox="0 0 16 20"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								fill-rule="evenodd"
+								clip-rule="evenodd"
+								d="M2.33984 0.65625C1.54593 0.65625 0.902344 1.29984 0.902344 2.09375V17.9062C0.902344 18.7002 1.54593 19.3438 2.33984 19.3438H4.49609C5.29 19.3438 5.93359 18.7002 5.93359 17.9062V2.09375C5.93359 1.29984 5.29 0.65625 4.49609 0.65625H2.33984ZM11.5029 0.65625C10.709 0.65625 10.0654 1.29984 10.0654 2.09375V17.9062C10.0654 18.7002 10.709 19.3438 11.5029 19.3438H13.6592C14.4531 19.3438 15.0967 18.7002 15.0967 17.9062V2.09375C15.0967 1.29984 14.4531 0.65625 13.6592 0.65625H11.5029Z"
 								fill="white"
 							/>
 						</svg>
@@ -234,7 +250,16 @@
 						Ярославичем.
 					</p>
 
-					<a href="#" class="learnmore">Подробнее...</a>
+					<div class="learnmore">
+						<span class="link">Подробнее...</span>
+						<div class="learnmore__content">
+							<br />
+							Стены и башни обители, поставленные Годуновым, при Софье были
+							укреплены и расширены. В настоящее время их общая протяжённость
+							составляет 870 метров, высота от 7 до 11 метров, толщина – до 5
+							метров.
+						</div>
+					</div>
 				</div>
 				<div class="double__aside double__gallery">
 					<img src="./images/content.jpg" alt="" class="double__picture" />
@@ -251,13 +276,14 @@
 				</div>
 			</section>
 
-			<section class="excursion__block">
+			<section id="secondary-excursion" class="excursion__block">
 				<img src="./images/muse.jpg" class="excursion__picture" alt="" />
 
 				<div class="excursion__herocontent">
 					<div class="excursion__texts">
-						<div class="exc__player">
-							<img src="./images/player-play.svg" alt="" class="btn" />
+						<div id="secondary-player" class="exc__player">
+							<img src="./images/player-play.svg" alt="" class="btn toplay" />
+							<img src="./images/pause.svg" alt="" class="btn topause" />
 							<div class="exc__playermain">
 								<div class="exc__progress">
 									<div class="exc__plagressbar"></div>
@@ -265,15 +291,60 @@
 								<div class="exc__length">05:34</div>
 							</div>
 						</div>
-						<div class="excursion__blocktitle">Дом Пречистой</div>
-						<div class="excursion__p">
-							Спустя десять лет по взятии Смоленска, 13 (26) мая 1524 года,
-							Василий III основал в трёх верстах от Кремля, в живописной
-							излучине Москвы-реки, на Девичьем поле, великую обитель Пречистой
-							Богородицы Одигитрии, Новый Девичий монастырь.
-						</div>
+						<div class="textoverflowing">
+							<div class="excursion__blocktitle">Дом Пречистой</div>
+							<div class="excursion__p">
+								Спустя десять лет по взятии Смоленска, 13 (26) мая 1524 года,
+								Василий III основал в трёх верстах от Кремля, в живописной
+								излучине Москвы-реки, на Девичьем поле, великую обитель
+								Пречистой Богородицы Одигитрии, Новый Девичий монастырь.
+							</div>
 
-						<a href="#" class="learnmore">Подробнее...</a>
+							<div id="exc__details" class="learnmore">
+								<span class="link">Подробнее... </span>
+								<div class="learnmore__content">
+									<br />
+									<div class="excursion__p">
+										Новодевичий монастырь посвящён Пресвятой Богородице
+										Одигитрии (с греческого – Путеводительница, Наставница). Так
+										назывался древний образ Богоматери, который находился в
+										знаменитом константинопольском храме Одигон. Написанная
+										святым апостолом и евангелистом Лукой, икона Одигитрии
+										вместе со священной ризой и поясом Богоматери почиталась в
+										Византии как хранительница Империи. В 1046 году образ
+										Пречистой Одигитрии был дан дочери императора Константина IX
+										Мономаха, царевне Анне, как родительское благословение на
+										брак с черниговским князем Всеволодом Ярославичем.
+									</div>
+									<br />
+									<div class="excursion__p">
+										Одигитрии вместе со священной ризой и поясом Богоматери
+										почиталась в Византии как хранительница Империи, на Девичьем
+										поле, великую обитель Пречистой Богородицы Одигитрии, Новый
+										Девичий монастырь.
+									</div>
+									<br />
+									<div class="excursion__p">
+										В 1046 году образ Пречистой Одигитрии был дан дочери
+										императора Константина IX Мономаха, царевне Анне, как
+										родительское благословение на брак с черниговским князем
+										Всеволодом Ярославичем. Одигитрии вместе со священной ризой
+										и поясом Богоматери почиталась в Византии как хранительница
+										Империи, на Девичьем поле, великую обитель Пречистой
+										Богородицы Одигитрии, Новый Девичий монастырь.
+									</div>
+									<br />
+
+									<div class="excursion__p">
+										Спустя десять лет по взятии Смоленска, 13 (26) мая 1524
+										года, Василий III основал в трёх верстах от Кремля, в
+										живописной излучине Москвы-реки, на Девичьем поле, великую
+										обитель Пречистой Богородицы Одигитрии, Новый Девичий
+										монастырь.
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 
@@ -301,7 +372,18 @@
 							свою независимость.
 						</div>
 
-						<a href="#" class="learnmore">Подробнее...</a>
+						<div class="learnmore">
+							<span class="link">Подробнее...</span>
+							<div class="learnmore__content">
+								<br />
+								<div class="excursion__p">
+									Стены и башни обители, поставленные Годуновым, при Софье были
+									укреплены и расширены. В настоящее время их общая
+									протяжённость составляет 870 метров, высота от 7 до 11 метров,
+									толщина – до 5 метров.
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 
@@ -314,10 +396,37 @@
 				</div>
 			</section>
 
-			<section class="excursion__block">
+			<section
+				id="panoram-block"
+				class="excursion__block excursion__block--panoram"
+			>
 				<img src="./images/panorama.jpg" class="excursion__picture" alt="" />
 
-				<div class="watch">
+				<button id="closepanoram" class="closepanoram">
+					<svg
+						width="60"
+						height="60"
+						viewBox="0 0 60 60"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M1.5 30C1.5 14.2599 14.2599 1.5 30 1.5C45.7401 1.5 58.5 14.2599 58.5 30C58.5 45.7401 45.7401 58.5 30 58.5C14.2599 58.5 1.5 45.7401 1.5 30Z"
+							stroke="white"
+							stroke-opacity="0.5"
+							stroke-width="3"
+						/>
+						<path
+							d="M21 21L39 39M21 39L39 21"
+							stroke="white"
+							stroke-width="3"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						/>
+					</svg>
+				</button>
+
+				<div id="watch-panoram" class="watch">
 					<img src="./images/watch.svg" alt="" />
 					<div>Смотреть</div>
 				</div>
@@ -332,7 +441,18 @@
 							метров.
 						</div>
 
-						<a href="#" class="learnmore">Подробнее...</a>
+						<div class="learnmore">
+							<span class="link">Подробнее...</span>
+							<div class="learnmore__content">
+								<br />
+								<div class="excursion__p">
+									Стены и башни обители, поставленные Годуновым, при Софье были
+									укреплены и расширены. В настоящее время их общая
+									протяжённость составляет 870 метров, высота от 7 до 11 метров,
+									толщина – до 5 метров.
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 
@@ -541,175 +661,41 @@
 					}
 				});
 
-				$(".topslider").slick({
-					infinite: true,
-					slidesToShow: 1,
-					slidesToScroll: 1,
-					draggable: true,
-					arrows: false,
-					// dots: true,
-					dots: false,
-					fade: true,
-					cssEase: "linear",
+				$("#mainplayer").on("click", function () {
+					$(this).toggleClass("playing");
+					return false;
 				});
 
-				const slideCount = $(".topslider .topslider__item").length;
-				const indexCount = slideCount - 1;
-				for (let i = 0; i < slideCount; i++) {
-					$(".progressBarContainer").append(`
-			     <div class="item"><span data-slick-index="${i}" class="progressBar"></span></div>
-			 `);
-				}
-
-				var percentTime;
-				var tick;
-				var time = 0.1;
-				var progressBarIndex = 0;
-
-				$(".progressBarContainer .progressBar").each(function (index) {
-					var progress =
-						"<div class='inProgress inProgress" + index + "'></div>";
-					$(this).html(progress);
+				$("#secondary-player").on("click", function () {
+					$("#mainplayer").removeClass("playing");
+					$(this).toggleClass("playing");
+					$("#secondary-excursion").toggleClass("onplay");
+					$("#secondary-excursion")[0].scrollIntoView();
+					return false;
 				});
 
-				function startProgressbar() {
-					resetProgressbar();
-					percentTime = 0;
-					tick = setInterval(interval, 10);
-				}
-
-				function interval() {
-					if (
-						$(
-							'.topslider .slick-track div[data-slick-index="' +
-								progressBarIndex +
-								'"]'
-						).attr("aria-hidden") === "true"
-					) {
-						progressBarIndex = $(
-							'.topslider .slick-track div[aria-hidden="false"]'
-						).data("slickIndex");
-						startProgressbar();
-					} else {
-						percentTime += 1 / (time + 5);
-						$(".inProgress" + progressBarIndex).css({
-							width: percentTime + "%",
-						});
-						if (percentTime >= 100) {
-							$(".topslider").slick("slickNext");
-							progressBarIndex++;
-							if (progressBarIndex > indexCount) {
-								progressBarIndex = 0;
-							}
-							startProgressbar();
-						}
-					}
-				}
-
-				function resetProgressbar() {
-					$(".inProgress").css({
-						width: 0 + "%",
-					});
-					clearInterval(tick);
-				}
-				startProgressbar();
-
-				$(".progressBarContainer .item").click(function () {
-					clearInterval(tick);
-					var goToThisIndex = $(this).find("span").data("slickIndex");
-					$(".topslider").slick("slickGoTo", goToThisIndex, false);
-					startProgressbar();
+				$("#exc__details").on("click", function () {
+					$("#mainplayer").removeClass("playing");
+					$("#secondary-player").toggleClass("playing");
+					$("#secondary-excursion").toggleClass("onplay");
+					$("#secondary-excursion")[0].scrollIntoView();
+					return false;
 				});
 
-				const swiper = new Swiper(".init1", {
-					spaceBetween: 0,
-					slidesPerView: 5,
-					loop: true,
-					centeredSlides: true,
-					keyboard: true,
-					watchOverflow: true,
-					speed: 700,
-					cssMode: true,
-					navigation: {
-						nextEl: ".swiper-button-next",
-						prevEl: ".swiper-button-prev",
-					},
+				$("#watch-panoram").on("click", function () {
+					$("#panoram-block").addClass("onplay");
+					return false;
 				});
 
-				$(".init1 .excursion__item").click(function () {
-					swiper.slideTo(swiper.clickedIndex, 700, true);
+				$("#closepanoram").on("click", function () {
+					$("#panoram-block").removeClass("onplay");
+					return false;
 				});
 
-				const swiperPanorams = new Swiper(".swiper__panorams", {
-					spaceBetween: 0,
-					slidesPerView: 5,
-					loop: true,
-					centeredSlides: true,
-					keyboard: true,
-					watchOverflow: true,
-					navigation: {
-						nextEl: ".swiper-button-next",
-						prevEl: ".swiper-button-prev",
-					},
-				});
-
-				const panoramsMobile = new Swiper(".swiper__panorams--mobile", {
-					slidesPerView: 1,
-					loop: true,
-					// autoplay: {
-					// 	delay: 2500,
-					// 	disableOnInteraction: false,
-					// },
-					navigation: {
-						nextEl: ".swiper-button-next",
-						prevEl: ".swiper-button-prev",
-					},
-				});
-
-				const $swiper = $(".swiper-container");
-				const $bottomSlide = null;
-				const $bottomSlideContent = null;
-
-				const mySwiper = new Swiper(".swiper-container", {
-					spaceBetween: 250,
-					slidesPerView: 3,
-					centeredSlides: true,
-					roundLengths: true,
-					loop: true,
-					loopAdditionalSlides: 30,
-					autoplay: {
-						delay: 2500,
-						disableOnInteraction: false,
-					},
-					navigation: {
-						nextEl: ".swiper-button-next",
-						prevEl: ".swiper-button-prev",
-					},
-				});
-
-				const mySwiperMobile = new Swiper(".init2", {
-					slidesPerView: 1,
-					loop: true,
-					autoplay: {
-						delay: 2500,
-						disableOnInteraction: false,
-					},
-					navigation: {
-						nextEl: ".swiper-button-next",
-						prevEl: ".swiper-button-prev",
-					},
-				});
-
-				const swiperMuseum = new Swiper(".swiper--museum", {
-					slidesPerView: 1,
-					loop: true,
-					effect: "fade",
-					crossFade: false,
-					autoplay: false,
-					navigation: {
-						nextEl: ".swiper-button-next",
-						prevEl: ".swiper-button-prev",
-					},
+				$(".learnmore").on("click", function () {
+					$(this).children(".link").css({ display: "none" });
+					$(this).children(".learnmore__content").css({ display: "block" });
+					return false;
 				});
 
 				$(".nav--btn").on("click", function () {
