@@ -77,8 +77,8 @@
 }
 
 @media (max-width: 768px) {
-	.hero {
-		margin-bottom: -48px;
+	.hero + .section {
+		margin-top: 12px;
 	}
 	.topslider__item.slick-slide {
 		height: calc(100vh - 48px);
