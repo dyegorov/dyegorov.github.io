@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1 "
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css"
+		/>
+
+		<link rel="stylesheet" href="styles/clear.css" />
+		<link rel="stylesheet" href="styles/header.css" />
+		<link rel="stylesheet" href="styles/footer.css" />
+		<link rel="stylesheet" href="styles/main.css" />
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css"
+			integrity="sha512-rd0qOHVMOcez6pLWPVFIv7EfSdGKLt+eafXh4RO/12Fgr41hDQxfGvoi1Vy55QIVcQEujUE1LQrATCLl2Fs+ag=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+
+		<title>Царьград</title>
+	</head>
+	<body>
+		<section class="entering">
+			<div class="topslider">
+				<div class="topslider__item">
+					<img src="./images/hero/1.jpg" alt="" />
+				</div>
+				<div class="topslider__item">
+					<img src="./images/hero/2.jpg" alt="" />
+				</div>
+				<div class="topslider__item">
+					<img src="./images/hero/3.jpg" alt="" />
+				</div>
+				<div class="topslider__item">
+					<img src="./images/hero/4.jpg" alt="" />
+				</div>
+				<div class="topslider__item">
+					<img src="./images/hero/5.jpg" alt="" />
+				</div>
+			</div>
+			<div class="entering__menu">
+				<div class="entering__logo">
+					<img src="./images/logo-d.png" alt="" />
+				</div>
+
+				<div class="entering__grid">
+					<div class="entering__unit">
+						<div class="entering__unittext">Роспись храмов</div>
+					</div>
+					<div class="entering__unit">
+						<div class="entering__unittext">Иконостасы</div>
+					</div>
+					<div class="entering__unit">
+						<div class="entering__unittext">Иконы</div>
+					</div>
+					<div class="entering__unit">
+						<div class="entering__unittext">
+							Подсвечники<br />Купола Антикопоть
+						</div>
+					</div>
+					<div class="entering__unit">
+						<div class="entering__unittext">Мозаики</div>
+					</div>
+					<div class="entering__unit">
+						<div class="entering__unittext">
+							Проекты внутреннего убранства храмов
+						</div>
+					</div>
+					<div class="entering__unit">
+						<div class="entering__unittext">Храмовые светильники</div>
+					</div>
+					<div class="entering__unit">
+						<div class="entering__unittext">Проекты храмов</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<script
+			src="https://code.jquery.com/jquery-3.7.1.min.js"
+			integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+			crossorigin="anonymous"
+		></script>
+
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
+			integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+
+		<script
+			type="text/javascript"
+			src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+		></script>
+
+		<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+		<script>
+			$(window).on("load", function () {
+				wow = new WOW({
+					boxClass: "wow", // default
+					// animateClass: "animated", // default
+					animateClass: "animate__animated",
+					offset: 0, // default
+					mobile: false, // default
+					live: true, // default
+				});
+				wow.init();
+			});
+
+			$(document).ready(function () {
+				$(".topslider").slick({
+					infinite: true,
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					draggable: false,
+					arrows: false,
+					dots: false,
+					fade: true,
+					// cssEase: "linear",
+					autoplaySpeed: 4000,
+					speed: 400,
+					autoplay: true,
+				});
+
+				$(".nav--btn").on("click", function () {
+					if ($("header .nav--mobile").is(":visible")) {
+						$("header .nav--mobile").slideUp();
+						$(this).removeClass("open");
+					} else {
+						$("header .nav--mobile").slideDown();
+						$(this).addClass("open");
+					}
+					return false;
+				});
+			});
+		</script>
+	</body>
+</html>
