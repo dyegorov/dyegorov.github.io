@@ -256,6 +256,7 @@ input[type="file"],
 input[type="submit"] {
 	-webkit-appearance: none;
 	appearance: auto;
+	font-family: "TT Hoves", sans-serif;
 }
 
 p {
@@ -275,6 +276,7 @@ button {
 	white-space: nowrap;
 	font-size: 18px;
 	text-align: center;
+	color: #4f4f4f;
 }
 
 @media (max-width: 1024px) {
@@ -295,7 +297,7 @@ h6 {
 
 .h2 {
 	font-size: 40px;
-	line-height: 1.35;
+	line-height: 100%;
 	font-weight: 500;
 }
 

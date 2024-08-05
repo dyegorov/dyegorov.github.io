@@ -86,25 +86,31 @@
 					</div>
 					<div class="topslider__item">
 						<div class="topslider__content">
-							<div class="topslider__title">Второй заголовок</div>
+							<div class="topslider__title">Виртуальный музей</div>
 							<div class="topslider__text">
-								классный текст на втором слайде про мультимедийные экскурсии с
-								3D-панорамами
+								мультимедийные экскурсии с 3D-панорамами, фотографиями и видео
+								на вашем сайте
 							</div>
 						</div>
 						<img src="./images/udm.png" alt="" />
 					</div>
 					<div class="topslider__item">
 						<div class="topslider__content">
-							<div class="topslider__title">Третий Заголовок Слайдера</div>
-							<div class="topslider__text">тут текст 3</div>
+							<div class="topslider__title">Виртуальный музей</div>
+							<div class="topslider__text">
+								мультимедийные экскурсии с 3D-панорамами, фотографиями и видео
+								на вашем сайте
+							</div>
 						</div>
 						<img src="./images/hero.png" alt="" />
 					</div>
 					<div class="topslider__item">
 						<div class="topslider__content">
-							<div class="topslider__title">Четвертый заголовок</div>
-							<div class="topslider__text">текст 4 будет тут</div>
+							<div class="topslider__title">Виртуальный музей</div>
+							<div class="topslider__text">
+								мультимедийные экскурсии с 3D-панорамами, фотографиями и видео
+								на вашем сайте
+							</div>
 						</div>
 						<img src="./images/hero.png" alt="" />
 					</div>
@@ -911,7 +917,7 @@
 					<div class="swiper-button-next"></div>
 				</div>
 
-				<div class="swiper swiper--exc swiper__panorams">
+				<div class="intl2 swiper swiper--exc swiper__panorams">
 					<div class="swiper-wrapper">
 						<div alt="0" class="excursion__item swiper-slide">
 							<div class="swiper__content">
@@ -1323,6 +1329,10 @@
 					},
 				});
 
+				$(".intl2 .excursion__item").click(function () {
+					swiperPanorams.slideTo(swiperPanorams.clickedIndex, 700, true);
+				});
+
 				const panoramsMobile = new Swiper(".swiper__panorams--mobile", {
 					slidesPerView: 1,
 					loop: true,
@@ -1374,8 +1384,10 @@
 					slidesPerView: 1,
 					loop: true,
 					effect: "fade",
-					crossFade: false,
+					// crossFade: false,
 					autoplay: false,
+					speed: 1000,
+
 					navigation: {
 						nextEl: ".swiper-button-next",
 						prevEl: ".swiper-button-prev",
