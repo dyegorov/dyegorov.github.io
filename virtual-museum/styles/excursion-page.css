@@ -283,7 +283,6 @@
 .double__content {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	text-align: left;
 	padding-left: 40px;
 	padding-right: 60px;
@@ -787,5 +786,10 @@
 	.excursion__block--panoram .customoverflow,
 	.excursion__block--panoram .customoverflow-parent {
 		mask-image: none;
+	}
+
+	.double__aside--map,
+	.double iframe {
+		max-height: 274px;
 	}
 }
