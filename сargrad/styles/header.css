@@ -17,6 +17,10 @@
 	transform: translateY(0);
 }
 
+.header.noamimation {
+	transform: translateY(0);
+}
+
 .header a {
 	color: #ffffff;
 	text-decoration: none;

@@ -19,20 +19,11 @@
 
 		<link rel="stylesheet" href="styles/clear.css" />
 		<link rel="stylesheet" href="styles/header.css" />
-		<link rel="stylesheet" href="styles/footer.css" />
 		<link rel="stylesheet" href="styles/main.css" />
 		<link
 			rel="stylesheet"
 			type="text/css"
 			href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-		/>
-
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css"
-			integrity="sha512-rd0qOHVMOcez6pLWPVFIv7EfSdGKLt+eafXh4RO/12Fgr41hDQxfGvoi1Vy55QIVcQEujUE1LQrATCLl2Fs+ag=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
 		/>
 
 		<title>Царьград</title>
@@ -87,7 +78,7 @@
 					</div>
 
 					<div class="nav__link">
-						<a href="#" class="nav__text">Контакты</a>
+						<a href="contacts.html" class="nav__text">Контакты</a>
 					</div>
 				</div>
 			</div>
@@ -123,7 +114,7 @@
 				</div>
 
 				<div class="navmobile__link">
-					<a href="#" class="nav__text">Контакты</a>
+					<a href="contacts.html" class="nav__text">Контакты</a>
 				</div>
 			</div>
 		</header>
@@ -1837,7 +1828,7 @@
 							<a href="#">О мастерской</a>
 							<a href="#">Каталог работ</a>
 							<a href="#">Публикации</a>
-							<a href="#">Контакты</a>
+							<a href="contacts.html">Контакты</a>
 						</div>
 						<div class="footer__mainlinks footer__mainlinks--secondary">
 							<div>
@@ -2017,6 +2008,7 @@
 
 				$(".nav--mobile a").on("click", function () {
 					$("header .nav--mobile").slideUp();
+					$("body").css({ overflow: "visible" });
 				});
 
 				$(".topslider").slick({
@@ -2036,8 +2028,10 @@
 				$(".nav--btn").on("click", function () {
 					if ($("header .nav--mobile").is(":visible")) {
 						$("header .nav--mobile").slideUp();
+						$("body").css({ overflow: "visible" });
 					} else {
 						$("header .nav--mobile").slideDown().css({ display: "flex" });
+						$("body").css({ overflow: "hidden" });
 					}
 					return false;
 				});
