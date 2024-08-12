@@ -11,6 +11,11 @@
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.compat.css"
 		/>
+		<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+		/>
 
 		<link rel="stylesheet" href="styles/clear.css" />
 		<link rel="stylesheet" href="styles/header.css" />
@@ -33,7 +38,103 @@
 		<title>Царьград</title>
 	</head>
 	<body>
+		<header id="header" class="header">
+			<div class="header__bg"></div>
+			<div class="header__container">
+				<a href="#" class="header__logo">
+					<img src="./images/logo-h.png" alt="" />
+				</a>
+
+				<div class="nav--btn">
+					<img src="./images/nav--btn.svg" alt="" />
+				</div>
+				<div class="nav">
+					<div class="nav__link">
+						<div class="nav__text">О мастерской</div>
+						<div class="nav__dropping">
+							<div class="header__container">
+								<div class="nav__droppingcontent nav__droppingcontent--first">
+									<a href="#" class="nav__sublink">Руководитель</a>
+									<a href="#" class="nav__sublink">Команда</a>
+									<a href="#" class="nav__sublink"
+										>Список реализованых церковных проектов</a
+									>
+									<a href="#" class="nav__sublink"
+										>Лицензия Министерства культуры РФ и патенты</a
+									>
+									<a href="#" class="nav__sublink">Награды мастерской</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="nav__link">
+						<a href="#" class="nav__text">Каталог работ</a>
+					</div>
+
+					<div class="nav__link">
+						<div class="nav__text">Публикации</div>
+						<div class="nav__dropping">
+							<div class="header__container">
+								<div class="nav__droppingcontent nav__droppingcontent--last">
+									<a href="#" class="nav__sublink">Статьи о мастерской</a>
+									<a href="#" class="nav__sublink"
+										>Статьи, интервью Дмитрия Трофимова</a
+									>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="nav__link">
+						<a href="#" class="nav__text">Контакты</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="nav--mobile">
+				<div class="navmobile__link">
+					<div class="nav__text menu">О мастерской</div>
+					<div class="navmobile__linkcontent">
+						<a href="#" class="nav__sublink">Руководитель</a>
+						<a href="#" class="nav__sublink">Команда</a>
+						<a href="#" class="nav__sublink"
+							>Список реализованых церковных проектов</a
+						>
+						<a href="#" class="nav__sublink"
+							>Лицензия Министерства культуры РФ и патенты</a
+						>
+						<a href="#" class="nav__sublink">Награды мастерской</a>
+					</div>
+				</div>
+
+				<div class="navmobile__link">
+					<a href="#" class="nav__text">Каталог работ</a>
+				</div>
+
+				<div class="navmobile__link">
+					<div class="nav__text menu">Публикации</div>
+					<div class="navmobile__linkcontent">
+						<a href="#" class="nav__sublink">Статьи о мастерской</a>
+						<a href="#" class="nav__sublink"
+							>Статьи, интервью Дмитрия Трофимова</a
+						>
+					</div>
+				</div>
+
+				<div class="navmobile__link">
+					<a href="#" class="nav__text">Контакты</a>
+				</div>
+			</div>
+		</header>
+
 		<section class="entering">
+			<div class="mobile">
+				<div class="entering__logo">
+					<img src="./images/logo-m.png" alt="" />
+				</div>
+			</div>
+
 			<div class="topslider">
 				<div class="topslider__item">
 					<img src="./images/hero/1.jpg" alt="" />
@@ -51,8 +152,9 @@
 					<img src="./images/hero/5.jpg" alt="" />
 				</div>
 			</div>
+
 			<div class="entering__menu">
-				<div class="entering__logo">
+				<div class="entering__logo desktop">
 					<img src="./images/logo-d.png" alt="" />
 				</div>
 
@@ -89,6 +191,1711 @@
 			</div>
 		</section>
 
+		<section>
+			<div class="container">
+				<div class="quote wow fadeInUp" data-wow-duration="1s">
+					<div>
+						<span class="breadcrumb">О мастерской</span>
+						<span class="quote__title"
+							>СОДРУЖЕСТВО ИКОНОПИСЦЕВ, АРХИТЕКТОРОВ и ИСКУССТВОВЕДОВ ЗАНИМАЕТСЯ
+							КОМПЛЕКСНЫМ БЛАГОУКРАШЕНИЕМ ХРАМОВ ИСПОЛЬЗУЕТ ТРАДИЦИИ ВСЕЙ
+							ДВАДЦАТИВЕКОВОЙ ХРИСТИАНСКОЙ КУЛЬТУРЫ</span
+						>
+					</div>
+
+					<div class="quote__link link">Подробнее о студии</div>
+				</div>
+
+				<div class="statistics wow fadeInUp" data-wow-duration="1s">
+					<div class="statistics__pic">
+						<img src="./images/stat.jpg" alt="" class="pic" />
+					</div>
+					<div class="statistics__aside">
+						<div class="statistics__unit">
+							<img src="./images/clock.svg" alt="" />
+							<div class="statistics__unittitle">
+								Более 15 лет в сфере церковного искусства
+							</div>
+							<div>
+								У нас сложился большой коллектив единомышленников
+								профессионалов, закончивших светские и церковные ВУЗы и имеющие
+								огромный опыт работы в храмовом пространстве
+							</div>
+						</div>
+						<div class="statistics__unit">
+							<img src="./images/works.svg" alt="" />
+							<div class="statistics__unittitle">
+								Более 20 созданных росписей в храмах
+							</div>
+							<div>
+								Многие росписи осуществлены нами в храмах, в которых мы
+								полностью сделали проект внутреннего декора
+							</div>
+						</div>
+						<div class="statistics__unit">
+							<img src="./images/chats.svg" alt="" />
+							<div class="statistics__unittitle">
+								Более 25 иконостасов с нашими иконами
+							</div>
+							<div>
+								Для каждого храма мы подбираем с настоятелем и ктитором свой
+								стиль церковной живописи, в зависимости от времени постройки
+								церкви и других культурных факторов
+							</div>
+						</div>
+						<div class="statistics__unit">
+							<img src="./images/jigsaw.svg" alt="" />
+							<div class="statistics__unittitle">
+								Работы находятся более чем в 50 городах мира
+							</div>
+							<div>
+								Москва, СПБ, кафедральные соборы Пензы, Костромы, Кирова,
+								Дивеево, Барселона, Кипр, Хабаровск
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="container">
+				<div class="quote wow fadeInUp" data-wow-duration="1s">
+					<div>
+						<span class="breadcrumb">О руководителе</span>
+						<span class="quote__title"
+							>&laquo; Когда работа иконописца не исчерпывается эстетикой, а
+							стремится свидетельствовать об Истине — тогда современная икона
+							становится атомом Священного Предания&raquo;</span
+						>
+					</div>
+				</div>
+
+				<div class="dmitriy wow fadeInUp" data-wow-duration="1s">
+					<img src="./images/dm.jpg" class="dmitriy__pic" alt="" />
+
+					<div class="dmitriy__aside">
+						<div class="dmitriy__name">Дмитрий Трофимов</div>
+						<div class="capuccio">
+							Автор проектов и руководитель мастерской «Царьград»
+						</div>
+						<div>
+							Ещё на стенах катакомб первые христиане изображали, как Бог
+							открывался человеку. Сегодня мы развиваем церковное искусство ищем
+							новые формы, бережно следуя традициям. Радость и почтение,
+							охватывающие нас при этом, выливаются в стройные традиционные
+							композиции под золотом небес, светлые, торжественные интерьеры,
+							словно гимны воспевающие красоту Царства Божьего. Перефразируем
+							знаменитые слова немецкого философа: две вещи наполняют наши души
+							священным трепетом – слова Евангелия и Золотое небо над нами.
+						</div>
+						<div class="link">Подробнее о руководителе</div>
+
+						<img src="./images/quotes.svg" class="quotesymbol" alt="" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="container">
+				<div class="quote wow fadeInUp" data-wow-duration="1s">
+					<div>
+						<span class="breadcrumb">О процессе работы</span>
+						<span class="quote__title"
+							>РОЖДЕНИЕ РОСПИСИ И В ЦЕЛОМ ЦЕРКОВНОГО ИНТЕРЬЕРА &mdash; ЗАДАЧА,
+							КОТОРУЮ ВМЕСТЕ С ХУДОЖНИКОМ РЕШАЮТ НАСТОЯТЕЛЬ И КТИТОР ХРАМА</span
+						>
+					</div>
+				</div>
+			</div>
+
+			<div class="scrolling__wrapper mobile">
+				<div class="scrolling__content">
+					<div class="scrolling__item">
+						<div class="scrolling__num">I</div>
+						<div>
+							Встречаемся, обсуждаем особенности истории и архитектуры храма,
+							концепцию стилистики и колорита. Определяем объём работ.
+							Подписываем договор о сотрудничестве.
+						</div>
+					</div>
+
+					<div class="scrolling__item">
+						<div class="scrolling__num">II</div>
+						<div>Подбираем образцы и вырабатываем концепцию проекта</div>
+					</div>
+
+					<div class="scrolling__item">
+						<div class="scrolling__num">III</div>
+						<div>
+							Утверждаем иконографическую концепцию росписи, создаём эскизы на
+							развёртках интерьера, создаём визуализацию интерьеров
+						</div>
+					</div>
+
+					<div class="scrolling__item">
+						<div class="scrolling__num">IV</div>
+						<div>
+							Утверждаем проект у правящего архиерея, на Экспертном совете и в
+							государственном надзорном органе, если речь идёт о памятнике
+							культуры.
+						</div>
+					</div>
+
+					<div class="scrolling__item">
+						<div class="scrolling__num">V</div>
+						<div>
+							Утверждаем подрядчиков по всем элементам интерьера. Участвуем в
+							разработке рабочих проектов по иконостасу, киотам, гипсовой
+							лепнине, отделке полов, светильникам, дверям и утвари.
+						</div>
+					</div>
+
+					<div class="scrolling__item">
+						<div class="scrolling__num">VI</div>
+						<div>
+							Осуществляем авторский надзор за производством работ и монтажа в
+							храме.
+						</div>
+					</div>
+
+					<div class="scrolling__item">
+						<div class="scrolling__num">VII</div>
+						<div>
+							Создаём рабочие прориси для росписи или икон в иконостас. Работаем
+							в храме по созданию росписи, в мастерских-пишем иконы для
+							иконостаса.
+						</div>
+					</div>
+
+					<div class="scrolling__item">
+						<div class="scrolling__num">VIII</div>
+						<div>
+							Утверждаем результат работ. Подписываем закрывающие документы
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="sticky_parent">
+				<div class="sticky">
+					<div class="scrolling__wrapper">
+						<div class="scrolling__content">
+							<div class="scrolling__item">
+								<div class="scrolling__num">I</div>
+								<div>
+									Встречаемся, обсуждаем особенности истории и архитектуры
+									храма, концепцию стилистики и колорита. Определяем объём
+									работ. Подписываем договор о сотрудничестве.
+								</div>
+							</div>
+
+							<div class="scrolling__item">
+								<div class="scrolling__num">II</div>
+								<div>Подбираем образцы и вырабатываем концепцию проекта</div>
+							</div>
+
+							<div class="scrolling__item">
+								<div class="scrolling__num">III</div>
+								<div>
+									Утверждаем иконографическую концепцию росписи, создаём эскизы
+									на развёртках интерьера, создаём визуализацию интерьеров
+								</div>
+							</div>
+
+							<div class="scrolling__item">
+								<div class="scrolling__num">IV</div>
+								<div>
+									Утверждаем проект у правящего архиерея, на Экспертном совете и
+									в государственном надзорном органе, если речь идёт о памятнике
+									культуры.
+								</div>
+							</div>
+
+							<div class="scrolling__item">
+								<div class="scrolling__num">V</div>
+								<div>
+									Утверждаем подрядчиков по всем элементам интерьера. Участвуем
+									в разработке рабочих проектов по иконостасу, киотам, гипсовой
+									лепнине, отделке полов, светильникам, дверям и утвари.
+								</div>
+							</div>
+
+							<div class="scrolling__item">
+								<div class="scrolling__num">VI</div>
+								<div>
+									Осуществляем авторский надзор за производством работ и монтажа
+									в храме.
+								</div>
+							</div>
+
+							<div class="scrolling__item">
+								<div class="scrolling__num">VII</div>
+								<div>
+									Создаём рабочие прориси для росписи или икон в иконостас.
+									Работаем в храме по созданию росписи, в мастерских-пишем иконы
+									для иконостаса.
+								</div>
+							</div>
+
+							<div class="scrolling__item">
+								<div class="scrolling__num">VIII</div>
+								<div>
+									Утверждаем результат работ. Подписываем закрывающие документы
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="scroll_section">
+						<img src="./images/fr1.jpg" alt="" />
+						<img src="./images/fr2.jpg" alt="" />
+						<img src="./images/hero/4.jpg" alt="" />
+						<img src="./images/fr4.jpg" alt="" />
+						<img src="./images/fr5.jpg" alt="" />
+						<img src="./images/fr6.png" alt="" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="container">
+				<div class="quote wow fadeInUp" data-wow-duration="1s">
+					<div>
+						<span class="breadcrumb">Примеры проектов</span>
+						<span class="quote__title"
+							>посмотрите избранные примеры из нашего каталога реализованных
+							проектов</span
+						>
+					</div>
+					<div class="quote__link link">Полный каталог проектов</div>
+				</div>
+
+				<div class="project wow fadeInUp" data-wow-duration="1s">
+					<div class="project__pic">
+						<img src="./images/p1.png" alt="" />
+					</div>
+					<div class="project__aside">
+						<div class="text-md bold">
+							Придел Рождества Пресвятой Богородицы Казанского храма в
+							Свято-Троицком Серафимо-Дивеевском монастыре
+						</div>
+						<div class="project__inforow">
+							<div>Срок выполнения</div>
+							<div>24 месяца</div>
+						</div>
+						<div class="project__inforow">
+							<div>Объем работ</div>
+							<div>100 кв. м.</div>
+						</div>
+						<div>
+							Роспись отражает основные вехи в истории Обители. Особое внимание
+							уделено сюжетам, связанным с жизнью преподобных жен и со
+							строительством Рождественских храмов. Стенопись Дивеевской церкви
+							отличается особой светоносностью – ведь требовалось «раздвинуть»
+							пространство (максимальная высота потолка – 2,5 м). Фоны – сплошь
+							золотые во всех композициях,отражающие и поднимающие пространство,
+						</div>
+
+						<div class="project__gallery">
+							<a
+								href="./images/fanc1.jpg"
+								data-fancybox="gallery"
+								class="project__galitem"
+							>
+								<img src="./images/g1.jpg" alt="" />
+							</a>
+
+							<a
+								href="./images/fanc2.jpg"
+								data-fancybox="gallery"
+								class="project__galitem"
+							>
+								<img src="./images/g2.jpg" alt="" />
+							</a>
+
+							<a
+								href="./images/fanc3.jpg"
+								data-fancybox="gallery"
+								class="project__galitem"
+							>
+								<img src="./images/g3.jpg" alt="" />
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div
+					class="project project--reversed wow fadeInUp"
+					data-wow-duration="1s"
+				>
+					<div class="project__aside">
+						<div class="text-md bold">
+							Часовня во имя великомученика Пантелеимона в городе Видное,
+							Московской области
+						</div>
+						<div class="project__inforow">
+							<div>Срок выполнения</div>
+							<div>24 месяца</div>
+						</div>
+						<div class="project__inforow">
+							<div>Объем работ</div>
+							<div>100 кв. м.</div>
+						</div>
+						<div>
+							Устроитель часовни Алексей Анатольевич Гаврилов заказал весь
+							комплекс благоукрашения мастерской «Царьград». Дмитрий Трофимов
+							выполнил эскизный архитектурный проект самого здания, а также
+							разработал все детали интерьера: настенную живопись, лепнину,
+							мраморный пол, световое решение, светильники и витражи. Благодаря
+							целостности архитектуры и росписи, интерьер стал гармоничным
+							произведением церковного искусства.
+						</div>
+
+						<div class="project__gallery">
+							<a
+								href="./images/fanc4.jpg"
+								data-fancybox="gallery2"
+								class="project__galitem"
+							>
+								<img src="./images/g4.jpg" alt="" />
+							</a>
+
+							<a
+								href="./images/fanc5.jpg"
+								data-fancybox="gallery2"
+								class="project__galitem"
+							>
+								<img src="./images/g5.jpg" alt="" />
+							</a>
+
+							<a
+								href="./images/fanc6.jpg"
+								data-fancybox="gallery2"
+								class="project__galitem"
+							>
+								<img src="./images/g6.jpg" alt="" />
+							</a>
+						</div>
+					</div>
+
+					<div class="project__pic">
+						<img src="./images/p2.jpg" alt="" />
+					</div>
+				</div>
+
+				<div class="project wow fadeInUp" data-wow-duration="1s">
+					<div class="project__pic">
+						<img src="./images/p3.png" alt="" />
+					</div>
+					<div class="project__aside">
+						<div class="text-md bold">
+							Храм преподобного Сергия Радонежского в селе Липовка, Липецкой
+							области
+						</div>
+						<div class="project__inforow">
+							<div>Срок выполнения</div>
+							<div>24 месяца</div>
+						</div>
+						<div class="project__inforow">
+							<div>Объем работ</div>
+							<div>100 кв. м.</div>
+						</div>
+						<div>
+							Колористическое решение Сергиевского храма отличается отсутствием
+							золотых фонов и использования золота в декорации образов (нимбов,
+							одеяний) и решено в сдержанной, почти «фресковой», гамме. В
+							центральном куполе помещено изображение «Процветшего Креста», или
+							«Плодов страданий Христовых», с хризмой, монограммой Иисуса
+							Христа, в окружении архангелов – на фоне звёздного неба.
+							Православный христианин верует, что не звезды руководят его
+							жизнью, а Бог.
+						</div>
+
+						<div class="project__gallery">
+							<a
+								href="./images/fanc7.png"
+								data-fancybox="gallery3"
+								class="project__galitem"
+							>
+								<img src="./images/g7.png" alt="" />
+							</a>
+
+							<a
+								href="./images/fanc8.png"
+								data-fancybox="gallery3"
+								class="project__galitem"
+							>
+								<img src="./images/g8.png" alt="" />
+							</a>
+
+							<a
+								href="./images/fanc9.png"
+								data-fancybox="gallery3"
+								class="project__galitem"
+							>
+								<img src="./images/g9.png" alt="" />
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="container">
+				<div class="quote wow fadeInUp" data-wow-duration="1s">
+					<div>
+						<span class="breadcrumb">Направления работы</span>
+						<span class="quote__title"
+							>Мастерская &laquo;Царьград&raquo; получила лицензию Министерства
+							культуры на осуществление деятельности по сохранению объектов
+							культурного наследия</span
+						>
+					</div>
+					<div class="quote__link link">Смотреть лицензию</div>
+				</div>
+			</div>
+
+			<div class="tabs__overflow">
+				<div class="tabs">
+					<div class="tabs__unit active">Роспись храмов</div>
+					<div class="tabs__unit">Иконостасы</div>
+					<div class="tabs__unit">Иконы</div>
+					<div class="tabs__unit">Подсвечники Купола&nbsp;Антикопоть</div>
+					<div class="tabs__unit">Мозаики</div>
+					<div class="tabs__unit">
+						Проекты внутреннего убранства&nbsp;храомв
+					</div>
+					<div class="tabs__unit">Храмовые светильники</div>
+					<div class="tabs__unit">Проекты храмов</div>
+				</div>
+
+				<div class="tabs__content">
+					<div class="tab__item visible">
+						<div class="tab_slider">
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s1.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Роспись в церкви Рождества Богородицы в городе Добрянка,
+										Пермский край
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s3.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>Роспись в храме Спиридона Тримифунтского в Самаре</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s2.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>Кафедральный собор Богоявления Господня в Костроме</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s4.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Храм Успения Пресвятой Богородицы в селе Истомино Калужской
+										области
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s5.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконы местного и праздничного рядов главного иконостаса
+										Храма Христа Спасителя.
+									</div>
+									<div class="capuccio">1999-2001</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s6.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										иконы для иконостаса в храме в честь Знамения иконы Божией
+										Матери на Шереметьевом дворе
+									</div>
+									<div class="capuccio">2008-2012</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s7.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконостас домового храма святой мученицы Татианы при МГУ
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s8.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконостас для храма во имя прп. Сергия Радонежского на
+										Куликовом поле
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tab__item">
+						<div class="tab_slider">
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s1.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Роспись в церкви Рождества Богородицы в городе Добрянка,
+										Пермский край
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s3.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>Роспись в храме Спиридона Тримифунтского в Самаре</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s2.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>Кафедральный собор Богоявления Господня в Костроме</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s4.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Храм Успения Пресвятой Богородицы в селе Истомино Калужской
+										области
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s5.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконы местного и праздничного рядов главного иконостаса
+										Храма Христа Спасителя.
+									</div>
+									<div class="capuccio">1999-2001</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s6.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										иконы для иконостаса в храме в честь Знамения иконы Божией
+										Матери на Шереметьевом дворе
+									</div>
+									<div class="capuccio">2008-2012</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s7.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконостас домового храма святой мученицы Татианы при МГУ
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s8.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконостас для храма во имя прп. Сергия Радонежского на
+										Куликовом поле
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tab__item">
+						<div class="tab_slider">
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s3.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>Роспись в храме Спиридона Тримифунтского в Самаре</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s5.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконы местного и праздничного рядов главного иконостаса
+										Храма Христа Спасителя.
+									</div>
+									<div class="capuccio">1999-2001</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s1.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Роспись в церкви Рождества Богородицы в городе Добрянка,
+										Пермский край
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s2.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>Кафедральный собор Богоявления Господня в Костроме</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s4.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Храм Успения Пресвятой Богородицы в селе Истомино Калужской
+										области
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s6.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										иконы для иконостаса в храме в честь Знамения иконы Божией
+										Матери на Шереметьевом дворе
+									</div>
+									<div class="capuccio">2008-2012</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s7.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконостас домового храма святой мученицы Татианы при МГУ
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s8.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконостас для храма во имя прп. Сергия Радонежского на
+										Куликовом поле
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tab__item">
+						<div class="tab_slider">
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s1.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Роспись в церкви Рождества Богородицы в городе Добрянка,
+										Пермский край
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s3.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>Роспись в храме Спиридона Тримифунтского в Самаре</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s2.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>Кафедральный собор Богоявления Господня в Костроме</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s4.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Храм Успения Пресвятой Богородицы в селе Истомино Калужской
+										области
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s5.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконы местного и праздничного рядов главного иконостаса
+										Храма Христа Спасителя.
+									</div>
+									<div class="capuccio">1999-2001</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s6.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										иконы для иконостаса в храме в честь Знамения иконы Божией
+										Матери на Шереметьевом дворе
+									</div>
+									<div class="capuccio">2008-2012</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s7.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконостас домового храма святой мученицы Татианы при МГУ
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s8.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконостас для храма во имя прп. Сергия Радонежского на
+										Куликовом поле
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tab__item">
+						<div class="tab_slider">
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s6.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										иконы для иконостаса в храме в честь Знамения иконы Божией
+										Матери на Шереметьевом дворе
+									</div>
+									<div class="capuccio">2008-2012</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s7.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконостас домового храма святой мученицы Татианы при МГУ
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s1.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Роспись в церкви Рождества Богородицы в городе Добрянка,
+										Пермский край
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s3.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>Роспись в храме Спиридона Тримифунтского в Самаре</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s2.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>Кафедральный собор Богоявления Господня в Костроме</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s4.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Храм Успения Пресвятой Богородицы в селе Истомино Калужской
+										области
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s5.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконы местного и праздничного рядов главного иконостаса
+										Храма Христа Спасителя.
+									</div>
+									<div class="capuccio">1999-2001</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s8.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконостас для храма во имя прп. Сергия Радонежского на
+										Куликовом поле
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tab__item">
+						<div class="tab_slider">
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s1.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Роспись в церкви Рождества Богородицы в городе Добрянка,
+										Пермский край
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s3.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>Роспись в храме Спиридона Тримифунтского в Самаре</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s2.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>Кафедральный собор Богоявления Господня в Костроме</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s4.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Храм Успения Пресвятой Богородицы в селе Истомино Калужской
+										области
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s5.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконы местного и праздничного рядов главного иконостаса
+										Храма Христа Спасителя.
+									</div>
+									<div class="capuccio">1999-2001</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s6.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										иконы для иконостаса в храме в честь Знамения иконы Божией
+										Матери на Шереметьевом дворе
+									</div>
+									<div class="capuccio">2008-2012</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s7.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконостас домового храма святой мученицы Татианы при МГУ
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s8.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконостас для храма во имя прп. Сергия Радонежского на
+										Куликовом поле
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tab__item">
+						<div class="tab_slider">
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s3.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>Роспись в храме Спиридона Тримифунтского в Самаре</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s2.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>Кафедральный собор Богоявления Господня в Костроме</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s4.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Храм Успения Пресвятой Богородицы в селе Истомино Калужской
+										области
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s1.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Роспись в церкви Рождества Богородицы в городе Добрянка,
+										Пермский край
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s5.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконы местного и праздничного рядов главного иконостаса
+										Храма Христа Спасителя.
+									</div>
+									<div class="capuccio">1999-2001</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s6.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										иконы для иконостаса в храме в честь Знамения иконы Божией
+										Матери на Шереметьевом дворе
+									</div>
+									<div class="capuccio">2008-2012</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s7.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконостас домового храма святой мученицы Татианы при МГУ
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s8.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконостас для храма во имя прп. Сергия Радонежского на
+										Куликовом поле
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tab__item">
+						<div class="tab_slider">
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s4.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Храм Успения Пресвятой Богородицы в селе Истомино Калужской
+										области
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s5.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконы местного и праздничного рядов главного иконостаса
+										Храма Христа Спасителя.
+									</div>
+									<div class="capuccio">1999-2001</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s6.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										иконы для иконостаса в храме в честь Знамения иконы Божией
+										Матери на Шереметьевом дворе
+									</div>
+									<div class="capuccio">2008-2012</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s1.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Роспись в церкви Рождества Богородицы в городе Добрянка,
+										Пермский край
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s3.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>Роспись в храме Спиридона Тримифунтского в Самаре</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s2.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>Кафедральный собор Богоявления Господня в Костроме</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s7.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконостас домового храма святой мученицы Татианы при МГУ
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+
+							<div class="tabslider__item">
+								<div class="tabslider__picture">
+									<img src="./images/slider/s8.png" alt="" />
+								</div>
+								<div class="tabslider__content">
+									<div>
+										Иконостас для храма во имя прп. Сергия Радонежского на
+										Куликовом поле
+									</div>
+									<div class="capuccio">2019</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="flickr" />
+				</div>
+			</div>
+			<div class="container">
+				<a href="#" class="link link--bottom">Перейти в каталог</a>
+			</div>
+		</section>
+
+		<section class="fixspacing">
+			<div class="container">
+				<div class="quote wow fadeInUp" data-wow-duration="1s">
+					<div>
+						<span class="breadcrumb">О сотрудничестве</span>
+						<span class="quote__title"
+							>Мы с радостью проконсультируем вас по проекту и обсудим все
+							детали. Заполните, пожалуйста, форму обратной связи</span
+						>
+					</div>
+				</div>
+
+				<div class="dmitriy wow fadeInUp" data-wow-duration="1s">
+					<img src="./images/subsciption.jpg" class="dmitriy__pic" alt="" />
+
+					<div class="dmitriy__aside">
+						<form action="" class="form">
+							<input placeholder="Ваше имя" class="input" />
+							<input placeholder="Ваш телефон" class="input" />
+							<input placeholder="Ваш e-mail" type="email" class="input" />
+							<button class="btn">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ</button>
+							<div>Или свяжитесь с нами напрямую в месенджерах</div>
+							<div class="messengers">
+								<a href="#" target="_blank" class="messengers__link">WHATSAP</a>
+								<a href="#" target="_blank" class="messengers__link"
+									>TELEGRRAM</a
+								>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="container">
+				<div class="quote wow fadeInUp" data-wow-duration="1s">
+					<div>
+						<span class="breadcrumb">О церковном искусстве</span>
+						<span class="quote__title"
+							>ДЛя нас принципиально важно вести дискуссию о церковном искусстве
+							в медийном пространстве, отвечать на вопросы, рассказывать и
+							просвещать.</span
+						>
+					</div>
+					<div class="link quote__link">Полный список публикаций</div>
+				</div>
+
+				<div class="accordion__wrapper wow fadeInUp" data-wow-duration="1s">
+					<div class="accordion">
+						<div class="accordion__item">
+							<div class="accordion__title">
+								<div class="accordion__arrow">
+									<span class="accordion__arrow-item"
+										><img src="./images/accord.svg" alt=""
+									/></span>
+								</div>
+								<span class="accordion__title-text"
+									>Как изображают праотца Авраама?</span
+								>
+							</div>
+							<div class="accordion__content">
+								<div class="accordion__content--flex">
+									<div class="accordion__date">
+										Журнал "Фома", май 2020 года
+									</div>
+									<div class="accordion__text">
+										Ещё на стенах катакомб первые христиане изображали, как Бог
+										открывался человеку в ветхозаветные времена. Таким
+										праведником, получившим многочисленные обетования от
+										Господа, был «отец всех верующих» - Авраам. В христианской
+										иконографии чаще всего встречаются образы «Жертвоприношения
+										Авраама» и «Гостеприимства&nbsp;Авраама».
+									</div>
+									<a href="#" class="link">Читать далее</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion__item">
+							<div class="accordion__title">
+								<div class="accordion__arrow">
+									<span class="accordion__arrow-item"
+										><img src="./images/accord.svg" alt=""
+									/></span>
+								</div>
+								<span class="accordion__title-text"
+									>&laquo;Причащение апостолов&raquo; и &laquo;Тайная
+									Вечеря&raquo; — в чем различие?</span
+								>
+							</div>
+							<div class="accordion__content">
+								<div class="accordion__content--flex">
+									<div class="accordion__date">
+										Журнал "Фома", май 2020 года
+									</div>
+									<div class="accordion__text">
+										Ещё на стенах катакомб первые христиане изображали, как Бог
+										открывался человеку в ветхозаветные времена. Таким
+										праведником, получившим многочисленные обетования от
+										Господа, был «отец всех верующих» - Авраам. В христианской
+										иконографии чаще всего встречаются образы «Жертвоприношения
+										Авраама» и «Гостеприимства&nbsp;Авраама».
+									</div>
+									<a href="#" class="link">Читать далее</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion__item">
+							<div class="accordion__title">
+								<div class="accordion__arrow">
+									<span class="accordion__arrow-item"
+										><img src="./images/accord.svg" alt=""
+									/></span>
+								</div>
+								<span class="accordion__title-text"
+									>Как читать четвертый и пятый ряд иконостаса?</span
+								>
+							</div>
+							<div class="accordion__content">
+								<div class="accordion__content--flex">
+									<div class="accordion__date">
+										Журнал "Фома", май 2020 года
+									</div>
+									<div class="accordion__text">
+										Ещё на стенах катакомб первые христиане изображали, как Бог
+										открывался человеку в ветхозаветные времена. Таким
+										праведником, получившим многочисленные обетования от
+										Господа, был «отец всех верующих» - Авраам. В христианской
+										иконографии чаще всего встречаются образы «Жертвоприношения
+										Авраама» и «Гостеприимства&nbsp;Авраама».
+									</div>
+									<a href="#" class="link">Читать далее</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion__item">
+							<div class="accordion__title">
+								<div class="accordion__arrow">
+									<span class="accordion__arrow-item"
+										><img src="./images/accord.svg" alt=""
+									/></span>
+								</div>
+								<span class="accordion__title-text"
+									>Как изображают праотца Авраама?</span
+								>
+							</div>
+							<div class="accordion__content">
+								<div class="accordion__content--flex">
+									<div class="accordion__date">
+										Журнал "Фома", май 2020 года
+									</div>
+									<div class="accordion__text">
+										Ещё на стенах катакомб первые христиане изображали, как Бог
+										открывался человеку в ветхозаветные времена. Таким
+										праведником, получившим многочисленные обетования от
+										Господа, был «отец всех верующих» - Авраам. В христианской
+										иконографии чаще всего встречаются образы «Жертвоприношения
+										Авраама» и «Гостеприимства&nbsp;Авраама».
+									</div>
+									<a href="#" class="link">Читать далее</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion__item">
+							<div class="accordion__title">
+								<div class="accordion__arrow">
+									<span class="accordion__arrow-item"
+										><img src="./images/accord.svg" alt=""
+									/></span>
+								</div>
+								<span class="accordion__title-text"
+									>&laquo;Причащение апостолов&raquo; и &laquo;Тайная
+									Вечеря&raquo; — в чем различие?</span
+								>
+							</div>
+							<div class="accordion__content">
+								<div class="accordion__content--flex">
+									<div class="accordion__date">
+										Журнал "Фома", май 2020 года
+									</div>
+									<div class="accordion__text">
+										Ещё на стенах катакомб первые христиане изображали, как Бог
+										открывался человеку в ветхозаветные времена. Таким
+										праведником, получившим многочисленные обетования от
+										Господа, был «отец всех верующих» - Авраам. В христианской
+										иконографии чаще всего встречаются образы «Жертвоприношения
+										Авраама» и «Гостеприимства&nbsp;Авраама».
+									</div>
+									<a href="#" class="link">Читать далее</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion__item">
+							<div class="accordion__title">
+								<div class="accordion__arrow">
+									<span class="accordion__arrow-item"
+										><img src="./images/accord.svg" alt=""
+									/></span>
+								</div>
+								<span class="accordion__title-text"
+									>Как читать четвертый и пятый ряд иконостаса?</span
+								>
+							</div>
+							<div class="accordion__content">
+								<div class="accordion__content--flex">
+									<div class="accordion__date">
+										Журнал "Фома", май 2020 года
+									</div>
+									<div class="accordion__text">
+										Ещё на стенах катакомб первые христиане изображали, как Бог
+										открывался человеку в ветхозаветные времена. Таким
+										праведником, получившим многочисленные обетования от
+										Господа, был «отец всех верующих» - Авраам. В христианской
+										иконографии чаще всего встречаются образы «Жертвоприношения
+										Авраама» и «Гостеприимства&nbsp;Авраама».
+									</div>
+									<a href="#" class="link">Читать далее</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion__item">
+							<div class="accordion__title">
+								<div class="accordion__arrow">
+									<span class="accordion__arrow-item"
+										><img src="./images/accord.svg" alt=""
+									/></span>
+								</div>
+								<span class="accordion__title-text"
+									>Как изображают праотца Авраама?</span
+								>
+							</div>
+							<div class="accordion__content">
+								<div class="accordion__content--flex">
+									<div class="accordion__date">
+										Журнал "Фома", май 2020 года
+									</div>
+									<div class="accordion__text">
+										Ещё на стенах катакомб первые христиане изображали, как Бог
+										открывался человеку в ветхозаветные времена. Таким
+										праведником, получившим многочисленные обетования от
+										Господа, был «отец всех верующих» - Авраам. В христианской
+										иконографии чаще всего встречаются образы «Жертвоприношения
+										Авраама» и «Гостеприимства&nbsp;Авраама».
+									</div>
+									<a href="#" class="link">Читать далее</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion__item">
+							<div class="accordion__title">
+								<div class="accordion__arrow">
+									<span class="accordion__arrow-item"
+										><img src="./images/accord.svg" alt=""
+									/></span>
+								</div>
+								<span class="accordion__title-text"
+									>&laquo;Причащение апостолов&raquo; и &laquo;Тайная
+									Вечеря&raquo; — в чем различие?</span
+								>
+							</div>
+							<div class="accordion__content">
+								<div class="accordion__content--flex">
+									<div class="accordion__date">
+										Журнал "Фома", май 2020 года
+									</div>
+									<div class="accordion__text">
+										Ещё на стенах катакомб первые христиане изображали, как Бог
+										открывался человеку в ветхозаветные времена. Таким
+										праведником, получившим многочисленные обетования от
+										Господа, был «отец всех верующих» - Авраам. В христианской
+										иконографии чаще всего встречаются образы «Жертвоприношения
+										Авраама» и «Гостеприимства&nbsp;Авраама».
+									</div>
+									<a href="#" class="link">Читать далее</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="accordion__item">
+							<div class="accordion__title">
+								<div class="accordion__arrow">
+									<span class="accordion__arrow-item"
+										><img src="./images/accord.svg" alt=""
+									/></span>
+								</div>
+								<span class="accordion__title-text"
+									>Как читать четвертый и пятый ряд иконостаса?</span
+								>
+							</div>
+							<div class="accordion__content">
+								<div class="accordion__content--flex">
+									<div class="accordion__date">
+										Журнал "Фома", май 2020 года
+									</div>
+									<div class="accordion__text">
+										Ещё на стенах катакомб первые христиане изображали, как Бог
+										открывался человеку в ветхозаветные времена. Таким
+										праведником, получившим многочисленные обетования от
+										Господа, был «отец всех верующих» - Авраам. В христианской
+										иконографии чаще всего встречаются образы «Жертвоприношения
+										Авраама» и «Гостеприимства&nbsp;Авраама».
+									</div>
+									<a href="#" class="link">Читать далее</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="container">
+				<div class="quote wow fadeInUp" data-wow-duration="1s">
+					<div>
+						<span class="breadcrumb">О мастерской</span>
+						<span class="quote__title"
+							>наш опыт позволяет говорить о том, что мы готовы к реализации
+							проектов любой сложности</span
+						>
+					</div>
+					<div class="link quote__link">Обсудить проект</div>
+				</div>
+			</div>
+
+			<div class="widepic wow fadeInUp" data-wow-duration="1s">
+				<img src="./images/bot.jpg" alt="" />
+			</div>
+		</section>
+
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__grid">
+					<a href="#" class="footer__logo">
+						<img src="./images/logo-d.png" alt="" />
+					</a>
+
+					<div>
+						<div class="footer__mainlinks">
+							<a href="#">О мастерской</a>
+							<a href="#">Каталог работ</a>
+							<a href="#">Публикации</a>
+							<a href="#">Контакты</a>
+						</div>
+						<div class="footer__mainlinks footer__mainlinks--secondary">
+							<div>
+								<div class="footer__subtitle">Адрес</div>
+								<div>
+									Москва, Дом Художника, ул. Вавилова д.65 "а", офис 1203
+									(домофон 1203) рядом с м. Профсоюзная, м. Университет.
+								</div>
+							</div>
+							<div>
+								<div class="footer__subtitle">E-mail</div>
+								<div class="footer__emails">
+									<a href="mailto:trofimov@tsargrad.biz"
+										>trofimov@tsargrad.biz</a
+									>
+									<a href="mailto:trofimov@tsargrad.biz">td7497048@gmail.com</a>
+								</div>
+
+								<div class="footer__phones">
+									<div>
+										<div class="footer__subtitle">Телефон</div>
+										<div>
+											<a href="tel:+79035497048">+7 903 549 70 48</a>
+											<div class="capuccio">Дмитрий Трофимов</div>
+										</div>
+									</div>
+
+									<div>
+										<a href="tel:+79035497048">+7 903 549 70 48</a>
+										<div class="capuccio">Татьяна Маефф</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="footer__socialscol">
+								<div class="footer__subtitle">Социальные сети</div>
+
+								<div class="footer__socialsbuttons">
+									<a href="#" target="_blank" class="messengers__link"
+										>WHATSAP</a
+									>
+									<a href="#" target="_blank" class="messengers__link"
+										>TELEGRRAM</a
+									>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="footer__copy">
+					<div>&copy; ООО &laquo;Царьград&raquo;, 2024</div>
+					<a href="#" target="_blank">Политика конфиденциальности</a>
+					<a href="#" target="_blank">Дизайн от Parsuna.ru</a>
+				</div>
+			</div>
+		</footer>
+
 		<script
 			src="https://code.jquery.com/jquery-3.7.1.min.js"
 			integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -113,9 +1920,8 @@
 			$(window).on("load", function () {
 				wow = new WOW({
 					boxClass: "wow", // default
-					// animateClass: "animated", // default
 					animateClass: "animate__animated",
-					offset: 0, // default
+					offset: 20,
 					mobile: false, // default
 					live: true, // default
 				});
@@ -123,6 +1929,96 @@
 			});
 
 			$(document).ready(function () {
+				Fancybox.bind("[data-fancybox]", {
+					// Your custom options
+				});
+
+				$(".tab_slider").slick({
+					infinite: false,
+					slidesToShow: 4,
+					slidesToScroll: 1,
+					draggable: false,
+					arrows: true,
+					fade: false,
+					speed: 400,
+					responsive: [
+						{
+							breakpoint: 1024,
+							settings: {
+								slidesToShow: 3,
+							},
+						},
+						{
+							breakpoint: 740,
+							settings: {
+								slidesToShow: 1,
+								infinite: true,
+								variableWidth: true,
+							},
+						},
+					],
+				});
+
+				$(".tabs__overflow").each(function () {
+					let ths = $(this);
+					ths
+						.find(".tabs__unit")
+						.click(function () {
+							$(".tabs__content").addClass("ontabchange");
+
+							ths
+								.find(".tabs__unit")
+								.removeClass("active")
+								.eq($(this).index())
+								.addClass("active");
+							setTimeout(() => {
+								$(".tabs__content").removeClass("ontabchange");
+							}, 500);
+							ths
+								.find(".tab__item")
+								.removeClass("visible")
+								.eq($(this).index())
+								.addClass("visible");
+						})
+						.eq(0)
+						.addClass("active");
+				});
+
+				const stickySections = [...document.querySelectorAll(".sticky")];
+
+				function transform(section) {
+					const offsetTop = section.parentElement.offsetTop;
+					const scrollSection = section.querySelector(".scroll_section");
+					let percentage =
+						((window.scrollY - offsetTop) / window.innerHeight) * 100;
+					percentage = percentage < 0 ? 0 : percentage > 300 ? 300 : percentage;
+					scrollSection.style.transform = `translate3d(${-percentage}vw, 0, 0)`;
+				}
+
+				window.addEventListener("scroll", (e) => {
+					for (let i = 0; i < stickySections.length; i++) {
+						transform(stickySections[i]);
+					}
+					if (window.scrollY > 10) {
+						$("#header").addClass("scrolled");
+					} else {
+						$("#header").removeClass("scrolled");
+					}
+				});
+
+				$(".menu").on("click", function () {
+					if ($(this).next().is(":visible")) {
+						$(this).next().slideUp();
+					} else {
+						$(".navmobile__linkcontent").slideUp();
+						$(this).next().slideDown().css({ display: "flex" });
+					}
+				});
+
+				$(".nav--mobile a").on("click", function () {
+					$("header .nav--mobile").slideUp();
+				});
+
 				$(".topslider").slick({
 					infinite: true,
 					slidesToShow: 1,
@@ -140,12 +2036,25 @@
 				$(".nav--btn").on("click", function () {
 					if ($("header .nav--mobile").is(":visible")) {
 						$("header .nav--mobile").slideUp();
-						$(this).removeClass("open");
 					} else {
-						$("header .nav--mobile").slideDown();
-						$(this).addClass("open");
+						$("header .nav--mobile").slideDown().css({ display: "flex" });
 					}
 					return false;
+				});
+
+				$(".accordion__title").on("click", function (e) {
+					e.preventDefault();
+					var $this = $(this);
+
+					if (!$this.hasClass("accordion-active")) {
+						$(".accordion__content").slideUp(400);
+						$(".accordion__title").removeClass("accordion-active");
+						$(".accordion__arrow").removeClass("accordion__rotate");
+					}
+
+					$this.toggleClass("accordion-active");
+					$this.next().slideToggle();
+					$(".accordion__arrow", this).toggleClass("accordion__rotate");
 				});
 			});
 		</script>

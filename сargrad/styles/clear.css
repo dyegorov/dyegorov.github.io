@@ -1,47 +1,18 @@
 @font-face {
-	font-family: "TT Hoves";
-	src: local("../fonts/TT-Hoves-Pro-Regular"), local("TT-Hoves-Regular"),
-		url("../fonts/TT-Hoves-Pro-Regular.ttf") format("truetype"),
-		url("../fonts/TT_Hoves_Pro_Regular.woff2") format("woff2"),
-		url("../fonts/TT_Hoves_Pro_Regular.woff") format("woff");
+	font-family: "humanist521";
+	src: local("../fonts/humanist-521_regular"), local("humanist-521_regular"),
+		url("../fonts/humanist-521_regular.woff") format("woff"),
+		url("../fonts/humanist-521_regular.woff2") format("woff2");
 	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: "TT Hoves";
-	src: local("../fonts/TT-Hoves-Pro-Medium"), local("TT-Hoves-Medium"),
-		url("../fonts/TT-Hoves-Pro-Medium.ttf") format("truetype"),
-		url("../fonts/TT_Hoves_Pro_Medium.woff2") format("woff2"),
-		url("../fonts/TT_Hoves_Pro_Medium.woff") format("woff");
-	font-weight: 500;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: "Open Sans";
-	src: local("../fonts/OpenSans-Regular"), local("OpenSans-Regular"),
-		url("../fonts/OpenSans-Regular.ttf") format("truetype"),
-		url("../fonts/OpenSans-Regular.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: "Open Sans";
-	src: local("../fonts/OpenSans-SemiBold"), local("OpenSans-SemiBold"),
-		url("../fonts/OpenSans-SemiBold.ttf") format("truetype"),
-		url("../fonts/OpenSans-SemiBold.woff") format("woff");
-	font-weight: 600;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: "Open Sans";
-	src: local("../fonts/OpenSans-Bold"), local("OpenSans-Bold"),
-		url("../fonts/OpenSans-Bold.ttf") format("truetype"),
-		url("../fonts/OpenSans-Bold.woff") format("woff");
-	font-weight: 700;
+	font-family: "humanist521";
+	src: local("../fonts/humanist-521_light"), local("humanist-521_light"),
+		url("../fonts/humanist-521_light.woff") format("woff"),
+		url("../fonts/humanist-521_light.woff2") format("woff2");
+	font-weight: 300;
 	font-style: normal;
 }
 
@@ -138,8 +109,9 @@ body {
 	font-weight: 300;
 	line-height: 110%;
 	color: #5c3b23;
-	font-family: "TT Hoves", sans-serif;
+	font-family: "humanist521", sans-serif;
 	isolation: isolate;
+	background: #f5f2f0;
 }
 
 @media (max-width: 768px) {
@@ -246,6 +218,7 @@ a:hover {
 textarea,
 button,
 select,
+input,
 input[type="text"],
 input[type="tel"],
 input[type="email"],
@@ -253,6 +226,9 @@ input[type="search"],
 input[type="password"],
 input[type="file"],
 input[type="submit"] {
+	font-family: "humanist521", sans-serif;
+	font-size: 18px;
+	font-weight: 300;
 	-webkit-appearance: none;
 	appearance: auto;
 }
@@ -288,4 +264,10 @@ h4,
 h5,
 h6 {
 	margin: 0;
+}
+
+:root {
+	--capuccio2: #c9b1a0;
+	--cacao1: #f5f2f0;
+	--coffee: #5c3b23;
 }
