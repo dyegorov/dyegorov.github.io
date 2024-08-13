@@ -3,6 +3,7 @@
 	flex-direction: column;
 	gap: 32px;
 	margin-top: 52px;
+	line-height: 130%;
 }
 .cts__unit {
 	width: 100%;
@@ -19,8 +20,17 @@
 	font-size: 16px;
 	line-height: 130%;
 	padding: 8px 0;
-	margin-bottom: 22px;
+	margin-bottom: 14px;
 	border-bottom: 1px solid var(--capuccio2, #c9b1a0);
+	display: flex;
+	gap: 16px;
+}
+
+.cts__title--large {
+	font-size: 22px;
+	font-weight: 400;
+	color: var(--coffee, #5c3b23);
+	line-height: 110%;
 }
 
 .row {
@@ -57,6 +67,13 @@
 }
 
 @media (max-width: 740px) {
+	.cts__title--large {
+		font-size: 18px;
+	}
+	.cts__title {
+		flex-direction: column;
+		gap: 10px;
+	}
 	.cts__wrapper {
 		margin-top: 20px;
 	}

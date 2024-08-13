@@ -1,0 +1,168 @@
+.publications__container {
+	display: grid;
+	grid-template-columns: 290px 1fr;
+	gap: 24px;
+}
+
+.publication__tab {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+	padding: 10px 0;
+	line-height: 130%;
+	font-size: 16px;
+}
+
+.publication__tab .arrow {
+	transition: 200ms ease-in;
+	opacity: 0;
+}
+
+.publication__tab.active .arrow {
+	opacity: 1;
+}
+
+.publications__list {
+	flex-direction: column;
+	gap: 22px;
+	max-width: 896px;
+	display: none;
+}
+
+.publications__list.active {
+	display: flex;
+}
+
+.publication__item {
+	display: grid;
+	grid-template-columns: 360px 1fr;
+	height: 202px;
+	cursor: pointer;
+	font-size: 22px;
+	line-height: 110%; /* 24.2px */
+}
+
+.publication__pic {
+	overflow: hidden;
+}
+
+.publication__pic img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	transition: 300ms ease-in;
+}
+
+.publication__item:hover .publication__pic img {
+	transform: scale(1.03);
+}
+
+.publication__itemside {
+	padding: 24px 31px;
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	border: 0.5px solid #c9b1a0;
+	border-left: 0;
+}
+
+.publication__subinfo {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 32px;
+	font-size: 16px;
+	line-height: 130%;
+	color: var(--capuccio2, #c9b1a0);
+}
+
+.footer {
+	margin-top: 52px;
+}
+
+.publications__container .mobile {
+	display: none;
+}
+
+@media (max-width: 1024px) {
+	.publications__container .desktop {
+		display: none;
+	}
+	.footer {
+		margin-top: 60px;
+	}
+
+	.publication__item {
+		grid-template-columns: 136px 1fr;
+	}
+
+	.publications__container {
+		display: block;
+	}
+
+	.publications__container .mobile {
+		display: block;
+	}
+
+	.publication__tab {
+		border: 0.5px solid #c9b1a0;
+		padding: 20px;
+	}
+	.publications__list {
+		display: none;
+		margin: 20px 0 40px;
+	}
+
+	.active + .publications__list {
+		display: flex;
+	}
+	.publication__tab .arrow {
+		opacity: 1;
+		display: block;
+	}
+	.publication__tab.active .arrow {
+		display: none;
+	}
+
+	.publication__tab .checkmark {
+		display: none;
+	}
+
+	.publication__tab.active .checkmark {
+		display: block;
+	}
+}
+
+@media (max-width: 740px) {
+	.publication__tab {
+		padding: 14px 16px 14px 20px;
+		height: 52px;
+	}
+	.footer {
+		margin-top: 80px;
+	}
+	.publications__list {
+		gap: 20px;
+	}
+	.publication__item {
+		display: block;
+		height: auto;
+		font-size: 18px;
+	}
+	.publication__pic {
+		height: 240px;
+		flex-shrink: 0;
+	}
+
+	.publication__itemside {
+		border-left: 0.5px solid #c9b1a0;
+		border-top: 0;
+		padding: 20px 20px 40px;
+		gap: 20px;
+	}
+	.publication__subinfo {
+		display: flex;
+		justify-content: space-between;
+	}
+}

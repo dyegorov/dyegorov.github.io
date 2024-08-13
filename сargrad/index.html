@@ -1920,6 +1920,19 @@
 			});
 
 			$(document).ready(function () {
+				$(".topslider").slick({
+					autoplay: true,
+					autoplaySpeed: 5000,
+					infinite: true,
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					draggable: false,
+					arrows: false,
+					dots: false,
+					fade: true,
+					touchMove: false,
+				});
+
 				Fancybox.bind("[data-fancybox]", {
 					// Your custom options
 				});
@@ -2009,20 +2022,6 @@
 				$(".nav--mobile a").on("click", function () {
 					$("header .nav--mobile").slideUp();
 					$("body").css({ overflow: "visible" });
-				});
-
-				$(".topslider").slick({
-					infinite: true,
-					slidesToShow: 1,
-					slidesToScroll: 1,
-					draggable: false,
-					arrows: false,
-					dots: false,
-					fade: true,
-					// cssEase: "linear",
-					autoplaySpeed: 4000,
-					speed: 400,
-					autoplay: true,
 				});
 
 				$(".nav--btn").on("click", function () {

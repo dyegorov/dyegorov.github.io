@@ -20,6 +20,7 @@
 
 .topslider {
 	height: 810px;
+	pointer-events: none;
 }
 .topslider__item.slick-slide {
 	height: 810px;
@@ -150,6 +151,10 @@ section + section {
 	max-width: 1140px;
 	margin-left: auto;
 	margin-bottom: 112px;
+}
+
+.quote--innerpage {
+	margin-bottom: 40px;
 }
 
 .container {
@@ -1251,7 +1256,7 @@ input::placeholder {
 	padding-top: 182px;
 }
 
-.pagetop .breadcrumb {
+.pagecontainer .breadcrumb {
 	margin-right: 0;
 }
 
@@ -1276,6 +1281,15 @@ input::placeholder {
 	line-height: 110%;
 }
 
+.loadmore {
+	font-size: 16px;
+	color: rgba(201, 177, 160, 1);
+	margin-top: 52px;
+	text-decoration: none;
+	display: block;
+	width: fit-content;
+}
+
 @media (max-width: 1024px) {
 	.pagetop {
 		padding-top: 144px;
@@ -1289,6 +1303,9 @@ input::placeholder {
 	}
 	.title--secondary {
 		margin-bottom: 20px;
+	}
+	.loadmore {
+		margin-top: 40px;
 	}
 }
 
