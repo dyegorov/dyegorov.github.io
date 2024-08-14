@@ -112,7 +112,7 @@
 
 		<section class="pagetop">
 			<div class="pagecontainer">
-				<div class="wow fadeInUp" data-wow-duration="1s">
+				<div>
 					<div class="breadcrumb">О руководителе</div>
 					<div class="pagetitle">Дмитрий Александрович Трофимов</div>
 				</div>
@@ -241,25 +241,7 @@
 			crossorigin="anonymous"
 		></script>
 
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
-			integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		></script>
-
 		<script>
-			$(window).on("load", function () {
-				wow = new WOW({
-					boxClass: "wow", // default
-					animateClass: "animate__animated",
-					offset: 20,
-					mobile: false, // default
-					live: true, // default
-				});
-				wow.init();
-			});
-
 			$(document).ready(function () {
 				$(".menu").on("click", function () {
 					if ($(this).next().is(":visible")) {

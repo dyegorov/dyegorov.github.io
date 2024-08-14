@@ -112,7 +112,7 @@
 
 		<section class="pagetop">
 			<div class="container">
-				<div class="quote quote--innerpage wow fadeInUp" data-wow-duration="1s">
+				<div class="quote quote--innerpage">
 					<div>
 						<span class="breadcrumb">Публикации</span>
 						<span class="quote__title"
@@ -741,25 +741,7 @@
 			crossorigin="anonymous"
 		></script>
 
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
-			integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		></script>
-
 		<script>
-			$(window).on("load", function () {
-				wow = new WOW({
-					boxClass: "wow", // default
-					animateClass: "animate__animated",
-					offset: 20,
-					mobile: false, // default
-					live: true, // default
-				});
-				wow.init();
-			});
-
 			$(document).ready(function () {
 				$(".publications__container .desktop").each(function () {
 					let ths = $(this);
