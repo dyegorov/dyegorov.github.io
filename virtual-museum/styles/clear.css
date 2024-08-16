@@ -138,7 +138,8 @@ body {
 	font-size: 18px;
 	color: #333333;
 	font-weight: 400;
-	letter-spacing: -0.02em;
+	/* letter-spacing: -0.02em; */
+	letter-spacing: 0.6px;
 	font-family: "TT Hoves", sans-serif;
 	isolation: isolate;
 }
@@ -279,7 +280,7 @@ button {
 	color: #4f4f4f;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 700px) {
 	button {
 		font-size: 10px;
 		width: 100%;
@@ -304,5 +305,12 @@ h6 {
 @media (max-width: 768px) {
 	.h2 {
 		font-size: 20px;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.wow {
+		animation-name: none !important;
+		visibility: visible !important;
 	}
 }

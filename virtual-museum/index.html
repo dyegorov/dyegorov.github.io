@@ -825,7 +825,7 @@
 
 		<section class="section">
 			<div class="container">
-				<div class="title__btned">
+				<div class="title__btned tocol">
 					<div class="title__content">
 						<h2 class="h2">Что украсит ваш музей?</h2>
 						<p class="description">
@@ -1298,7 +1298,7 @@
 				});
 
 				const swiper = new Swiper(".init1", {
-					spaceBetween: 0,
+					spaceBetween: 1,
 					slidesPerView: 5,
 					loop: true,
 					centeredSlides: true,
@@ -1306,6 +1306,9 @@
 					watchOverflow: true,
 					speed: 700,
 					cssMode: true,
+					// slideToClickedSlide: true,
+					loopAdditionalSlides: 3,
+					// slidesPerGroup: 1,
 					navigation: {
 						nextEl: ".swiper-button-next",
 						prevEl: ".swiper-button-prev",
@@ -1316,12 +1319,21 @@
 					swiper.slideTo(swiper.clickedIndex, 700, true);
 				});
 
+				// $(".swiper-button-next").on("click", function (e) {
+				// 	e.stopImmediatePropagation();
+				// 	e.stopPropagation();
+				// });
+
 				const swiperPanorams = new Swiper(".swiper__panorams", {
 					spaceBetween: 0,
 					slidesPerView: 5,
 					loop: true,
 					centeredSlides: true,
 					keyboard: true,
+					speed: 700,
+					cssMode: true,
+					loopAdditionalSlides: 3,
+
 					watchOverflow: true,
 					navigation: {
 						nextEl: ".swiper-button-next",
@@ -1386,7 +1398,7 @@
 					effect: "fade",
 					// crossFade: false,
 					autoplay: false,
-					speed: 1000,
+					speed: 500,
 
 					navigation: {
 						nextEl: ".swiper-button-next",
