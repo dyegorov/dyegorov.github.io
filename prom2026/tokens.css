@@ -1,0 +1,154 @@
+/* =========================================================================
+   ВыпускникON — Colors & Type foundations
+   Brand: «ВыпускникON» — общегородской праздник выпускников
+   Colors are the OFFICIAL RGB values from the brand book (Фир.Стиль.pdf).
+
+   FONTS (brand-specified):
+   • Display → NEXT ART (Alexander Pravdin) — geometric grotesque, Cyrillic,
+     free for personal & commercial use. Embedded live via the cdnfonts CDN.
+     Use weight 700 (Bold) for headlines, 600 (Semibold) for sub-display.
+   • Body/UI → NOTE: the brief specified Yu Gothic, but Yu Gothic stores its
+     Cyrillic as FULL-WIDTH (CJK em-square) glyphs — Russian text rendered with
+     enormous letter gaps. So body/UI uses NOTO SANS instead: an open-source,
+     Cyrillic-native humanist sans that closely matches Yu Gothic's neutral
+     tone, with true Medium (500) and Bold (700) cuts. Loaded from Google Fonts.
+   ========================================================================= */
+
+/* Display face — free webfont, full Cyrillic */
+@import url('https://fonts.cdnfonts.com/css/next-art');
+/* Body face — Noto Sans (Cyrillic-native, Yu Gothic substitute) + Golos Text fallback */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Golos+Text:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ---- Brand accent palette (4 festive colors / 2 complementary pairs) ---- */
+  --vk-pink:    #E51B51;  /* R229 G27 B81  · C0 M100 Y55 K0  — hero color   */
+  --vk-purple:  #A53597;  /* R165 G53 B151 · C48 M82 Y6 K9                  */
+  --vk-blue:    #5371B5;  /* R83 G113 B181 · C76 M55 Y0 K0                  */
+  --vk-orange:  #E94E35;  /* R233 G78 B53  · C0 M82 Y85 K0                  */
+
+  /* Pairings as used in the logo (fill / fold-shadow) */
+  --vk-pair-warm-a: var(--vk-pink);    --vk-pair-warm-b: var(--vk-purple);
+  --vk-pair-cool-a: var(--vk-blue);    --vk-pair-cool-b: var(--vk-orange);
+
+  /* Tints (12%) for fills/backgrounds — derived, oklch-harmonized */
+  --vk-pink-tint:   #FCE7ED;
+  --vk-purple-tint: #F3E6F2;
+  --vk-blue-tint:   #E6ECF6;
+  --vk-orange-tint: #FCEAE6;
+
+  /* ---- Neutrals ---- */
+  --vk-ink:        #151515;  /* near-black, headlines on light          */
+  --vk-graphite:   #373435;  /* dark gray, fold shadow on mono          */
+  --vk-gray:       #5B5B5B;  /* R91 G91 B91 — tagline / muted text      */
+  --vk-gray-2:     #848688;  /* secondary gray                          */
+  --vk-line:       #D2D3D5;  /* hairlines, borders, dividers            */
+  --vk-cloud:      #F4F4F5;  /* subtle surface                          */
+  --vk-white:      #FFFFFF;
+
+  /* ---- Semantic tokens ---- */
+  --bg:            var(--vk-white);
+  --bg-alt:        var(--vk-cloud);
+  --bg-ink:        var(--vk-ink);
+  --surface:       var(--vk-white);
+  --fg:            var(--vk-ink);
+  --fg-muted:      var(--vk-gray);
+  --fg-on-ink:     var(--vk-white);
+  --primary:       var(--vk-pink);
+  --primary-press: #C8123F;
+  --border:        var(--vk-line);
+  --focus-ring:    var(--vk-blue);
+
+  /* ---- Type families ---- */
+  --font-display: 'NEXT ART', 'Oswald', 'PT Sans Narrow', sans-serif;          /* geometric grotesque, UPPERCASE */
+  --font-body:    'Noto Sans', 'Golos Text', system-ui, sans-serif; /* body & UI — Cyrillic-native */
+
+  /* ---- Type scale (display uses condensed Oswald, tight & uppercase) ---- */
+  --step-hero:  clamp(56px, 9vw, 132px);
+  --step-h1:    clamp(40px, 6vw, 80px);
+  --step-h2:    clamp(30px, 4vw, 52px);
+  --step-h3:    28px;
+  --step-h4:    22px;
+  --step-lead:  20px;
+  --step-body:  17px;
+  --step-sm:    15px;
+  --step-xs:    13px;
+
+  /* ---- Radii ---- (brand geometry is hard-edged; radii are restrained) */
+  --r-none: 0px;
+  --r-sm:   6px;
+  --r-md:   12px;
+  --r-lg:   20px;
+  --r-pill: 999px;
+
+  /* ---- Shadows ---- */
+  --shadow-sm: 0 1px 2px rgba(21,21,21,.06), 0 1px 3px rgba(21,21,21,.08);
+  --shadow-md: 0 6px 16px rgba(21,21,21,.10);
+  --shadow-lg: 0 18px 48px rgba(21,21,21,.16);
+  /* signature "fold" offset shadow echoing the logo's paper-fold triangles */
+  --shadow-fold: 10px 10px 0 var(--vk-purple);
+
+  /* ---- Spacing scale (4px base) ---- */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px; --sp-9: 96px;
+}
+
+/* =========================================================================
+   Element defaults
+   ========================================================================= */
+body {
+  font-family: var(--font-body);
+  font-size: var(--step-body);
+  line-height: 1.55;
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, .display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+  color: var(--fg);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.hero  { font-size: var(--step-hero); font-weight: 700; }
+h1     { font-size: var(--step-h1); }
+h2     { font-size: var(--step-h2); }
+h3     { font-size: var(--step-h3); font-weight: 600; }
+
+h4 {
+  font-family: var(--font-body);
+  font-size: var(--step-h4);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.lead { font-size: var(--step-lead); line-height: 1.5; color: var(--fg); }
+p     { margin: 0 0 1em; text-wrap: pretty; }
+
+.eyebrow {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  font-size: var(--step-sm);
+  color: var(--primary);
+}
+
+small, .text-sm { font-size: var(--step-sm); }
+.text-xs { font-size: var(--step-xs); }
+.muted  { color: var(--fg-muted); }
+
+a { color: var(--vk-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+code, .mono {
+  font-family: 'Golos Text', ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}

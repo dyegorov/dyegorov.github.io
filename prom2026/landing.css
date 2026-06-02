@@ -1,0 +1,288 @@
+/* ============================================================
+   ВыпускникON — лендинг общегородского выпускного
+   Строится поверх tokens.css (бренд-токены дизайн-системы)
+   ============================================================ */
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);overflow-x:hidden}
+img{max-width:100%;display:block}
+.wrap{max-width:1240px;margin:0 auto;padding-left:32px;padding-right:32px}
+section{position:relative}
+
+/* power-glyph (фирменная иконка) */
+.pw{display:inline-block;vertical-align:middle}
+.pw svg{display:block}
+
+/* ---------- buttons ---------- */
+.btn{font-family:var(--font-body);font-weight:700;font-size:15px;border-radius:var(--r-sm);
+  padding:14px 26px;border:2px solid transparent;cursor:pointer;display:inline-flex;align-items:center;
+  gap:10px;transition:transform .14s ease,background .16s ease,color .16s ease,border-color .16s ease;
+  line-height:1;text-decoration:none;white-space:nowrap}
+.btn:active{transform:scale(.97)}
+.btn svg{width:18px;height:18px}
+.btn-primary{background:var(--vk-pink);color:#fff}
+.btn-primary:hover{background:var(--primary-press)}
+.btn-ink{background:var(--vk-ink);color:#fff}
+.btn-ink:hover{background:#000}
+.btn-outline-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.btn-outline-light:hover{background:#fff;color:var(--vk-ink)}
+.btn-outline{background:transparent;color:var(--vk-ink);border-color:var(--vk-ink)}
+.btn-outline:hover{background:var(--vk-ink);color:#fff}
+
+.eyebrow{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.16em;
+  font-weight:600;font-size:14px;color:var(--vk-pink);display:inline-flex;align-items:center;gap:10px}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.hdr{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border)}
+.hdr-in{display:flex;align-items:center;gap:28px;height:92px}
+.hdr-brand{display:flex;align-items:center;gap:22px;cursor:pointer}
+.hdr-logo{height:58px;width:auto}
+.org-lockup{display:flex;align-items:center;gap:16px;padding-left:22px;border-left:1px solid var(--border)}
+.org{display:flex;align-items:center;gap:9px}
+.org-mark{height:42px;width:42px;object-fit:contain;flex:none}
+.org-ph{height:42px;width:42px;border-radius:8px;border:1.5px dashed var(--border);display:flex;
+  align-items:center;justify-content:center;color:var(--vk-gray-2);flex:none;background:var(--vk-cloud)}
+.org-ph svg{width:18px;height:18px}
+.org-txt{font-size:11px;line-height:1.18;color:var(--vk-gray);font-weight:600;max-width:13ch}
+.hdr-nav{display:flex;gap:28px;margin-left:auto}
+.hdr-nav a{color:var(--vk-ink);font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap;
+  position:relative;padding:6px 0}
+.hdr-nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--vk-pink);
+  transition:right .18s ease}
+.hdr-nav a:hover{text-decoration:none}
+.hdr-nav a:hover::after{right:0}
+.hdr-nav a.archive{display:none} /* раздел появится после мероприятия */
+.burger{display:none;background:none;border:0;cursor:pointer;color:var(--vk-ink);margin-left:auto}
+
+/* ============================================================
+   BLOCK 1 — HERO
+   ============================================================ */
+.hero{position:relative;background:var(--vk-ink);color:#fff;overflow:hidden;min-height:clamp(560px,92vh,940px);
+  display:flex;align-items:stretch}
+.hero-in{position:relative;z-index:3;width:100%;padding-top:56px;padding-bottom:56px;pointer-events:none;
+  display:flex;flex-direction:column}
+.hero-in .btn{pointer-events:auto}
+.hero-copy{max-width:60ch;display:flex;flex-direction:column;flex:1;align-items:flex-start}
+.hero .eyebrow{color:#fff;opacity:.95}
+.hero-logo{width:clamp(150px,20vw,290px);height:auto;display:block;margin:0 0 4px;
+  filter:drop-shadow(0 6px 34px rgba(0,0,0,.45))}
+.hero h1{color:#fff;font-size:clamp(54px,9vw,150px);line-height:.88;margin:0;
+  text-shadow:0 2px 40px rgba(0,0,0,.45)}
+.hero h1 .on{color:var(--vk-pink);white-space:nowrap}
+.hero-date{display:inline-flex;align-items:center;gap:12px;margin-top:auto;background:var(--vk-pink);
+  color:#fff;font-family:var(--font-display);font-weight:700;text-transform:uppercase;font-size:22px;
+  letter-spacing:.02em;padding:11px 20px 11px 18px;border-radius:var(--r-sm)}
+.hero-date svg{width:22px;height:22px}
+.hero-lead{margin:26px 0 0;font-size:20px;line-height:1.5;color:rgba(255,255,255,.92);max-width:44ch;
+  text-shadow:0 1px 16px rgba(0,0,0,.5)}
+.hero-cta{display:flex;gap:14px;margin-top:22px;flex-wrap:wrap}
+
+/* full-bleed slider */
+.slider{position:absolute;inset:0;z-index:1;overflow:hidden;background:var(--vk-ink)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease;pointer-events:none}
+.slide.on{opacity:1;pointer-events:auto}
+.slide image-slot{width:100%;height:100%;display:block}
+.hero-scrim{position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(90deg,rgba(12,12,12,.86) 0%,rgba(12,12,12,.6) 42%,rgba(12,12,12,.12) 72%,transparent 100%),
+             linear-gradient(0deg,rgba(12,12,12,.55) 0%,transparent 40%)}
+.slider-dots{position:absolute;z-index:5;left:0;right:0;bottom:30px;display:flex;gap:10px;justify-content:center}
+.dot{width:36px;height:5px;border-radius:var(--r-pill);background:rgba(255,255,255,.4);border:0;cursor:pointer;
+  padding:0;transition:background .2s,transform .2s}
+.dot.on{background:var(--vk-pink);transform:scaleY(1.4)}
+
+/* slogan strip (вторая группа инфослоганов) */
+.slogans{background:var(--vk-ink);padding:0 0 84px}
+.slogans-in{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(255,255,255,.14)}
+.slog{padding:34px 30px 30px;color:#fff;position:relative}
+.slog+.slog{border-left:1px solid rgba(255,255,255,.14)}
+.slog-ic{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  margin-bottom:18px;color:#fff}
+.slog-ic svg{width:24px;height:24px}
+.slog p{margin:0;font-size:17px;line-height:1.5;color:rgba(255,255,255,.9)}
+.slog b{color:#fff;font-weight:700}
+
+/* ============================================================
+   Section scaffolding
+   ============================================================ */
+.sec{padding:96px 0}
+.sec-alt{background:var(--bg-alt)}
+.sec-head{max-width:62ch}
+.sec-head h2{font-size:var(--step-h2);margin:14px 0 0}
+.sec-head .lead{margin:18px 0 0;color:var(--fg-muted);font-size:19px}
+
+/* ============================================================
+   BLOCK 2 — УГМК-Арена
+   ============================================================ */
+.arena-photo{position:relative;border-radius:var(--r-md);overflow:hidden;margin-top:44px;
+  box-shadow:var(--shadow-lg)}
+.arena-photo image-slot{width:100%;height:clamp(280px,42vw,540px);display:block}
+
+.arena-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:64px;align-items:start}
+.arena-copy p{font-size:18px;line-height:1.6;color:var(--fg)}
+.await-list{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-direction:column;gap:2px}
+.await-list li{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--border);
+  font-size:18px;font-weight:600}
+.await-list li:first-child{border-top:1px solid var(--border)}
+.await-ic{width:40px;height:40px;border-radius:10px;flex:none;display:flex;align-items:center;justify-content:center;color:#fff}
+.await-ic svg{width:20px;height:20px}
+
+/* timeline / программа */
+.timeline{position:relative;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:var(--border)}
+.tl{position:relative;padding:0 0 26px}
+.tl:last-child{padding-bottom:0}
+.tl::before{content:"";position:absolute;left:-34px;top:3px;width:20px;height:20px;border-radius:50%;
+  background:#fff;border:5px solid var(--vk-orange)}
+.tl.hi::before{border-color:var(--vk-pink)}
+.tl-time{font-family:var(--font-display);font-weight:700;font-size:24px;color:var(--vk-ink);line-height:1}
+.tl-label{margin-top:6px;font-size:17px;color:var(--fg-muted)}
+.prog-head{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.prog-head h3{font-size:var(--step-h3)}
+
+/* схемы залов */
+.halls{margin-top:72px}
+.halls-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:32px}
+.hall{border-radius:var(--r-md);overflow:hidden}
+.hall image-slot{width:100%;height:clamp(300px,38vw,520px);display:block}
+.hall-cap .n{width:26px;height:26px;border-radius:50%;background:var(--vk-blue);color:#fff;display:flex;
+  align-items:center;justify-content:center;font-family:var(--font-display);font-size:14px;flex:none}
+
+/* адрес-бар */
+.addr{margin-top:64px;background:var(--vk-ink);color:#fff;border-radius:var(--r-md);padding:38px 44px;
+  display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;position:relative;overflow:hidden}
+.addr .tri-a{position:absolute;top:0;right:0;border-style:solid;border-width:0 150px 150px 0;
+  border-color:transparent var(--vk-orange) transparent transparent;opacity:.9}
+.addr-txt{position:relative;z-index:1}
+.addr-txt .eyebrow{color:#fff;opacity:.85}
+.addr-txt h3{color:#fff;font-size:30px;margin:10px 0 0}
+.addr-txt p{margin:8px 0 0;color:rgba(255,255,255,.78);font-size:16px}
+.addr .btn{position:relative;z-index:1}
+
+/* ============================================================
+   BLOCK 3 — Ваня Дмитриенко
+   ============================================================ */
+.artist{background:var(--vk-ink);color:#fff;overflow:hidden}
+.artist-in{display:grid;grid-template-columns:.92fr 1.08fr;gap:64px;align-items:center;padding:96px 0}
+.artist-photo{position:relative;aspect-ratio:4/4.4;border-radius:var(--r-md);overflow:hidden;
+  box-shadow:14px 14px 0 var(--vk-pink);background:var(--vk-cloud)}
+.artist-photo image-slot{width:100%;height:100%;display:block}
+.artist .eyebrow{color:var(--vk-pink)}
+.artist h2{color:#fff;font-size:var(--step-h1);margin:14px 0 0}
+.artist p{font-size:19px;line-height:1.6;color:rgba(255,255,255,.84);margin:22px 0 0;max-width:48ch}
+.disco{margin-top:30px;padding:24px 26px;border-radius:var(--r-md);background:rgba(255,255,255,.06);
+  border-left:4px solid var(--vk-purple);display:flex;gap:18px;align-items:flex-start}
+.disco .pw{flex:none;margin-top:2px;color:var(--vk-purple)}
+.disco p{margin:0;color:rgba(255,255,255,.9);font-size:17px}
+
+/* ============================================================
+   BLOCK 4 — Как принять участие
+   ============================================================ */
+.join{background:var(--vk-pink);color:#fff}
+.join-in{padding:90px 0}
+.join .eyebrow{color:#fff;opacity:.9}
+.join h2{color:#fff;font-size:var(--step-h1);margin:14px 0 40px;max-width:18ch}
+.join-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.jcard{padding:30px 30px 30px 0;position:relative}
+.jcard+.jcard{padding-left:34px;border-left:1px solid rgba(255,255,255,.35)}
+.jcard .num{font-family:var(--font-display);font-weight:700;font-size:30px;line-height:1;
+  display:inline-flex;align-items:center;gap:12px;margin-bottom:16px}
+.jcard .num .pw{color:#fff}
+.jcard p{margin:0;font-size:18px;line-height:1.5;color:rgba(255,255,255,.94)}
+.jcard p b{font-weight:700;color:#fff}
+
+/* ============================================================
+   BLOCK 5 — FOOTER
+   ============================================================ */
+.ftr{background:var(--bg-alt);color:var(--fg-muted);border-top:1px solid var(--border)}
+.ftr-top{padding:72px 0 44px;display:grid;grid-template-columns:1.5fr 1fr 1.1fr;gap:48px}
+.ftr-logo{height:64px;width:auto;margin-bottom:18px}
+.ftr-top h5{color:var(--vk-ink);font-family:var(--font-display);text-transform:uppercase;letter-spacing:.1em;
+  font-size:14px;margin:0 0 16px;font-weight:600}
+.ftr-org{display:flex;flex-direction:column;gap:18px}
+.ftr-org .org{align-items:center;gap:12px}
+.ftr-org .org-mark{height:48px;width:48px}
+.ftr-org .org-ph{height:48px;width:48px}
+.ftr-org .org-txt{color:var(--vk-gray);max-width:20ch;font-size:12px}
+.ftr .lnk{display:block;color:var(--vk-ink);font-size:15px;
+  margin-bottom:13px;cursor:pointer;background:none;border:0;padding:0;font-family:inherit;text-align:left;
+  text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--vk-line)}
+.ftr .lnk:hover{color:var(--vk-pink);text-decoration-color:var(--vk-pink)}
+.ftr-addr p{margin:0 0 6px;font-size:15px;color:var(--fg-muted)}
+.ftr-bottom{border-top:1px solid var(--border);padding:22px 0;font-size:13px;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--vk-gray-2)}
+
+/* ============================================================
+   MODALS / POPUPS
+   ============================================================ */
+.ov{position:fixed;inset:0;background:rgba(21,21,21,.66);backdrop-filter:blur(4px);z-index:200;
+  display:none;align-items:center;justify-content:center;padding:24px;animation:fade .18s ease}
+.ov.open{display:flex}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.modal{background:#fff;border-radius:var(--r-lg);width:100%;max-width:560px;max-height:92vh;overflow:auto;
+  box-shadow:var(--shadow-lg);animation:pop .22s ease}
+.modal.wide{max-width:680px}
+@keyframes pop{from{transform:translateY(16px) scale(.98);opacity:0}to{transform:none;opacity:1}}
+.modal-hd{background:var(--vk-pink);color:#fff;padding:26px 30px;position:relative}
+.modal-hd.blue{background:var(--vk-blue)}
+.modal-hd .eyebrow{color:rgba(255,255,255,.85)}
+.modal-hd h3{font-family:var(--font-display);text-transform:uppercase;font-weight:700;font-size:30px;
+  line-height:.96;color:#fff;margin:8px 0 0}
+.modal-x{position:absolute;top:18px;right:18px;background:rgba(255,255,255,.2);border:0;width:38px;height:38px;
+  border-radius:10px;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.modal-x:hover{background:rgba(255,255,255,.34)}
+.modal-x svg{width:20px;height:20px}
+.modal-bd{padding:28px 30px 32px}
+.map-slot{width:100%;height:340px;border-radius:var(--r-md);overflow:hidden;display:block}
+.map-note{margin:18px 0 0;display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--fg)}
+.map-note svg{width:20px;height:20px;color:var(--vk-pink);flex:none;margin-top:2px}
+.map-note .coord{font-family:'Golos Text',monospace;color:var(--fg-muted);font-size:13px;display:block;margin-top:4px}
+.rules-section+.rules-section{margin-top:26px;padding-top:26px;border-top:1px solid var(--border)}
+.rules-section h4{font-size:19px;margin:0 0 12px;display:flex;align-items:center;gap:10px}
+.rules-section h4 .badge{font-family:var(--font-display);text-transform:uppercase;font-size:12px;
+  background:var(--vk-pink);color:#fff;padding:4px 10px;border-radius:var(--r-pill);letter-spacing:.04em}
+.rules-section h4 .badge.warn{background:var(--vk-orange)}
+.rules-section p{font-size:15px;line-height:1.6;color:var(--fg);margin:0 0 12px}
+.rules-section p:last-child{margin-bottom:0}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:1040px){
+  .org-txt{display:none}
+  .org-lockup{padding-left:18px;gap:12px}
+}
+@media(max-width:900px){
+  .hdr-nav{display:none}
+  .burger{display:flex}
+  .hdr-in{height:78px}
+  .hdr-logo{height:46px}
+  .hero-in{padding-top:44px;padding-bottom:48px}
+  .hero h1{font-size:clamp(48px,13vw,84px)}
+  .slogans-in{grid-template-columns:1fr}
+  .slog+.slog{border-left:0;border-top:1px solid rgba(255,255,255,.14)}
+  .arena-grid{grid-template-columns:1fr;gap:48px}
+  .halls-grid{grid-template-columns:1fr}
+  .artist-in{grid-template-columns:1fr;gap:44px;padding:64px 0 92px}
+  .join-grid{grid-template-columns:1fr}
+  .jcard{padding:26px 0}
+  .jcard+.jcard{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.35)}
+  .join-in{padding-top:104px}
+  .ftr-logo{display:none}
+  .ftr-top{grid-template-columns:1fr;gap:36px;padding-top:60px;padding-bottom:40px}
+  .ftr-bottom{padding-bottom:40px}
+  .sec{padding:68px 0}
+  .addr{padding:30px 28px}
+}
+@media(max-width:560px){
+  .wrap{padding-left:20px;padding-right:20px}
+  .hdr-brand{gap:14px}
+  .org-lockup{display:none}
+  .hero-date{font-size:18px}
+  .hero-lead{font-size:16px;line-height:1.45;margin-top:18px}
+  .hero-in{padding-bottom:64px}
+}
