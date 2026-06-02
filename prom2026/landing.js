@@ -133,10 +133,48 @@
     });
   }
 
+  /* ---- форма обратной связи (AJAX через FormSubmit) ---- */
+  function initFeedback() {
+    var form = document.querySelector('.fb-form');
+    if (!form) return;
+    var btn = form.querySelector('.fb-submit');
+    var status = form.querySelector('.fb-status');
+    function show(msg, kind) {
+      status.textContent = msg;
+      status.className = 'fb-status ' + kind;
+      status.hidden = false;
+    }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (form.querySelector('[name="_honey"]').value) return; /* спам-бот */
+      var endpoint = form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+      btn.disabled = true;
+      status.hidden = true;
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok, d: d }; }); })
+        .then(function (res) {
+          if (res.ok) {
+            form.reset();
+            show('Спасибо! Сообщение отправлено — мы ответим на указанный e-mail.', 'ok');
+          } else {
+            show('Не удалось отправить. Попробуйте позже или напишите на d.yegorov@gmail.com.', 'err');
+          }
+        })
+        .catch(function () {
+          show('Ошибка сети. Проверьте подключение или напишите на d.yegorov@gmail.com.', 'err');
+        })
+        .then(function () { btn.disabled = false; });
+    });
+  }
+
   /* ---- init ---- */
   function init() {
     injectPower();
     initSlider();
+    initFeedback();
     if (window.lucide) window.lucide.createIcons();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

@@ -211,6 +211,7 @@
       <p>Екатеринбург,</p>
       <p>ул. Степана Разина, 15</p>
       <p style="margin-bottom:18px;color:var(--vk-gray-2)">Метро «Геологическая»</p>
+      <button class="lnk" data-modal="feedback">Обратная связь</button>
       <button class="lnk" data-modal="map">Схема проезда</button>
       <button class="lnk" data-modal="rules">Правила посещения мероприятия</button>
     </div>
@@ -244,6 +245,42 @@
         <i data-lucide="map-pin"></i>
         <div>Екатеринбург, ул. Степана Разина, 15 — УГМК-Арена</div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     ПОПАП — Обратная связь
+     ============================================================ -->
+<div class="ov" id="ov-feedback">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-hd">
+      <button class="modal-x" data-close aria-label="Закрыть"><i data-lucide="x"></i></button>
+      <div class="eyebrow"><i data-lucide="mail" style="width:15px;height:15px"></i>Напишите нам</div>
+      <h3>Обратная связь</h3>
+    </div>
+    <div class="modal-bd">
+      <form class="fb-form" action="https://formsubmit.co/d.yegorov@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="ВыпускникON — обратная связь">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <!-- honeypot против спама -->
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
+        <label class="fb-field">
+          <span>Ваше имя</span>
+          <input type="text" name="Имя" required placeholder="Как к вам обращаться">
+        </label>
+        <label class="fb-field">
+          <span>E-mail для ответа</span>
+          <input type="email" name="E-mail" required placeholder="you@example.com">
+        </label>
+        <label class="fb-field">
+          <span>Сообщение</span>
+          <textarea name="Сообщение" rows="4" required placeholder="Ваш вопрос или пожелание"></textarea>
+        </label>
+        <p class="fb-status" hidden></p>
+        <button type="submit" class="btn btn-primary fb-submit"><i data-lucide="send"></i>Отправить</button>
+      </form>
     </div>
   </div>
 </div>

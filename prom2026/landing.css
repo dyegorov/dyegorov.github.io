@@ -249,6 +249,22 @@ section{position:relative}
 .rules-section p{font-size:15px;line-height:1.6;color:var(--fg);margin:0 0 12px}
 .rules-section p:last-child{margin-bottom:0}
 
+/* ---------- обратная связь ---------- */
+.fb-form{display:flex;flex-direction:column;gap:18px}
+.fb-field{display:flex;flex-direction:column;gap:7px}
+.fb-field>span{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.08em;
+  font-size:13px;font-weight:600;color:var(--fg-muted)}
+.fb-field input,.fb-field textarea{font-family:var(--font-body);font-size:15px;color:var(--fg);
+  background:var(--vk-cloud);border:1.5px solid var(--border);border-radius:var(--r-sm);
+  padding:13px 15px;width:100%;box-sizing:border-box;transition:border-color .14s ease,background .14s ease}
+.fb-field input:focus,.fb-field textarea:focus{outline:none;border-color:var(--vk-pink);background:#fff}
+.fb-field textarea{resize:vertical;min-height:96px}
+.fb-submit{align-self:flex-start;margin-top:2px}
+.fb-submit[disabled]{opacity:.6;cursor:default}
+.fb-status{margin:0;font-size:14px;line-height:1.5}
+.fb-status.ok{color:var(--vk-blue)}
+.fb-status.err{color:#b3261e}
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
