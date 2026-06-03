@@ -275,6 +275,7 @@ section{position:relative}
 @media(max-width:900px){
   .hdr-nav{display:none}
   .burger{display:flex}
+  .hero-scrim{background:none}
   .hdr-in{height:78px}
   .hdr-logo{height:46px}
   .hero-in{padding-top:44px;padding-bottom:48px}

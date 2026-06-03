@@ -110,6 +110,13 @@
       'position:fixed;top:0;right:0;bottom:0;width:78%;max-width:320px;background:var(--vk-ink);' +
       'z-index:120;transform:translateX(100%);transition:transform .26s ease;padding:90px 30px 30px;' +
       'display:flex;flex-direction:column;gap:6px;box-shadow:-20px 0 60px rgba(0,0,0,.4)';
+    var closeBtn = document.createElement('button');
+    closeBtn.setAttribute('aria-label', 'Закрыть меню');
+    closeBtn.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+    closeBtn.style.cssText = 'position:absolute;top:24px;right:24px;background:none;border:0;cursor:pointer;' +
+      'color:#fff;padding:6px;display:flex';
+    closeBtn.addEventListener('click', closeMenu);
+    menuPanel.appendChild(closeBtn);
     nav.querySelectorAll('a').forEach(function (a) {
       if (a.classList.contains('archive')) return; /* раздел ещё скрыт */
       var link = document.createElement('a');
