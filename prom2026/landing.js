@@ -117,17 +117,60 @@
       'color:#fff;padding:6px;display:flex';
     closeBtn.addEventListener('click', closeMenu);
     menuPanel.appendChild(closeBtn);
-    nav.querySelectorAll('a').forEach(function (a) {
-      if (a.classList.contains('archive')) return; /* раздел ещё скрыт */
+
+    function addItem(text, opts) {
+      opts = opts || {};
       var link = document.createElement('a');
-      link.textContent = a.textContent;
-      link.style.cssText = 'color:#fff;font-family:var(--font-display);text-transform:uppercase;' +
-        'font-size:24px;font-weight:600;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.14);cursor:pointer';
-      var navId = a.getAttribute('data-nav');
-      link.addEventListener('click', function () { scrollToId(navId); closeMenu(); });
+      link.textContent = text;
+      link.style.cssText = 'color:#fff;font-family:var(--font-display);text-transform:uppercase;font-weight:600;' +
+        'border-bottom:1px solid rgba(255,255,255,.14);cursor:pointer;' +
+        (opts.sub ? 'font-size:19px;padding:11px 0 11px 18px;opacity:.82' : 'font-size:24px;padding:14px 0');
+      if (opts.navId) {
+        link.addEventListener('click', function () { scrollToId(opts.navId); closeMenu(); });
+      } else if (opts.href) {
+        link.href = opts.href;
+        link.addEventListener('click', closeMenu);
+      }
       menuPanel.appendChild(link);
+    }
+    function addLabel(text) {
+      var el = document.createElement('div');
+      el.textContent = text;
+      el.style.cssText = 'color:rgba(255,255,255,.5);font-family:var(--font-display);text-transform:uppercase;' +
+        'font-size:24px;font-weight:600;padding:14px 0 2px';
+      menuPanel.appendChild(el);
+    }
+
+    Array.prototype.forEach.call(nav.children, function (child) {
+      if (child.tagName === 'A') {
+        addItem(child.textContent, { navId: child.getAttribute('data-nav'), href: child.getAttribute('href') });
+      } else if (child.classList.contains('nav-drop')) {
+        var toggle = child.querySelector('.nav-drop-toggle');
+        addLabel(toggle ? toggle.textContent.trim() : 'Архив');
+        child.querySelectorAll('.nav-drop-menu a').forEach(function (a) {
+          addItem(a.textContent, { href: a.getAttribute('href'), sub: true });
+        });
+      }
     });
     document.body.appendChild(menuPanel);
+  }
+
+  /* ---- выпадающее меню «Архив» на десктопе (клик для тач-устройств) ---- */
+  function initDropdown() {
+    var drop = document.querySelector('.nav-drop');
+    if (!drop) return;
+    var toggle = drop.querySelector('.nav-drop-toggle');
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = drop.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function (e) {
+      if (!drop.contains(e.target)) {
+        drop.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
   }
   function openMenu() { if (menuPanel) menuPanel.style.transform = 'translateX(0)'; }
   function closeMenu() { if (menuPanel) menuPanel.style.transform = 'translateX(100%)'; }
@@ -182,6 +225,7 @@
     injectPower();
     initSlider();
     initFeedback();
+    initDropdown();
     if (window.lucide) window.lucide.createIcons();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
