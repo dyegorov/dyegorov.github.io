@@ -5,9 +5,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <style>
-:root{--bg:#fafaf7;--fg:#1d1d1b;--muted:#6b6b66;--card:#fff;--line:#e3e2dc;--acc:#2c5fd6;--ok:#1f8a4c;--bad:#c4392f;--warn:#a86a00;--code:#f1f0ea}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}}
-:root[data-theme=dark]{--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
+:root{color-scheme:dark;--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 main{max-width:860px;margin:0 auto;padding:16px}
@@ -32,23 +30,58 @@ button.on{outline:2px solid var(--acc)}
 .task.ok{border-left:4px solid var(--ok)}.task.bad{border-left:4px solid var(--bad)}
 .sol{margin-top:10px;padding:10px;background:var(--code);border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere}
 .bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:6px}.bar>i{display:block;height:100%;background:var(--ok)}
-nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center}
+nav.top{display:flex;gap:4px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:8px}
+nav.top a{text-decoration:none;color:var(--fg);padding:6px 12px;border-radius:8px;border:1px solid transparent;font-size:.95rem}
+nav.top a:hover{border-color:var(--line)}nav.top a[aria-current=page]{background:var(--acc);color:#0e0e0d;font-weight:600}
+@media (max-width:480px){nav.top a{flex:1 1 auto;text-align:center;padding:6px 8px;font-size:.875rem}}
 </style></head><body><main>
-<nav class="top"><a href="../index.html">← Все темы</a><button id="theme" type="button">Тема: светлая/тёмная</button></nav>
+<nav class="top"><a href="../index.html">Темы</a><a href="../plan.html">План подготовки</a><a href="../exam.html">Пробный экзамен</a><a href="../about.html">Об экзамене</a></nav>
 
 <h1>Стереометрия</h1>
 <p class="muted">Многогранники и тела вращения: площади, объёмы, элементы.</p>
 <p class="small">Задания ЕГЭ 2027: База: №11, 13; Профиль: №3. Сначала повторите: <a href="planimetry.html">Планиметрия</a></p>
-<section id="theory"><h2>Теория</h2>
-<table><thead><tr><th>Тело</th><th>Объём</th><th>Поверхность</th></tr></thead><tbody><tr><td>Прямоугольный параллелепипед</td><td>$V=abc$</td><td>$S=2(ab+bc+ac)$</td></tr><tr><td>Куб</td><td>$V=a^3$</td><td>$S=6a^2$, диагональ $a\sqrt3$</td></tr><tr><td>Призма</td><td>$V=S_{осн}h$</td><td>$S=2S_{осн}+P_{осн}h$</td></tr><tr><td>Пирамида</td><td>$V=\frac13S_{осн}h$</td><td>$S=S_{осн}+S_{бок}$</td></tr><tr><td>Цилиндр</td><td>$V=\pi R^2h$</td><td>$S_{бок}=2\pi Rh$</td></tr><tr><td>Конус</td><td>$V=\frac13\pi R^2h$</td><td>$S_{бок}=\pi Rl$</td></tr><tr><td>Шар</td><td>$V=\frac43\pi R^3$</td><td>$S=4\pi R^2$</td></tr></tbody></table>
-<ul><li>При увеличении всех линейных размеров в $k$ раз площадь растёт в $k^2$, объём — в $k^3$ раз.</li><li>Составной многогранник: разбейте на параллелепипеды или достройте и вычтите.</li><li>Погружение тела в жидкость: объём тела = объём вытесненной жидкости.</li></ul>
-<h2>Примеры</h2>
-<h3>Пример 1</h3>
-<p>Ребро куба увеличили в 3 раза — объём вырос в <b>27</b> раз.</p>
-<h3>Пример 2</h3>
-<p>Цилиндр: $R=3$, $h=4$; конус с тем же основанием и высотой имеет объём в 3 раза меньше: $V_{кон}=\frac13\cdot\pi\cdot9\cdot4=12\pi$.</p>
-<h3>Пример 3</h3>
-<p>Параллелепипед $2\times3\times4$: $S=2(6+12+8)=$ <b>52</b>.</p></section>
+<section id="theory"><h2>Что это и зачем</h2>
+<p><b>Стереометрия</b> — геометрия в пространстве: кубы, коробки (параллелепипеды), призмы, пирамиды, цилиндры, конусы, шары.</p>
+<p>Где встречается:</p>
+<ul><li><b>База:</b> задание 11 (сосчитать грани, рёбра, вершины, представить многогранник) и задание 13 (объёмы и площади поверхности).</li><li><b>Профиль:</b> задание 3 (объём, площадь поверхности, диагональ, отношение объёмов). Развёрнутое задание 15 — отдельная тема «Стереометрическая задача с доказательством».</li></ul>
+<h2>Основные понятия</h2>
+<ul><li><b>Многогранник</b> — тело, ограниченное плоскими многоугольниками. Эти многоугольники — <b>грани</b>, их стороны — <b>рёбра</b>, углы — <b>вершины</b>.</li><li><b>Объём</b> $V$ — сколько кубиков $1\times1\times1$ помещается внутри. Измеряется в кубических единицах.</li><li><b>Площадь поверхности</b> $S$ — сумма площадей всех граней (сколько краски нужно, чтобы покрасить снаружи).</li><li><b>Основание</b> — грань, на которой тело «стоит»; <b>высота</b> $h$ — расстояние от основания до противоположной грани (или до вершины), измеряется по перпендикуляру.</li><li><b>Призма</b>: два одинаковых параллельных основания, боковые грани — параллелограммы (у прямой призмы — прямоугольники).</li><li><b>Пирамида</b>: основание-многоугольник и одна вершина сверху, боковые грани — треугольники. <b>Правильная</b> пирамида: в основании правильный многоугольник, вершина над его центром.</li></ul>
+<p>Для любого выпуклого многогранника верна <b>формула Эйлера</b>: $В-Р+Г=2$ (вершины минус рёбра плюс грани). Куб: $8-12+6=2$. Удобно для проверки в задании 11.</p>
+<h2>Формулы</h2>
+<table><thead><tr><th>тело</th><th>объём</th><th>поверхность</th></tr></thead><tbody><tr><td>куб с ребром $a$</td><td>$V=a^3$</td><td>$S=6a^2$</td></tr><tr><td>прямоугольный параллелепипед $a,b,c$</td><td>$V=abc$</td><td>$S=2(ab+bc+ac)$</td></tr><tr><td>призма</td><td>$V=S_{\text{осн}}\cdot h$</td><td>$2S_{\text{осн}}+S_{\text{бок}}$</td></tr><tr><td>пирамида</td><td>$V=\frac13S_{\text{осн}}\cdot h$</td><td>$S_{\text{осн}}+S_{\text{бок}}$</td></tr><tr><td>цилиндр (радиус $r$, высота $h$)</td><td>$V=\pi r^2h$</td><td>$S_{\text{бок}}=2\pi rh$, полная $2\pi r^2+2\pi rh$</td></tr><tr><td>конус (образующая $l$)</td><td>$V=\frac13\pi r^2h$</td><td>$S_{\text{бок}}=\pi rl$, полная $\pi r^2+\pi rl$</td></tr><tr><td>шар радиуса $R$</td><td>$V=\frac43\pi R^3$</td><td>$S=4\pi R^2$</td></tr></tbody></table>
+<p>Как запомнить: призма и цилиндр — «площадь основания на высоту» (стопка одинаковых слоёв). Пирамида и конус — <b>треть</b> от призмы/цилиндра с тем же основанием и высотой.</p>
+<p>Диагональ прямоугольного параллелепипеда: $d=\sqrt{a^2+b^2+c^2}$ (два раза Пифагор). Диагональ куба $a\sqrt3$, диагональ грани куба $a\sqrt2$.</p>
+<h2>Подобие тел — очень частый приём</h2>
+<p>Если все размеры тела увеличить в $k$ раз, то:</p>
+<ul><li>длины увеличатся в $k$ раз,</li><li>площади — в $k^2$ раз,</li><li>объём — в $k^3$ раз.</li></ul>
+<p>Пример: ребро куба увеличили в 2 раза — объём вырос в $2^3=8$ раз. Жидкость в конусе налита до половины высоты — её объём составляет $\left(\frac12\right)^3=\frac18$ объёма конуса (налитая часть — маленький конус, подобный большому).</p>
+<p>Переливание: объём жидкости не меняется. Если перелить из цилиндра в цилиндр с радиусом в 2 раза больше, площадь дна вырастет в 4 раза, а уровень станет в 4 раза ниже: был 16 см — станет 4 см.</p>
+<h2>Разобранные примеры</h2>
+<h3>Пример 1 (база 13, лёгкий)</h3>
+<p>Основание прямой призмы — прямоугольный треугольник с катетами 6 и 8, боковое ребро 5. Найдите объём.</p>
+<ol><li>Площадь основания: $\frac12\cdot6\cdot8=24$.</li><li>У прямой призмы высота равна боковому ребру: $h=5$.</li><li>$V=24\cdot5=120$. Ответ: <b>120</b>.</li></ol>
+<h3>Пример 2 (база 11, грани)</h3>
+<p>От правильной пятиугольной призмы отпилили все вершины (маленькими срезами). Сколько граней у получившегося многогранника?</p>
+<ol><li>У пятиугольной призмы граней: 2 основания + 5 боковых $=7$; вершин: $5+5=10$.</li><li>Каждый срез вершины добавляет одну новую грань (маленький треугольник), старые грани остаются.</li><li>$7+10=17$. Ответ: <b>17</b>.</li></ol>
+<h3>Пример 3 (база 13, пирамида внутри параллелепипеда)</h3>
+<p>Объём параллелепипеда $ABCDA_1B_1C_1D_1$ равен 9. Найдите объём пирамиды $ABCA_1$.</p>
+<ol><li>Основание пирамиды $ABC$ — половина параллелограмма $ABCD$: $S_{ABC}=\frac12S_{\text{осн}}$.</li><li>Вершина $A_1$ лежит в верхней грани, значит высота пирамиды равна высоте параллелепипеда $h$.</li><li>$V=\frac13\cdot\frac12S_{\text{осн}}\cdot h=\frac16\cdot9=1{,}5$. Ответ: <b>1,5</b>.</li></ol>
+<h3>Пример 4 (профиль 3, куб)</h3>
+<p>Площадь поверхности куба равна 18. Найдите его диагональ.</p>
+<ol><li>У куба 6 одинаковых граней: площадь одной $18:6=3$, значит $a^2=3$, $a=\sqrt3$.</li><li>Диагональ куба $d=a\sqrt3=\sqrt3\cdot\sqrt3=3$.</li></ol>
+<p>Ответ: <b>3</b>. Можно и без корней: $d^2=3a^2=9$.</p>
+<h3>Пример 5 (профиль 3, параллелепипед)</h3>
+<p>Два ребра прямоугольного параллелепипеда из одной вершины равны 3 и 4, площадь поверхности 94. Найдите третье ребро.</p>
+<ol><li>$S=2(ab+bc+ac)$, где $a=3$, $b=4$, $c$ — неизвестное.</li><li>$2(12+4c+3c)=94$, $12+7c=47$, $7c=35$, $c=5$.</li></ol>
+<p>Ответ: <b>5</b>. Проверка: $2(12+20+15)=2\cdot47=94$ — верно.</p>
+<h3>Пример 6 (профиль 3, только профиль: подобие)</h3>
+<p>Объём конуса 64. Через середину высоты проведено сечение, параллельное основанию. Найдите объём отсечённого маленького конуса.</p>
+<ol><li>Маленький конус подобен большому с $k=\frac12$ (высота вдвое меньше, радиус тоже).</li><li>Объём меняется в $k^3=\frac18$ раз: $64\cdot\frac18=8$.</li></ol>
+<p>Ответ: <b>8</b>.</p>
+<h2>Типичные ошибки</h2>
+<ul><li>Забывают $\frac13$ в объёме пирамиды и конуса.</li><li>Путают высоту наклонной призмы (перпендикуляр) с боковым ребром.</li><li>Путают радиус и диаметр.</li><li>В подобии умножают объём на $k$ или $k^2$ вместо $k^3$.</li><li>В ответе оставляют $\pi$ там, где просят «объём, делённый на $\pi$», или наоборот — читайте вопрос до конца.</li></ul>
+<h2>Алгоритм</h2>
+<ol><li>Понять, какое тело, и нарисовать его (хотя бы схематично), отметить данные.</li><li>Выписать нужную формулу из таблицы.</li><li>Найти недостающие размеры: обычно через плоский прямоугольный треугольник внутри тела (Пифагор).</li><li>Если сравнивают два похожих тела — подумать о подобии ($k$, $k^2$, $k^3$).</li><li>Проверить единицы и разумность числа (объём части меньше объёма целого).</li></ol></section>
 <h2>Практика</h2>
 <div class="card"><div class="row" style="margin-top:0"><button type="button" data-level="all" class="on">Все</button><button type="button" data-level="base">База</button><button type="button" data-level="profile">Профиль</button>
 <label class="small"><input type="checkbox" id="onlynew"> только нерешённые</label>
@@ -62,10 +95,6 @@ nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-
 function store(){try{return window.localStorage}catch(e){return null}}
 function loadProg(){try{return JSON.parse(store().getItem('ege-progress')||'{}')}catch(e){return {}}}
 function saveProg(p){try{store().setItem('ege-progress',JSON.stringify(p))}catch(e){}}
-(function(){var b=document.getElementById('theme');if(!b)return;var t=null;try{t=store().getItem('ege-theme')}catch(e){}
-if(t)document.documentElement.dataset.theme=t;
-b.onclick=function(){var dark=matchMedia('(prefers-color-scheme: dark)').matches;var cur=document.documentElement.dataset.theme||(dark?'dark':'light');
-var n=cur==='dark'?'light':'dark';document.documentElement.dataset.theme=n;try{store().setItem('ege-theme',n)}catch(e){}}})();
 
 var TASKS=JSON.parse(document.getElementById('tasks-data').textContent);
 var prog=loadProg(),level='all',onlyNew=false;

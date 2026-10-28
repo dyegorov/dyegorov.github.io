@@ -5,9 +5,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <style>
-:root{--bg:#fafaf7;--fg:#1d1d1b;--muted:#6b6b66;--card:#fff;--line:#e3e2dc;--acc:#2c5fd6;--ok:#1f8a4c;--bad:#c4392f;--warn:#a86a00;--code:#f1f0ea}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}}
-:root[data-theme=dark]{--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
+:root{color-scheme:dark;--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 main{max-width:860px;margin:0 auto;padding:16px}
@@ -32,21 +30,70 @@ button.on{outline:2px solid var(--acc)}
 .task.ok{border-left:4px solid var(--ok)}.task.bad{border-left:4px solid var(--bad)}
 .sol{margin-top:10px;padding:10px;background:var(--code);border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere}
 .bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:6px}.bar>i{display:block;height:100%;background:var(--ok)}
-nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center}
+nav.top{display:flex;gap:4px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:8px}
+nav.top a{text-decoration:none;color:var(--fg);padding:6px 12px;border-radius:8px;border:1px solid transparent;font-size:.95rem}
+nav.top a:hover{border-color:var(--line)}nav.top a[aria-current=page]{background:var(--acc);color:#0e0e0d;font-weight:600}
+@media (max-width:480px){nav.top a{flex:1 1 auto;text-align:center;padding:6px 8px;font-size:.875rem}}
 </style></head><body><main>
-<nav class="top"><a href="../index.html">← Все темы</a><button id="theme" type="button">Тема: светлая/тёмная</button></nav>
+<nav class="top"><a href="../index.html">Темы</a><a href="../plan.html">План подготовки</a><a href="../exam.html">Пробный экзамен</a><a href="../about.html">Об экзамене</a></nav>
 
 <h1>Функции и графики</h1>
 <p class="muted">Линейная, квадратичная, гипербола, корень, показательная, логарифмическая, тригонометрические функции.</p>
 <p class="small">Задания ЕГЭ 2027: База: №7; Профиль: №12. Сначала повторите: <a href="equations.html">Простейшие уравнения</a></p>
-<section id="theory"><h2>Теория</h2>
-<table><thead><tr><th>Функция</th><th>Вид</th><th>Как найти параметры по графику</th></tr></thead><tbody><tr><td>Линейная</td><td>$y=kx+b$</td><td>$b$ — пересечение с $Oy$; $k=\frac{\Delta y}{\Delta x}$</td></tr><tr><td>Парабола</td><td>$y=ax^2+bx+c$</td><td>вершина $x_0=-\frac b{2a}$; $c=y(0)$; $a&gt;0$ — ветви вверх</td></tr><tr><td>Гипербола</td><td>$y=\frac kx+a$</td><td>асимптоты $y=a$ и $x=0$ (или $x=b$ для $\frac k{x-b}$)</td></tr><tr><td>Корень</td><td>$y=a\sqrt{x}$</td><td>подставить точку</td></tr><tr><td>Показательная</td><td>$y=a^x+b$</td><td>асимптота $y=b$</td></tr><tr><td>Логарифм</td><td>$y=\log_a(x+b)$</td><td>асимптота $x=-b$</td></tr><tr><td>Синус/косинус</td><td>$y=a\sin(bx+c)+d$</td><td>амплитуда $|a|$, период $\frac{2\pi}{|b|}$, сдвиг $d$</td></tr></tbody></table>
-<ul><li>Стратегия: прочитать с графика <b>2–3 точки с целыми координатами</b> и составить систему.</li><li>Сдвиг $y=f(x-a)$ — вправо на $a$; $y=f(x)+b$ — вверх на $b$.</li></ul>
+<section id="theory"><h2>Что это и зачем</h2>
+<p><b>Функция</b> — это правило, по которому каждому числу $x$ ставится в соответствие ровно одно число $y$. Пишут $y=f(x)$. Например, $f(x)=2x+1$: при $x=3$ получаем $f(3)=2\cdot3+1=7$.</p>
+<p><b>График функции</b> — множество точек $(x;f(x))$ на координатной плоскости. Чтобы прочитать $f(3)$ по графику, идём по оси $Ox$ до числа 3, поднимаемся (или опускаемся) до графика и смотрим высоту.</p>
+<p>На ЕГЭ:</p>
+<ul><li><b>База, задание 7</b> — по графику определить, где функция возрастает/убывает, где она положительна, сопоставить точки и свойства (производная — см. тему «Производная»).</li><li><b>Профиль, задание 12</b> — по рисунку графика найти неизвестные коэффициенты формулы и посчитать значение функции в точке, или найти точку пересечения двух графиков.</li></ul>
+<p>Ключевая идея профильного задания: <b>каждая точка графика с целыми координатами — это готовое уравнение.</b> Если график $f(x)=kx+b$ проходит через $(2;5)$, значит $5=k\cdot2+b$.</p>
+<h2>Основные понятия</h2>
+<ul><li><b>Возрастает</b> на промежутке — при движении слева направо график идёт вверх. <b>Убывает</b> — вниз.</li><li><b>Нули функции</b> — точки, где $f(x)=0$, то есть график пересекает ось $Ox$.</li><li><b>Асимптота</b> — прямая, к которой график бесконечно приближается, но не касается.</li><li><b>Область определения</b> — все $x$, при которых формула имеет смысл.</li></ul>
+<h2>Основные функции и их графики</h2>
+<table><thead><tr><th>Функция</th><th>Формула</th><th>Как выглядит</th><th>Что читать с графика</th></tr></thead><tbody><tr><td>Линейная</td><td>$y=kx+b$</td><td>прямая</td><td>$b$ — точка пересечения с $Oy$; $k=\frac{\Delta y}{\Delta x}$</td></tr><tr><td>Квадратичная</td><td>$y=ax^2+bx+c$</td><td>парабола</td><td>$c=y(0)$; вершина $x_0=-\frac b{2a}$; $a&gt;0$ — ветви вверх</td></tr><tr><td>Обратная пропорциональность</td><td>$y=\frac k{x-p}+q$</td><td>гипербола</td><td>асимптоты $x=p$ и $y=q$</td></tr><tr><td>Корень</td><td>$y=k\sqrt x$</td><td>«половинка параболы» лёжа</td><td>подставить точку</td></tr><tr><td>Показательная</td><td>$y=a^x+b$</td><td>быстро растёт или убывает</td><td>асимптота $y=b$</td></tr><tr><td>Логарифмическая</td><td>$y=\log_a(x+p)+b$</td><td>медленно растёт</td><td>асимптота $x=-p$</td></tr><tr><td>Синус/косинус</td><td>$y=a\cos x+b$</td><td>волна</td><td>$b$ — середина, $|a|$ — амплитуда</td></tr></tbody></table>
+<h3>Прямая $y=kx+b$</h3>
+<ul><li>$b$ — где прямая пересекает ось $Oy$ (это значение при $x=0$).</li><li>$k$ — <b>угловой коэффициент</b>: на сколько изменится $y$, если $x$ увеличить на 1. Считается как $k=\frac{y_2-y_1}{x_2-x_1}$ по любым двум точкам.</li><li>$k&gt;0$ — прямая идёт вверх, $k&lt;0$ — вниз, $k=0$ — горизонтальна.</li></ul>
+<h3>Парабола $y=ax^2+bx+c$</h3>
+<ul><li>$a&gt;0$ — ветви вверх, $a&lt;0$ — вниз. Чем больше $|a|$, тем «уже» парабола.</li><li>Абсцисса вершины $x_0=-\frac b{2a}$ — ось симметрии параболы.</li><li>$c$ — точка пересечения с $Oy$.</li><li>Если $a$ дано в условии, с графика достаточно взять вершину; если нет — берите три точки.</li></ul>
+<h3>Гипербола $y=\frac kx+q$</h3>
+<ul><li>Горизонтальная асимптота $y=q$, вертикальная $x=0$. Для $y=\frac k{x-p}$ вертикальная асимптота $x=p$.</li><li>$k&gt;0$ — ветви в I и III «четвертях» относительно асимптот, $k&lt;0$ — во II и IV.</li></ul>
+<h3>Синус и косинус $y=a\cos x+b$</h3>
+<ul><li>Наибольшее значение $b+|a|$, наименьшее $b-|a|$. Отсюда $b=\frac{\max+\min}2$, $|a|=\frac{\max-\min}2$.</li><li>Знак $a$: если при $x=0$ график в максимуме, то $a&gt;0$ (для косинуса).</li></ul>
+<h2>Сдвиги графиков</h2>
+<table><thead><tr><th>Формула</th><th>Что происходит с графиком $y=f(x)$</th></tr></thead><tbody><tr><td>$y=f(x)+b$</td><td>сдвиг вверх на $b$ (вниз, если $b&lt;0$)</td></tr><tr><td>$y=f(x-a)$</td><td>сдвиг <b>вправо</b> на $a$ (знак «наоборот»!)</td></tr><tr><td>$y=-f(x)$</td><td>отражение относительно оси $Ox$</td></tr><tr><td>$y=kf(x)$</td><td>растяжение в $k$ раз по вертикали</td></tr></tbody></table>
 <h2>Примеры</h2>
-<h3>Пример 1</h3>
-<p>Прямая проходит через $(0;2)$ и $(3;8)$: $b=2$, $k=\frac{8-2}{3}=2$, $f(x)=2x+2$; $f(10)=$ <b>22</b>.</p>
-<h3>Пример 2</h3>
-<p>Парабола $y=ax^2+bx+c$ через $(0;1)$, $(1;0)$, $(2;3)$: $c=1$, $a+b=-1$, $4a+2b=2$ → $a=2$, $b=-3$.</p></section>
+<h3>Пример 1. Прямая через точку на оси</h3>
+<p>Прямая $f(x)=kx+b$ проходит через $(0;2)$ и $(3;8)$. Найдите $f(10)$.</p>
+<p>Точка $(0;2)$ лежит на оси $Oy$, значит $b=2$. Угловой коэффициент: $k=\frac{8-2}{3-0}=2$. Формула $f(x)=2x+2$, $f(10)=22$. Ответ: <b>22</b>.</p>
+<h3>Пример 2. Прямая по двум произвольным точкам</h3>
+<p>Прямая проходит через $(-2;1)$ и $(2;3)$. Найдите $f(-5)$.</p>
+<p>$k=\frac{3-1}{2-(-2)}=\frac24=0{,}5$. Подставляем точку $(2;3)$: $3=0{,}5\cdot2+b$, $b=2$. $f(-5)=0{,}5\cdot(-5)+2=-0{,}5$. Ответ: <b>−0,5</b>.</p>
+<p>Проверка второй точкой: $0{,}5\cdot(-2)+2=1$ — совпадает.</p>
+<h3>Пример 3. Парабола с известным $a$</h3>
+<p>$f(x)=2x^2+bx+c$, вершина параболы в точке $(-1;-3)$. Найдите $f(-5)$.</p>
+<p>Абсцисса вершины: $-\frac b{2\cdot2}=-1$, отсюда $b=4$. Значение в вершине: $f(-1)=2-4+c=-3$, $c=-1$. $f(-5)=2\cdot25+4\cdot(-5)-1=50-20-1=29$. Ответ: <b>29</b>.</p>
+<h3>Пример 4. Парабола по трём точкам</h3>
+<p>$y=ax^2+bx+c$ проходит через $(0;1)$, $(1;0)$, $(2;3)$.</p>
+<p>Из $(0;1)$: $c=1$. Из $(1;0)$: $a+b+1=0$, $a+b=-1$. Из $(2;3)$: $4a+2b+1=3$, $2a+b=1$. Вычитаем: $(2a+b)-(a+b)=1-(-1)$, $a=2$, $b=-3$. Итого $y=2x^2-3x+1$.</p>
+<h3>Пример 5. Гипербола</h3>
+<p>$f(x)=\frac kx+a$, горизонтальная асимптота $y=1$, график проходит через $(2;3)$. Найдите $f(-8)$.</p>
+<p>Асимптота даёт $a=1$. Точка: $3=\frac k2+1$, $k=4$. $f(-8)=\frac4{-8}+1=0{,}5$. Ответ: <b>0,5</b>.</p>
+<h3>Пример 6. Корень</h3>
+<p>$f(x)=k\sqrt x$ проходит через $(4;5)$. Найдите $f(6{,}76)$.</p>
+<p>$5=k\sqrt4=2k$, $k=2{,}5$. $\sqrt{6{,}76}=2{,}6$ (так как $26^2=676$). $f(6{,}76)=2{,}5\cdot2{,}6=6{,}5$. Ответ: <b>6,5</b>.</p>
+<h3>Пример 7. Логарифм</h3>
+<p>$f(x)=b+\log_ax$ проходит через $(1;-3)$ и $(4;-1)$. Найдите $f(32)$.</p>
+<p>$\log_a1=0$, поэтому $f(1)=b=-3$. Из второй точки: $-3+\log_a4=-1$, $\log_a4=2$, $a^2=4$, $a=2$. $f(32)=-3+\log_232=-3+5=2$. Ответ: <b>2</b>.</p>
+<h3>Пример 8. Косинус</h3>
+<p>$f(x)=a\cos x+b$; по графику наибольшее значение 2, наименьшее $-1$, при $x=0$ функция в максимуме. Найдите $a$.</p>
+<p>$|a|=\frac{2-(-1)}2=1{,}5$; в нуле максимум, значит $a&gt;0$: $a=1{,}5$ (и $b=\frac{2+(-1)}2=0{,}5$). Ответ: <b>1,5</b>.</p>
+<h3>Пример 9. Пересечение двух графиков</h3>
+<p>Если на рисунке два графика $f$ и $g$ и нужна абсцисса их второй точки пересечения: восстановите обе формулы, затем решите уравнение $f(x)=g(x)$. Один корень вы увидите на рисунке (это проверка), второй — ответ.</p>
+<h2>Типичные ошибки</h2>
+<ul><li>Неверно снята клеточка: точка выглядит целой, но лежит между линиями сетки. Берите только точки, явно попадающие в узлы.</li><li>Перепутаны $x$ и $y$ при подстановке.</li><li>Сдвиг $f(x-a)$ принят за сдвиг влево.</li><li>Ошибка со знаком $k$: прямая «идёт вниз» — значит $k&lt;0$.</li></ul>
+<h2>Как проверить себя</h2>
+<p>Найдя формулу, подставьте <b>ещё одну</b> точку с графика, которую не использовали. Если она подходит — коэффициенты верны.</p>
+<h2>Алгоритм (профиль, задание 12)</h2>
+<ol><li>Определите тип функции по формуле в условии.</li><li>Найдите на графике 2–3 точки с целыми координатами (вершина, пересечения с осями, узлы сетки) и асимптоты.</li><li>Подставьте точки в формулу, найдите неизвестные коэффициенты.</li><li>Проверьте формулу по дополнительной точке.</li><li>Посчитайте то, что просят.</li></ol></section>
 <h2>Практика</h2>
 <div class="card"><div class="row" style="margin-top:0"><button type="button" data-level="all" class="on">Все</button><button type="button" data-level="base">База</button><button type="button" data-level="profile">Профиль</button>
 <label class="small"><input type="checkbox" id="onlynew"> только нерешённые</label>
@@ -60,10 +107,6 @@ nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-
 function store(){try{return window.localStorage}catch(e){return null}}
 function loadProg(){try{return JSON.parse(store().getItem('ege-progress')||'{}')}catch(e){return {}}}
 function saveProg(p){try{store().setItem('ege-progress',JSON.stringify(p))}catch(e){}}
-(function(){var b=document.getElementById('theme');if(!b)return;var t=null;try{t=store().getItem('ege-theme')}catch(e){}
-if(t)document.documentElement.dataset.theme=t;
-b.onclick=function(){var dark=matchMedia('(prefers-color-scheme: dark)').matches;var cur=document.documentElement.dataset.theme||(dark?'dark':'light');
-var n=cur==='dark'?'light':'dark';document.documentElement.dataset.theme=n;try{store().setItem('ege-theme',n)}catch(e){}}})();
 
 var TASKS=JSON.parse(document.getElementById('tasks-data').textContent);
 var prog=loadProg(),level='all',onlyNew=false;

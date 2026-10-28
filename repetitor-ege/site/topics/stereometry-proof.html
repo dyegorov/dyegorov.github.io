@@ -5,9 +5,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <style>
-:root{--bg:#fafaf7;--fg:#1d1d1b;--muted:#6b6b66;--card:#fff;--line:#e3e2dc;--acc:#2c5fd6;--ok:#1f8a4c;--bad:#c4392f;--warn:#a86a00;--code:#f1f0ea}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}}
-:root[data-theme=dark]{--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
+:root{color-scheme:dark;--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 main{max-width:860px;margin:0 auto;padding:16px}
@@ -32,19 +30,51 @@ button.on{outline:2px solid var(--acc)}
 .task.ok{border-left:4px solid var(--ok)}.task.bad{border-left:4px solid var(--bad)}
 .sol{margin-top:10px;padding:10px;background:var(--code);border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere}
 .bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:6px}.bar>i{display:block;height:100%;background:var(--ok)}
-nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center}
+nav.top{display:flex;gap:4px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:8px}
+nav.top a{text-decoration:none;color:var(--fg);padding:6px 12px;border-radius:8px;border:1px solid transparent;font-size:.95rem}
+nav.top a:hover{border-color:var(--line)}nav.top a[aria-current=page]{background:var(--acc);color:#0e0e0d;font-weight:600}
+@media (max-width:480px){nav.top a{flex:1 1 auto;text-align:center;padding:6px 8px;font-size:.875rem}}
 </style></head><body><main>
-<nav class="top"><a href="../index.html">← Все темы</a><button id="theme" type="button">Тема: светлая/тёмная</button></nav>
+<nav class="top"><a href="../index.html">Темы</a><a href="../plan.html">План подготовки</a><a href="../exam.html">Пробный экзамен</a><a href="../about.html">Об экзамене</a></nav>
 
 <h1>Стереометрическая задача с доказательством</h1>
 <p class="muted">Задание 15 профиля: расстояния, углы, сечения.</p>
 <p class="small">Задания ЕГЭ 2027: Профиль: №15. Сначала повторите: <a href="stereometry.html">Стереометрия</a>, <a href="vectors.html">Векторы</a></p>
-<section id="theory"><h2>Теория</h2>
-<ul><li>Задание 15 профиля: а) доказательство, б) вычисление (3 балла).</li><li><b>Перпендикулярность</b>: теорема о трёх перпендикулярах; прямая $\perp$ плоскости, если $\perp$ двум пересекающимся прямым в ней.</li><li><b>Угол между прямой и плоскостью</b> — угол между прямой и её проекцией.</li><li><b>Угол между плоскостями</b> — линейный угол двугранного угла (два перпендикуляра к линии пересечения).</li><li><b>Расстояние от точки до плоскости</b> — длина перпендикуляра; удобно через объём: $h=\frac{3V}{S}$.</li><li><b>Сечения</b>: продолжайте прямые в одной грани до пересечения с ребром (метод следов).</li><li><b>Координатный метод</b>: плоскость $ax+by+cz+d=0$,</li></ul>
-<div>$$\rho=\frac{|ax_0+by_0+cz_0+d|}{\sqrt{a^2+b^2+c^2}},\qquad \cos\varphi=\frac{|\vec n_1\cdot\vec n_2|}{|\vec n_1||\vec n_2|}$$</div>
-<h2>Примеры</h2>
-<h3>Пример 1</h3>
-<p>Единичный куб $ABCDA_1B_1C_1D_1$, расстояние от $A$ до плоскости $A_1BD$. Тетраэдр $AA_1BD$: $V=\frac16$, $\triangle A_1BD$ равносторонний со стороной $\sqrt2$, $S=\frac{\sqrt3}{2}$. $h=\frac{3V}S=\frac{1/2}{\sqrt3/2}=\frac{1}{\sqrt3}$.</p></section>
+<section id="theory"><h2>Что это за задание</h2>
+<p><b>Профиль, задание 15</b> — стереометрическая задача с развёрнутым решением, до <b>3 баллов</b>. Как и в планиметрии, два пункта:</p>
+<ul><li><b>а) доказать</b> (перпендикулярность прямых или плоскостей, параллельность, что сечение — определённая фигура, сравнение углов);</li><li><b>б) вычислить</b> угол, расстояние, площадь сечения или объём.</li></ul>
+<p>Пункт б) можно решать, опираясь на а), даже если а) не доказан. Перед этой темой нужно уверенно знать «Стереометрию», «Планиметрию» и «Векторы». Всё в этой теме — уровень профиля.</p>
+<h2>Основные понятия</h2>
+<ul><li><b>Прямая перпендикулярна плоскости</b>, если она перпендикулярна <b>любой</b> прямой в этой плоскости.</li><li><b>Признак перпендикулярности прямой и плоскости:</b> достаточно, чтобы прямая была перпендикулярна <b>двум пересекающимся</b> прямым этой плоскости. Это главный инструмент доказательства.</li><li><b>Скрещивающиеся прямые</b> — не пересекаются и не параллельны (лежат в разных плоскостях). Угол между ними — угол между параллельными им пересекающимися прямыми.</li><li><b>Угол между прямой и плоскостью</b> — угол между прямой и её проекцией на плоскость (тень при свете сверху).</li><li><b>Двугранный угол</b> (угол между плоскостями) — угол между двумя перпендикулярами к линии пересечения плоскостей, проведёнными в каждой плоскости из одной точки.</li><li><b>Расстояние от точки до плоскости</b> — длина перпендикуляра. <b>Расстояние от точки до прямой</b> — длина перпендикуляра на прямую.</li></ul>
+<h2>Ключевые теоремы</h2>
+<ul><li><b>Теорема о трёх перпендикулярах.</b> Пусть $AH$ — перпендикуляр к плоскости, $AM$ — наклонная, $HM$ — её проекция. Прямая $l$ в плоскости, проходящая через $M$, перпендикулярна наклонной $AM$ тогда и только тогда, когда она перпендикулярна проекции $HM$.</li><li><b>Признак перпендикулярности плоскостей:</b> если плоскость содержит прямую, перпендикулярную другой плоскости, плоскости перпендикулярны.</li><li><b>Признак параллельности прямой и плоскости:</b> прямая параллельна какой-либо прямой в плоскости (и не лежит в ней).</li></ul>
+<h2>Метод координат (универсальный способ для пункта б)</h2>
+<p>Если «увидеть» перпендикуляр трудно, вводим систему координат (удобно в кубе, прямоугольном параллелепипеде, прямой призме) и считаем по формулам.</p>
+<ul><li>Вектор по точкам, длина, скалярное произведение — как в теме «Векторы», с третьей координатой $z$.</li><li>Угол между прямыми с направляющими векторами $\vec a$ и $\vec b$: $\cos\varphi=\frac{|\vec a\cdot\vec b|}{|\vec a|\cdot|\vec b|}$ (модуль — потому что угол между прямыми не больше $90^\circ$).</li><li>Уравнение плоскости: $Ax+By+Cz+D=0$; вектор $\vec n=(A;B;C)$ — <b>нормаль</b> (перпендикуляр к плоскости). Коэффициенты находят, подставив три точки плоскости.</li><li>Угол между прямой (вектор $\vec a$) и плоскостью (нормаль $\vec n$): $\sin\varphi=\frac{|\vec a\cdot\vec n|}{|\vec a|\cdot|\vec n|}$. Синус, а не косинус: угол с нормалью дополняет искомый до $90^\circ$.</li><li>Расстояние от точки $(x_0;y_0;z_0)$ до плоскости: $\rho=\frac{|Ax_0+By_0+Cz_0+D|}{\sqrt{A^2+B^2+C^2}}$.</li></ul>
+<h2>Разобранные примеры</h2>
+<p>Во всех примерах куб $ABCDA_1B_1C_1D_1$ с ребром 1 и координаты: $A(0;0;0)$, $B(1;0;0)$, $C(1;1;0)$, $D(0;1;0)$, а точки с индексом 1 — те же, но $z=1$ (например, $D_1(0;1;1)$).</p>
+<h3>Пример 1. Доказательство через признак (пункт а)</h3>
+<p><b>Докажите</b>, что $BD_1\perp AC$.</p>
+<ol><li>$AC\perp BD$ — диагонали квадрата $ABCD$ перпендикулярны.</li><li>$AC\perp DD_1$ — ребро $DD_1$ перпендикулярно плоскости основания, значит и любой прямой в ней.</li><li>$BD$ и $DD_1$ пересекаются и задают плоскость $BDD_1$. По признаку $AC\perp(BDD_1)$.</li><li>Прямая $BD_1$ лежит в плоскости $BDD_1$, поэтому $AC\perp BD_1$. Что и требовалось доказать.</li></ol>
+<p>Проверка координатами: $\overrightarrow{BD_1}=(-1;1;1)$, $\overrightarrow{AC}=(1;1;0)$, скалярное произведение $-1+1+0=0$.</p>
+<h3>Пример 2. Расстояние от точки до прямой (пункт б)</h3>
+<p>Найдите расстояние от $C$ до прямой $BD_1$.</p>
+<ol><li>Рассмотрим треугольник $BCD_1$: $BC=1$, $CD_1=\sqrt2$ (диагональ грани), $BD_1=\sqrt3$ (диагональ куба).</li><li>$BC\perp CD_1$: ребро $BC$ перпендикулярно грани $CDD_1C_1$, в которой лежит $CD_1$. Значит угол $C$ прямой (проверка: $1+2=3$).</li><li>Искомое расстояние — высота из прямого угла: $h=\frac{BC\cdot CD_1}{BD_1}=\frac{1\cdot\sqrt2}{\sqrt3}=\frac{\sqrt6}3$.</li></ol>
+<p>Почему такая формула: удвоенная площадь треугольника равна и произведению катетов, и гипотенузе на высоту. Ответ: $\frac{\sqrt6}3$.</p>
+<h3>Пример 3. Угол между прямой и плоскостью</h3>
+<p>Найдите тангенс угла между диагональю $AC_1$ и плоскостью основания $ABC$.</p>
+<ol><li>Проекция точки $C_1$ на основание — точка $C$, значит проекция $AC_1$ — это $AC$.</li><li>Треугольник $ACC_1$ прямоугольный (угол $C$), $CC_1=1$, $AC=\sqrt2$.</li><li>$\operatorname{tg}\varphi=\frac{CC_1}{AC}=\frac1{\sqrt2}=\frac{\sqrt2}2$.</li></ol>
+<p>Координатами: $\overrightarrow{AC_1}=(1;1;1)$, нормаль основания $(0;0;1)$, $\sin\varphi=\frac1{\sqrt3}$, $\cos\varphi=\sqrt{\frac23}$, $\operatorname{tg}\varphi=\frac1{\sqrt2}$ — совпало.</p>
+<h3>Пример 4. Расстояние от точки до плоскости</h3>
+<p>Найдите расстояние от $A$ до плоскости $A_1BD$.</p>
+<ol><li>Точки: $A_1(0;0;1)$, $B(1;0;0)$, $D(0;1;0)$. Подбираем плоскость: сумма координат у каждой точки равна 1, значит уравнение $x+y+z-1=0$.</li><li>Для $A(0;0;0)$: $\rho=\frac{|0+0+0-1|}{\sqrt{1+1+1}}=\frac1{\sqrt3}=\frac{\sqrt3}3$.</li></ol>
+<p>Ответ: $\frac{\sqrt3}3$. Заметьте: это треть диагонали куба $AC_1=\sqrt3$ — плоскость $A_1BD$ перпендикулярна $AC_1$ и отсекает от неё треть.</p>
+<h2>Как оформлять</h2>
+<ul><li>Чертёж с обозначениями, построенные элементы (сечения, перпендикуляры) отмечены.</li><li>В доказательстве — ссылки на признаки и теоремы: «по признаку перпендикулярности прямой и плоскости».</li><li>При методе координат: явно указать начало и оси, выписать координаты точек, формулы, вычисления.</li><li>Ответ отдельной строкой, иррациональность лучше упростить ($\frac1{\sqrt3}=\frac{\sqrt3}3$).</li></ul>
+<h2>Типичные ошибки</h2>
+<ul><li>Доказывают перпендикулярность прямой к плоскости, проверив только <b>одну</b> прямую плоскости (нужны две пересекающиеся).</li><li>Угол между прямой и плоскостью считают через косинус с нормалью — получается дополнение до $90^\circ$.</li><li>Неверно ставят координаты точек (особенно верхних вершин). Проверка: длина ребра по координатам должна совпасть с условием.</li><li>В правильной треугольной призме или пирамиде неудобно выбирают оси — лучше поставить начало в вершину или центр основания и одну ось вдоль стороны.</li></ul>
+<h2>Алгоритм</h2>
+<ol><li>Построить чертёж, найти (или построить) нужный элемент: сечение, перпендикуляр, проекцию.</li><li>Для а): найти две пересекающиеся прямые, к которым нужная прямая перпендикулярна, или применить теорему о трёх перпендикулярах.</li><li>Для б): свести к плоскому треугольнику (часто прямоугольному) <b>или</b> перейти к координатам.</li><li>Проверить численно: длины положительны, синус и косинус от 0 до 1, расстояние не больше длины любой наклонной.</li></ol></section>
 <h2>Практика</h2>
 <div class="card"><div class="row" style="margin-top:0"><button type="button" data-level="all" class="on">Все</button><button type="button" data-level="profile">Профиль</button>
 <label class="small"><input type="checkbox" id="onlynew"> только нерешённые</label>
@@ -58,10 +88,6 @@ nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-
 function store(){try{return window.localStorage}catch(e){return null}}
 function loadProg(){try{return JSON.parse(store().getItem('ege-progress')||'{}')}catch(e){return {}}}
 function saveProg(p){try{store().setItem('ege-progress',JSON.stringify(p))}catch(e){}}
-(function(){var b=document.getElementById('theme');if(!b)return;var t=null;try{t=store().getItem('ege-theme')}catch(e){}
-if(t)document.documentElement.dataset.theme=t;
-b.onclick=function(){var dark=matchMedia('(prefers-color-scheme: dark)').matches;var cur=document.documentElement.dataset.theme||(dark?'dark':'light');
-var n=cur==='dark'?'light':'dark';document.documentElement.dataset.theme=n;try{store().setItem('ege-theme',n)}catch(e){}}})();
 
 var TASKS=JSON.parse(document.getElementById('tasks-data').textContent);
 var prog=loadProg(),level='all',onlyNew=false;

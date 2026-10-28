@@ -5,9 +5,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <style>
-:root{--bg:#fafaf7;--fg:#1d1d1b;--muted:#6b6b66;--card:#fff;--line:#e3e2dc;--acc:#2c5fd6;--ok:#1f8a4c;--bad:#c4392f;--warn:#a86a00;--code:#f1f0ea}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}}
-:root[data-theme=dark]{--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
+:root{color-scheme:dark;--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 main{max-width:860px;margin:0 auto;padding:16px}
@@ -32,18 +30,60 @@ button.on{outline:2px solid var(--acc)}
 .task.ok{border-left:4px solid var(--ok)}.task.bad{border-left:4px solid var(--bad)}
 .sol{margin-top:10px;padding:10px;background:var(--code);border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere}
 .bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:6px}.bar>i{display:block;height:100%;background:var(--ok)}
-nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center}
+nav.top{display:flex;gap:4px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:8px}
+nav.top a{text-decoration:none;color:var(--fg);padding:6px 12px;border-radius:8px;border:1px solid transparent;font-size:.95rem}
+nav.top a:hover{border-color:var(--line)}nav.top a[aria-current=page]{background:var(--acc);color:#0e0e0d;font-weight:600}
+@media (max-width:480px){nav.top a{flex:1 1 auto;text-align:center;padding:6px 8px;font-size:.875rem}}
 </style></head><body><main>
-<nav class="top"><a href="../index.html">← Все темы</a><button id="theme" type="button">Тема: светлая/тёмная</button></nav>
+<nav class="top"><a href="../index.html">Темы</a><a href="../plan.html">План подготовки</a><a href="../exam.html">Пробный экзамен</a><a href="../about.html">Об экзамене</a></nav>
 
 <h1>Планиметрическая задача с доказательством</h1>
 <p class="muted">Задание 18 профиля.</p>
 <p class="small">Задания ЕГЭ 2027: Профиль: №18. Сначала повторите: <a href="planimetry.html">Планиметрия</a></p>
-<section id="theory"><h2>Теория</h2>
-<ul><li>Задание 18 профиля: пункт а) — <b>доказать</b>, пункт б) — <b>вычислить</b> (3 балла).</li><li>Типовые инструменты: подобие треугольников (по двум углам), вписанные углы, свойства касательных, теоремы синусов/косинусов, свойство биссектрисы $\frac{AL}{LC}=\frac{AB}{BC}$, площади.</li><li>Признаки вписанного четырёхугольника: сумма противоположных углов $180^\circ$ или равные углы, опирающиеся на один отрезок.</li><li>Оформление: чертёж, перечень фактов со ссылками на теоремы, ответ.</li><li>Пункт б) можно решать, используя утверждение а), даже если а) не доказан.</li></ul>
-<h2>Примеры</h2>
-<h3>Пример 1</h3>
-<p>Докажите, что высоты $AA_1$ и $BB_1$ остроугольного треугольника отсекают подобный треугольник $A_1B_1C\sim ABC$. Точки $A_1$, $B_1$ лежат на окружности с диаметром $AB$ (прямые углы), поэтому $ABA_1B_1$ вписанный и $\angle CA_1B_1=\angle CAB$. Угол $C$ общий — подобие по двум углам, $k=\cos C$.</p></section>
+<section id="theory"><h2>Что это за задание</h2>
+<p><b>Профиль, задание 18</b> — геометрическая задача с развёрнутым решением, до <b>3 баллов</b>. Состоит из двух пунктов:</p>
+<ul><li><b>а) доказать</b> утверждение (например, что два угла равны, что точки лежат на одной окружности, что отрезки равны);</li><li><b>б) вычислить</b> длину, угол, площадь или отношение.</li></ul>
+<p>Это одна из самых трудных задач экзамена. Реалистичная цель для большинства — <b>1 балл за пункт а)</b> или <b>за пункт б)</b>, решённый с опорой на а). Пункт б) можно решать, <b>используя утверждение а) даже без доказательства</b> — за верное б) баллы дадут.</p>
+<p>Перед этой темой нужно хорошо знать базовую «Планиметрию».</p>
+<h2>Что значит «доказать»</h2>
+<p>Доказательство — цепочка утверждений, где каждое следует из предыдущих по известной теореме или из условия. Пишем не «видно по рисунку», а «так как ..., то ... (по теореме ...)».</p>
+<p>Пример записи шага: «$\angle ACB=90^\circ$, так как он вписанный и опирается на диаметр $AB$».</p>
+<h2>Главные инструменты</h2>
+<h3>1. Равенство и подобие треугольников</h3>
+<ul><li>Треугольники <b>равны</b> по двум сторонам и углу между ними, по стороне и двум прилежащим углам, по трём сторонам.</li><li>Треугольники <b>подобны</b> по двум равным углам (самый частый признак), по двум пропорциональным сторонам и углу между ними, по трём пропорциональным сторонам.</li><li>Из подобия: $\frac{a_1}{a_2}=\frac{b_1}{b_2}=k$, отношение площадей $k^2$.</li></ul>
+<h3>2. Углы в окружности</h3>
+<ul><li>Вписанный угол равен половине дуги, на которую опирается; вписанные углы на одну дугу равны.</li><li>Угол между касательной и хордой равен половине дуги, заключённой между ними.</li><li>Если $\angle AXB=90^\circ$, то $X$ лежит на окружности с диаметром $AB$.</li></ul>
+<h3>3. Признаки вписанного четырёхугольника</h3>
+<p>Четыре точки лежат на одной окружности, если:</p>
+<ul><li>сумма противоположных углов четырёхугольника $180^\circ$, или</li><li>отрезок виден из двух других точек (по одну сторону от него) под равными углами.</li></ul>
+<p>Это ключ ко многим задачам: доказали, что четырёхугольник вписанный, — получили много равных углов.</p>
+<h3>4. Метрические факты</h3>
+<ul><li>Свойство биссектрисы: биссектриса $AL$ треугольника $ABC$ делит сторону $BC$ в отношении прилежащих сторон: $\frac{BL}{LC}=\frac{AB}{AC}$.</li><li>Пересекающиеся хорды $AB$ и $CD$ в точке $E$: $AE\cdot EB=CE\cdot ED$.</li><li>Касательная и секущая из точки $M$: $MT^2=MA\cdot MB$ ($T$ — точка касания, $A,B$ — точки пересечения секущей).</li><li>Теоремы синусов и косинусов, формулы площади $S=\frac12ab\sin\gamma$, $S=pr$, $S=\frac{abc}{4R}$.</li></ul>
+<h3>5. Вспомогательные построения</h3>
+<p>Если идея не видна, попробуйте: провести высоту; продлить медиану на её длину; провести радиус в точку касания; соединить центр с точками; отметить все равные углы одной дугой.</p>
+<h2>Разобранные примеры</h2>
+<h3>Пример 1. Пересекающиеся хорды (подготовка)</h3>
+<p><b>Докажите</b>, что если хорды $AB$ и $CD$ пересекаются в точке $E$, то $AE\cdot EB=CE\cdot ED$.</p>
+<ol><li>Рассмотрим треугольники $AEC$ и $DEB$.</li><li>$\angle AEC=\angle DEB$ — вертикальные.</li><li>$\angle CAB=\angle CDB$ — вписанные, опираются на одну дугу $CB$.</li><li>Значит, треугольники подобны по двум углам: $\frac{AE}{DE}=\frac{CE}{BE}$.</li><li>Перемножаем «крест-накрест»: $AE\cdot EB=CE\cdot ED$. Что и требовалось доказать.</li></ol>
+<p>Числовая проверка: $AE=2$, $EB=6$, $CE=3$ — тогда $ED=\frac{12}3=4$.</p>
+<h3>Пример 2. Свойство биссектрисы в вычислении</h3>
+<p>В треугольнике $ABC$: $AB=6$, $AC=9$, $BC=5$, $AM$ — биссектриса. Найдите $BM$ и $MC$.</p>
+<ol><li>По свойству биссектрисы $\frac{BM}{MC}=\frac{AB}{AC}=\frac69=\frac23$.</li><li>Делим $BC=5$ в отношении $2:3$: одна часть $5:5=1$, $BM=2$, $MC=3$.</li></ol>
+<p>Ответ: $BM=2$, $MC=3$. Проверка: $2+3=5$ и $\frac23=\frac69$.</p>
+<h3>Пример 3. Высоты и подобие (уровень ЕГЭ, пункт а)</h3>
+<p>В остроугольном треугольнике $ABC$ проведены высоты $AA_1$ и $BB_1$. <b>Докажите</b>, что $\triangle A_1B_1C\sim\triangle ABC$.</p>
+<ol><li>$\angle AA_1B=90^\circ$ и $\angle AB_1B=90^\circ$. Значит, точки $A_1$ и $B_1$ видят отрезок $AB$ под прямым углом и лежат на окружности с диаметром $AB$.</li><li>Четырёхугольник $ABA_1B_1$ вписанный, поэтому $\angle BAB_1+\angle BA_1B_1=180^\circ$.</li><li>Углы $\angle BA_1B_1$ и $\angle CA_1B_1$ смежные, их сумма $180^\circ$. Сравнивая с п. 2: $\angle CA_1B_1=\angle BAB_1=\angle CAB$.</li><li>Угол $C$ у треугольников общий. По двум углам $\triangle A_1B_1C\sim\triangle ABC$.</li></ol>
+<p><b>Продолжение (пункт б).</b> Коэффициент подобия: $k=\frac{CA_1}{CA}=\cos C$ (из прямоугольного треугольника $AA_1C$). Если, например, $\angle C=60^\circ$ и $AB=10$, то $A_1B_1=AB\cdot\cos C=10\cdot\frac12=5$.</p>
+<h3>Пример 4. Касательная и секущая</h3>
+<p>Из точки $M$ проведены касательная $MT$ и секущая, пересекающая окружность в точках $A$ и $B$ ($MA&lt;MB$), $MA=4$, $AB=5$. Найдите $MT$.</p>
+<ol><li>$MB=MA+AB=9$.</li><li>$MT^2=MA\cdot MB=4\cdot9=36$, $MT=6$.</li></ol>
+<p>Почему это верно: $\triangle MTA\sim\triangle MBT$ (угол $M$ общий, $\angle MTA=\angle MBT$ — угол между касательной и хордой равен вписанному углу, опирающемуся на ту же дугу $AT$), откуда $\frac{MT}{MB}=\frac{MA}{MT}$.</p>
+<h2>Как оформлять (чтобы не терять баллы)</h2>
+<ul><li>Чертёж с обозначениями.</li><li>Каждое утверждение — с причиной: «по условию», «как вертикальные», «по теореме о вписанном угле».</li><li>В пункте б) — все вычисления и ответ отдельной строкой.</li><li>Если используете пункт а) без доказательства — так и напишите: «по пункту а)».</li></ul>
+<h2>Типичные ошибки</h2>
+<ul><li>Доказательство «по рисунку»: «углы, очевидно, равны». Нужна причина.</li><li>Использование того, что требуется доказать, как уже известного (порочный круг).</li><li>Чертёж частного случая (например, равнобедренный треугольник), из-за которого кажутся верными лишние факты.</li><li>В подобии перепутано соответствие вершин: равные углы должны стоять на одинаковых местах в записи $\triangle ABC\sim\triangle A_1B_1C_1$.</li></ul>
+<h2>Самопроверка и алгоритм</h2>
+<ol><li>Сделать большой аккуратный чертёж, отметить данные (равные отрезки чёрточками, равные углы дугами).</li><li>Выписать, что надо доказать, и спросить себя: «из какой теоремы такое следует?» (равные углы ← подобие, вписанный угол, параллельность; равные отрезки ← равные треугольники, касательные).</li><li>Искать подобные треугольники и вписанные четырёхугольники.</li><li>Пункт б): ввести неизвестную, записать подобие или теорему косинусов, решить.</li><li>Проверить ответ «на глаз» по чертежу и на правдоподобие (длина положительна, меньше суммы сторон и т.п.).</li></ol></section>
 <h2>Практика</h2>
 <div class="card"><div class="row" style="margin-top:0"><button type="button" data-level="all" class="on">Все</button><button type="button" data-level="profile">Профиль</button>
 <label class="small"><input type="checkbox" id="onlynew"> только нерешённые</label>
@@ -57,10 +97,6 @@ nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-
 function store(){try{return window.localStorage}catch(e){return null}}
 function loadProg(){try{return JSON.parse(store().getItem('ege-progress')||'{}')}catch(e){return {}}}
 function saveProg(p){try{store().setItem('ege-progress',JSON.stringify(p))}catch(e){}}
-(function(){var b=document.getElementById('theme');if(!b)return;var t=null;try{t=store().getItem('ege-theme')}catch(e){}
-if(t)document.documentElement.dataset.theme=t;
-b.onclick=function(){var dark=matchMedia('(prefers-color-scheme: dark)').matches;var cur=document.documentElement.dataset.theme||(dark?'dark':'light');
-var n=cur==='dark'?'light':'dark';document.documentElement.dataset.theme=n;try{store().setItem('ege-theme',n)}catch(e){}}})();
 
 var TASKS=JSON.parse(document.getElementById('tasks-data').textContent);
 var prog=loadProg(),level='all',onlyNew=false;

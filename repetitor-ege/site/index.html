@@ -5,9 +5,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <style>
-:root{--bg:#fafaf7;--fg:#1d1d1b;--muted:#6b6b66;--card:#fff;--line:#e3e2dc;--acc:#2c5fd6;--ok:#1f8a4c;--bad:#c4392f;--warn:#a86a00;--code:#f1f0ea}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}}
-:root[data-theme=dark]{--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
+:root{color-scheme:dark;--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 main{max-width:860px;margin:0 auto;padding:16px}
@@ -32,14 +30,15 @@ button.on{outline:2px solid var(--acc)}
 .task.ok{border-left:4px solid var(--ok)}.task.bad{border-left:4px solid var(--bad)}
 .sol{margin-top:10px;padding:10px;background:var(--code);border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere}
 .bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:6px}.bar>i{display:block;height:100%;background:var(--ok)}
-nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center}
+nav.top{display:flex;gap:4px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:8px}
+nav.top a{text-decoration:none;color:var(--fg);padding:6px 12px;border-radius:8px;border:1px solid transparent;font-size:.95rem}
+nav.top a:hover{border-color:var(--line)}nav.top a[aria-current=page]{background:var(--acc);color:#0e0e0d;font-weight:600}
+@media (max-width:480px){nav.top a{flex:1 1 auto;text-align:center;padding:6px 8px;font-size:.875rem}}
 </style></head><body><main>
-<nav class="top"><span></span><button id="theme" type="button">Тема: светлая/тёмная</button></nav>
+<nav class="top"><a href="index.html" aria-current="page">Темы</a><a href="plan.html">План подготовки</a><a href="exam.html">Пробный экзамен</a><a href="about.html">Об экзамене</a></nav>
 
 <h1>ЕГЭ по математике 2027 — темы</h1>
 <p class="muted">Теория, разобранные примеры и задания из открытого банка по каждой теме. Базовый и профильный уровни.</p>
-<p><a class="card" style="display:block;border:2px solid var(--acc)" href="plan.html"><b>План подготовки →</b> <span class="small muted">маршрут по неделям до экзамена, прогресс, следующий шаг</span></a>
-<a class="card" style="display:block" href="exam.html"><b>Пробный экзамен →</b> <span class="small muted">полный вариант на время, автопроверка, перевод в баллы</span></a></p>
 <div class="grid"><a class="card" href="topics/arithmetic.html" data-ids="sdamgia-base-77334 sdamgia-base-26624 sdamgia-base-26623 sdamgia-base-504400 sdamgia-base-318579 sdamgia-base-26632 sdamgia-base-506125 sdamgia-base-323510 sdamgia-base-26636 sdamgia-base-506389 sdamgia-base-323513 sdamgia-base-26640 sdamgia-base-26626 sdamgia-base-323514 sdamgia-base-77331 sdamgia-base-26637 sdamgia-base-26617 sdamgia-base-77332 sdamgia-base-26641 sdamgia-base-26622 sdamgia-base-506492 sdamgia-base-506128 sdamgia-base-506352 sdamgia-base-506412 sdamgia-base-506372 sdamgia-base-506309 sdamgia-base-510705 sdamgia-base-506315 sdamgia-base-506452 sdamgia-base-506782 sdamgia-base-506432 sdamgia-base-506533 sdamgia-base-512671 sdamgia-base-506472 sdamgia-base-506531 sdamgia-base-507048 sdamgia-base-506512 sdamgia-base-507047 sdamgia-base-513734 sdamgia-base-506532 sdamgia-base-509586 sdamgia-base-86983 sdamgia-base-16621 sdamgia-base-509646 sdamgia-base-506985 sdamgia-base-26900 sdamgia-base-509706 sdamgia-base-511954 sdamgia-base-506120 sdamgia-base-510017 sdamgia-base-507521 sdamgia-base-510192 sdamgia-base-509208 sdamgia-base-77392 sdamgia-base-509606 sdamgia-base-506324 sdamgia-base-509626 sdamgia-base-506816 sdamgia-base-509726 sdamgia-base-514875 sdamgia-base-26618 sdamgia-base-26619 sdamgia-base-26620 sdamgia-base-26621 sdamgia-base-26627 sdamgia-base-26628 sdamgia-base-26629 sdamgia-base-26630 sdamgia-base-26631 sdamgia-base-26633 sdamgia-base-26643 sdamgia-base-26644 sdamgia-base-26645 sdamgia-base-77340 sdamgia-base-77341 sdamgia-base-77342 sdamgia-base-77343 sdamgia-base-77344 sdamgia-base-77345 sdamgia-base-77346">
 <b>Числа и вычисления</b><div class="small muted">Дроби, десятичные, округление, единицы измерения, проценты в одно действие.</div>
 <div><span class="tag">База №1, 2, 14, 15</span></div>
@@ -108,10 +107,6 @@ nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-
 function store(){try{return window.localStorage}catch(e){return null}}
 function loadProg(){try{return JSON.parse(store().getItem('ege-progress')||'{}')}catch(e){return {}}}
 function saveProg(p){try{store().setItem('ege-progress',JSON.stringify(p))}catch(e){}}
-(function(){var b=document.getElementById('theme');if(!b)return;var t=null;try{t=store().getItem('ege-theme')}catch(e){}
-if(t)document.documentElement.dataset.theme=t;
-b.onclick=function(){var dark=matchMedia('(prefers-color-scheme: dark)').matches;var cur=document.documentElement.dataset.theme||(dark?'dark':'light');
-var n=cur==='dark'?'light':'dark';document.documentElement.dataset.theme=n;try{store().setItem('ege-theme',n)}catch(e){}}})();
 
 var prog=loadProg();
 document.querySelectorAll('[data-ids]').forEach(function(el){var ids=el.dataset.ids.split(' ');var ok=ids.filter(function(i){return prog[i]==='ok'}).length;

@@ -5,9 +5,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <style>
-:root{--bg:#fafaf7;--fg:#1d1d1b;--muted:#6b6b66;--card:#fff;--line:#e3e2dc;--acc:#2c5fd6;--ok:#1f8a4c;--bad:#c4392f;--warn:#a86a00;--code:#f1f0ea}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}}
-:root[data-theme=dark]{--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
+:root{color-scheme:dark;--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 main{max-width:860px;margin:0 auto;padding:16px}
@@ -32,21 +30,90 @@ button.on{outline:2px solid var(--acc)}
 .task.ok{border-left:4px solid var(--ok)}.task.bad{border-left:4px solid var(--bad)}
 .sol{margin-top:10px;padding:10px;background:var(--code);border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere}
 .bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:6px}.bar>i{display:block;height:100%;background:var(--ok)}
-nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center}
+nav.top{display:flex;gap:4px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:8px}
+nav.top a{text-decoration:none;color:var(--fg);padding:6px 12px;border-radius:8px;border:1px solid transparent;font-size:.95rem}
+nav.top a:hover{border-color:var(--line)}nav.top a[aria-current=page]{background:var(--acc);color:#0e0e0d;font-weight:600}
+@media (max-width:480px){nav.top a{flex:1 1 auto;text-align:center;padding:6px 8px;font-size:.875rem}}
 </style></head><body><main>
-<nav class="top"><a href="../index.html">← Все темы</a><button id="theme" type="button">Тема: светлая/тёмная</button></nav>
+<nav class="top"><a href="../index.html">Темы</a><a href="../plan.html">План подготовки</a><a href="../exam.html">Пробный экзамен</a><a href="../about.html">Об экзамене</a></nav>
 
 <h1>Уравнения с отбором корней</h1>
 <p class="muted">Задание 14 профиля: решение и отбор корней на промежутке.</p>
 <p class="small">Задания ЕГЭ 2027: Профиль: №14. Сначала повторите: <a href="equations.html">Простейшие уравнения</a>, <a href="expressions.html">Преобразования выражений</a></p>
-<section id="theory"><h2>Теория</h2>
-<ul><li>Решение оформляется в два пункта: <b>а)</b> решить уравнение; <b>б)</b> отобрать корни на промежутке.</li><li>Типовые приёмы: замена ($t=\sin x$, $t=3^x$, $t=\log_2x$), разложение на множители, однородные уравнения (деление на $\cos^2x\ne0$).</li><li><b>ОДЗ</b>: знаменатели, логарифмы, корни, $\operatorname{tg}$.</li><li>Отбор корней: по единичной окружности, двойным неравенством ($a\le x_0+\pi n\le b$, найти целые $n$) или по графику.</li><li>За задание 2 балла: 1 балл за верный пункт а) или за отбор при арифметической ошибке.</li></ul>
-<h3>Полезные формулы</h3>
-<div>$$\cos2x=1-2\sin^2x=2\cos^2x-1,\quad \sin2x=2\sin x\cos x,\quad a\sin x+b\cos x=\sqrt{a^2+b^2}\sin(x+\varphi)$$</div>
+<section id="theory"><h2>Что это и зачем</h2>
+<p>Только <b>профиль, задание 14</b> (часть 2, развёрнутое решение, <b>2 балла</b>). Базовому уровню эта тема не нужна.</p>
+<p>Задание всегда состоит из двух пунктов:</p>
+<ul><li><b>а)</b> решить уравнение — найти <b>все</b> корни (обычно это бесконечные серии вида $\frac\pi3+2\pi n$);</li><li><b>б)</b> отобрать корни, лежащие на заданном отрезке или промежутке.</li></ul>
+<p>Баллы: 2 — всё верно; 1 — верно решён пункт а), или есть арифметическая ошибка, но ход решения верный. Это самое «доступное» задание второй части, его стоит учиться решать всем, кто сдаёт профиль.</p>
+<p>Чаще всего уравнение тригонометрическое, реже — показательное, логарифмическое или рациональное. Сначала уверенно освойте тему «Простейшие уравнения»: каждое уравнение задания 14 в итоге сводится к одному или нескольким простейшим.</p>
+<h2>Главная идея: свести к простейшим</h2>
+<p>Сложное уравнение почти всегда решается одним из трёх приёмов.</p>
+<p><b>1. Замена переменной.</b> Если в уравнении много раз встречается одно и то же выражение ($\sin x$, $3^x$, $\log_2x$), обозначаем его новой буквой $t$ и получаем обычное квадратное уравнение. Решив его, возвращаемся к $x$.</p>
+<p>Важно: у новой переменной есть ограничения. Если $t=\sin x$ или $t=\cos x$, то $-1\le t\le1$. Если $t=3^x$, то $t&gt;0$. Корни $t$, не попавшие в эти рамки, отбрасываем.</p>
+<p><b>2. Разложение на множители.</b> Переносим всё в одну часть и выносим общий множитель. Произведение равно нулю, когда <b>хотя бы один</b> множитель равен нулю (и остальные при этом имеют смысл):</p>
+<div>$$A\cdot B=0\iff A=0\ \text{или}\ B=0$$</div>
+<p>Никогда не <b>делите</b> на выражение с $x$, например на $\sin x$, — так теряются корни. Выносите за скобку.</p>
+<p><b>3. Однородное уравнение.</b> Уравнение вида $a\sin^2x+b\sin x\cos x+c\cos^2x=0$ («все слагаемые второй степени»). Делим на $\cos^2x$, предварительно проверив, что $\cos x=0$ корнем не является, и получаем квадратное уравнение относительно $\operatorname{tg}x$.</p>
+<h2>Формулы тригонометрии, которые нужны</h2>
+<table><thead><tr><th>Формула</th><th>Когда применять</th></tr></thead><tbody><tr><td>$\sin^2x+\cos^2x=1$</td><td>заменить $\sin^2x$ на $1-\cos^2x$ или наоборот; число $1$ можно заменить на $\sin^2x+\cos^2x$</td></tr><tr><td>$\sin2x=2\sin x\cos x$</td><td>двойной угол рядом с $\sin x$ или $\cos x$</td></tr><tr><td>$\cos2x=\cos^2x-\sin^2x=2\cos^2x-1=1-2\sin^2x$</td><td>выбираем вариант, чтобы осталась одна функция</td></tr><tr><td>$\operatorname{tg}x=\frac{\sin x}{\cos x}$</td><td>ОДЗ: $\cos x\ne0$</td></tr><tr><td>$a\sin x+b\cos x=\sqrt{a^2+b^2}\,\sin(x+\varphi)$</td><td>где $\cos\varphi=\frac a{\sqrt{a^2+b^2}}$, $\sin\varphi=\frac b{\sqrt{a^2+b^2}}$</td></tr></tbody></table>
+<p><b>Формулы приведения</b> (для $\sin(\frac\pi2+x)$, $\cos(\pi-x)$ и т.п.):</p>
+<ul><li>если в скобке $\pi\pm x$ или $2\pi\pm x$ — название функции не меняется; если $\frac\pi2\pm x$ или $\frac{3\pi}2\pm x$ — синус меняется на косинус и наоборот;</li><li>знак результата — это знак <b>исходной</b> функции в той четверти, куда попадает угол, если считать $x$ маленьким острым углом.</li></ul>
+<p>Например: $\sin(\frac\pi2+x)=\cos x$ (угол во II четверти, синус там $+$); $\cos(\pi-x)=-\cos x$ (II четверть, косинус там $-$).</p>
+<h2>ОДЗ</h2>
+<p>Перед решением выпишите ограничения:</p>
+<ul><li>знаменатель $\ne0$;</li><li>выражение под корнем чётной степени $\ge0$;</li><li>аргумент логарифма $&gt;0$, основание $&gt;0$ и $\ne1$;</li><li>$\operatorname{tg}x$ существует при $\cos x\ne0$, $\operatorname{ctg}x$ — при $\sin x\ne0$.</li></ul>
+<p>В конце пункта а) уберите из ответа корни, не входящие в ОДЗ.</p>
+<h2>Как отбирать корни (пункт б)</h2>
+<p>Есть три способа — выберите один и пользуйтесь им уверенно.</p>
+<p><b>Способ 1. Двойное неравенство</b> (самый надёжный, работает всегда). Для серии $x=x_0+\pi n$ и отрезка $[a;b]$ решаем $a\le x_0+\pi n\le b$ относительно $n$ и берём <b>целые</b> $n$.</p>
+<p><b>Способ 2. Единичная окружность.</b> Отмечаем на окружности дугу, соответствующую отрезку, и точки серий; выписываем точки, попавшие на дугу. Наглядно, но нужно аккуратно подписывать углы.</p>
+<p><b>Способ 3. Перебор.</b> Подставляем $n=-2,-1,0,1,2,\dots$ и смотрим, какие значения попали в отрезок. Удобно, когда отрезок короткий.</p>
+<p>Чтобы сравнивать числа с $\pi$, удобно делить всё на $\pi$: например, $\frac{17\pi}6$ лежит на $[\frac{5\pi}2;\frac{7\pi}2]$, потому что $2{,}5\le\frac{17}6\approx2{,}83\le3{,}5$.</p>
 <h2>Примеры</h2>
-<h3>Пример 1</h3>
-<p>а) $2\sin^2x+3\cos x=0$. Заменим $\sin^2x=1-\cos^2x$: $2\cos^2x-3\cos x-2=0$, $\cos x=-\frac12$ (корень 2 не подходит). $x=\pm\frac{2\pi}3+2\pi n$.</p>
-<p>б) На $[\pi;\frac{5\pi}2]$: из $\frac{2\pi}3+2\pi n$ — ничего ($\frac{2\pi}{3}&lt;\pi$, $\frac{8\pi}3&gt;\frac{5\pi}2$); из $-\frac{2\pi}3+2\pi n$: $n=1$ даёт $\frac{4\pi}3$. Ответ: $\frac{4\pi}3$.</p></section>
+<h3>Пример 1. Замена: косинус</h3>
+<p>а) Решите $2\sin^2x+3\cos x=0$. б) Найдите корни на $[\pi;\frac{5\pi}2]$.</p>
+<p>а) В уравнении и синус, и косинус. Чтобы осталась одна функция, заменим $\sin^2x=1-\cos^2x$:</p>
+<div>$$2(1-\cos^2x)+3\cos x=0\ \Rightarrow\ 2\cos^2x-3\cos x-2=0$$</div>
+<p>(раскрыли скобки и умножили на $-1$). Замена $t=\cos x$, $-1\le t\le1$: $2t^2-3t-2=0$, $D=9+16=25$, $t=\frac{3\pm5}4$, то есть $t=2$ или $t=-\frac12$.</p>
+<p>$t=2$ не подходит: косинус не бывает больше 1. Остаётся $\cos x=-\frac12$, $x=\pm\frac{2\pi}3+2\pi n$, $n\in\mathbb Z$.</p>
+<p>б) Серия $\frac{2\pi}3+2\pi n$: $1\le\frac23+2n\le\frac52$, то есть $\frac16\le n\le\frac{11}{12}$ — целых $n$ нет.</p>
+<p>Серия $-\frac{2\pi}3+2\pi n$: $1\le-\frac23+2n\le\frac52$, то есть $\frac56\le n\le\frac{19}{12}$, $n=1$: $x=-\frac{2\pi}3+2\pi=\frac{4\pi}3$.</p>
+<p>Ответ: а) $\pm\frac{2\pi}3+2\pi n$, $n\in\mathbb Z$; б) $\frac{4\pi}3$.</p>
+<h3>Пример 2. Разложение на множители</h3>
+<p>а) Решите $\sin2x+\sqrt3\sin x=0$. б) Найдите корни на $[\frac{5\pi}2;\frac{7\pi}2]$.</p>
+<p>а) $\sin2x=2\sin x\cos x$, поэтому $2\sin x\cos x+\sqrt3\sin x=0$. Выносим $\sin x$ (а не делим на него!):</p>
+<div>$$\sin x\,(2\cos x+\sqrt3)=0$$</div>
+<ul><li>$\sin x=0$: $x=\pi n$;</li><li>$2\cos x+\sqrt3=0$, $\cos x=-\frac{\sqrt3}2$: $x=\pm\frac{5\pi}6+2\pi n$.</li></ul>
+<p>б) Делим границы на $\pi$: ищем значения от $2{,}5$ до $3{,}5$ (в единицах $\pi$).</p>
+<ul><li>$\pi n$: $2{,}5\le n\le3{,}5$, $n=3$, $x=3\pi$.</li><li>$\frac{5\pi}6+2\pi n$: $\frac52\le\frac56+2n\le\frac72$, $\frac53\le2n\le\frac83$, $n=1$, $x=\frac{17\pi}6$.</li><li>$-\frac{5\pi}6+2\pi n$: $\frac52\le-\frac56+2n\le\frac72$, $\frac{10}3\le2n\le\frac{13}3$, $n=2$, $x=\frac{19\pi}6$.</li></ul>
+<p>Ответ: а) $\pi n$, $\pm\frac{5\pi}6+2\pi n$, $n\in\mathbb Z$; б) $\frac{17\pi}6$, $3\pi$, $\frac{19\pi}6$.</p>
+<h3>Пример 3. Однородное уравнение</h3>
+<p>а) Решите $2\cos^2x+2\sin2x=3$. б) Найдите корни на $[-\frac{3\pi}2;-\frac\pi2]$.</p>
+<p>а) Слагаемые $\cos^2x$ и $\sin2x=2\sin x\cos x$ — второй степени, а число 3 — нет. Делаем его «второй степени»: $3=3(\sin^2x+\cos^2x)$.</p>
+<div>$$2\cos^2x+4\sin x\cos x=3\sin^2x+3\cos^2x\ \Rightarrow\ 3\sin^2x-4\sin x\cos x+\cos^2x=0$$</div>
+<p>Если $\cos x=0$, то $\sin^2x=1$ и левая часть равна $3\ne0$ — значит, $\cos x\ne0$, и делить на $\cos^2x$ можно:</p>
+<div>$$3\operatorname{tg}^2x-4\operatorname{tg}x+1=0$$</div>
+<p>$t=\operatorname{tg}x$: $D=16-12=4$, $t=\frac{4\pm2}6$, то есть $t=1$ или $t=\frac13$.</p>
+<p>$x=\frac\pi4+\pi n$ или $x=\operatorname{arctg}\frac13+\pi n$.</p>
+<p>б) Отрезок от $-1{,}5\pi$ до $-0{,}5\pi$.</p>
+<ul><li>$\frac\pi4+\pi n$: $n=-1$ даёт $-\frac{3\pi}4$ (подходит), $n=-2$ даёт $-\frac{7\pi}4&lt;-\frac{3\pi}2$ (нет), $n=0$ даёт $\frac\pi4$ (нет).</li><li>$\operatorname{arctg}\frac13$ — угол между $0$ и $\frac\pi4$. При $n=-1$ получаем $\operatorname{arctg}\frac13-\pi$ — это число между $-\pi$ и $-\frac{3\pi}4$, подходит. При $n=-2$ число меньше $-2\pi+\frac\pi4=-\frac{7\pi}4$ — нет; при $n=0$ — положительное, нет.</li></ul>
+<p>Ответ: а) $\frac\pi4+\pi n$, $\operatorname{arctg}\frac13+\pi n$, $n\in\mathbb Z$; б) $-\frac{3\pi}4$, $\operatorname{arctg}\frac13-\pi$.</p>
+<h3>Пример 4. Показательное уравнение</h3>
+<p>а) Решите $9^{x-\frac12}-8\cdot3^{x-1}+5=0$. б) Найдите корни на промежутке $(1;\frac73)$.</p>
+<p>а) Всё выражаем через $3^x$: $9^{x-\frac12}=3^{2x-1}=\frac{(3^x)^2}3$, $3^{x-1}=\frac{3^x}3$. Замена $t=3^x&gt;0$:</p>
+<div>$$\frac{t^2}3-\frac{8t}3+5=0\ \Rightarrow\ t^2-8t+15=0\ \Rightarrow\ t=3\ \text{или}\ t=5$$</div>
+<p>Оба положительны. $3^x=3\Rightarrow x=1$; $3^x=5\Rightarrow x=\log_35$.</p>
+<p>б) Промежуток открытый — число 1 <b>не входит</b>. Сравним $\log_35$ с границами: $3^1=3&lt;5$, значит $\log_35&gt;1$; $3^{7/3}=9\sqrt[3]3&gt;9&gt;5$, значит $\log_35&lt;\frac73$. Подходит.</p>
+<p>Ответ: а) $1$, $\log_35$; б) $\log_35$.</p>
+<h3>Пример 5. Логарифмы и ОДЗ</h3>
+<p>а) Решите $\log_2(x+1)+\log_2(x-1)=3$.</p>
+<p>ОДЗ: $x+1&gt;0$ и $x-1&gt;0$, то есть $x&gt;1$. Сумма логарифмов — логарифм произведения: $\log_2\big((x+1)(x-1)\big)=3$, $x^2-1=8$, $x=\pm3$. Условию $x&gt;1$ удовлетворяет только $x=3$. Если не выписать ОДЗ, в ответ попадёт лишний корень $-3$.</p>
+<h2>Типичные ошибки</h2>
+<ul><li>Деление на $\sin x$ или $\cos x$ без проверки — потеря серии корней.</li><li>Не отброшен корень замены вне $[-1;1]$ (для синуса/косинуса) или $t\le0$ (для $a^x$).</li><li>Перепутаны $\pm\arccos a+2\pi n$ и $(-1)^n\arcsin a+\pi n$.</li><li>В пункте б) не учтено, что промежуток <b>открытый</b> (круглая скобка) и граница не входит.</li><li>Пропущено «$n\in\mathbb Z$» в ответе пункта а) — за это могут снять балл.</li></ul>
+<h2>Как проверить себя</h2>
+<ul><li>Подставьте один-два найденных корня в исходное уравнение (например, $x=\frac{4\pi}3$: $\sin^2x=\frac34$, $\cos x=-\frac12$, $2\cdot\frac34+3\cdot(-\frac12)=0$ — верно).</li><li>В пункте б) переведите корни в десятичные доли $\pi$ и сравните с границами.</li></ul>
+<h2>Алгоритм</h2>
+<ol><li>Выпишите ОДЗ.</li><li>Сведите уравнение к одной функции (формулы) и сделайте замену, либо разложите на множители.</li><li>Решите простейшие уравнения, запишите серии с «$n\in\mathbb Z$».</li><li>Уберите корни вне ОДЗ и вне допустимых значений замены.</li><li>Для пункта б) решите двойные неравенства для каждой серии, найдите целые $n$.</li><li>Запишите ответ отдельно для а) и б).</li></ol></section>
 <h2>Практика</h2>
 <div class="card"><div class="row" style="margin-top:0"><button type="button" data-level="all" class="on">Все</button><button type="button" data-level="profile">Профиль</button>
 <label class="small"><input type="checkbox" id="onlynew"> только нерешённые</label>
@@ -60,10 +127,6 @@ nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-
 function store(){try{return window.localStorage}catch(e){return null}}
 function loadProg(){try{return JSON.parse(store().getItem('ege-progress')||'{}')}catch(e){return {}}}
 function saveProg(p){try{store().setItem('ege-progress',JSON.stringify(p))}catch(e){}}
-(function(){var b=document.getElementById('theme');if(!b)return;var t=null;try{t=store().getItem('ege-theme')}catch(e){}
-if(t)document.documentElement.dataset.theme=t;
-b.onclick=function(){var dark=matchMedia('(prefers-color-scheme: dark)').matches;var cur=document.documentElement.dataset.theme||(dark?'dark':'light');
-var n=cur==='dark'?'light':'dark';document.documentElement.dataset.theme=n;try{store().setItem('ege-theme',n)}catch(e){}}})();
 
 var TASKS=JSON.parse(document.getElementById('tasks-data').textContent);
 var prog=loadProg(),level='all',onlyNew=false;

@@ -5,9 +5,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <style>
-:root{--bg:#fafaf7;--fg:#1d1d1b;--muted:#6b6b66;--card:#fff;--line:#e3e2dc;--acc:#2c5fd6;--ok:#1f8a4c;--bad:#c4392f;--warn:#a86a00;--code:#f1f0ea}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}}
-:root[data-theme=dark]{--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
+:root{color-scheme:dark;--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 main{max-width:860px;margin:0 auto;padding:16px}
@@ -32,31 +30,77 @@ button.on{outline:2px solid var(--acc)}
 .task.ok{border-left:4px solid var(--ok)}.task.bad{border-left:4px solid var(--bad)}
 .sol{margin-top:10px;padding:10px;background:var(--code);border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere}
 .bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:6px}.bar>i{display:block;height:100%;background:var(--ok)}
-nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center}
+nav.top{display:flex;gap:4px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:8px}
+nav.top a{text-decoration:none;color:var(--fg);padding:6px 12px;border-radius:8px;border:1px solid transparent;font-size:.95rem}
+nav.top a:hover{border-color:var(--line)}nav.top a[aria-current=page]{background:var(--acc);color:#0e0e0d;font-weight:600}
+@media (max-width:480px){nav.top a{flex:1 1 auto;text-align:center;padding:6px 8px;font-size:.875rem}}
 </style></head><body><main>
-<nav class="top"><a href="../index.html">← Все темы</a><button id="theme" type="button">Тема: светлая/тёмная</button></nav>
+<nav class="top"><a href="../index.html">Темы</a><a href="../plan.html">План подготовки</a><a href="../exam.html">Пробный экзамен</a><a href="../about.html">Об экзамене</a></nav>
 
 <h1>Финансовая математика</h1>
 <p class="muted">Кредиты и вклады: проценты, аннуитет, дифференцированные платежи.</p>
 <p class="small">Задания ЕГЭ 2027: Профиль: №13. Сначала повторите: <a href="word-problems.html">Текстовые задачи</a></p>
-<section id="theory"><h2>Теория</h2>
-<p>Пусть ставка $r\%$, $k=1+\frac r{100}$.</p>
-<h3>Вклад</h3>
-<p>Через $n$ лет при начислении сложных процентов: $S_n=S_0k^n$.</p>
-<h3>Кредит с равными платежами (аннуитет)</h3>
-<p>Долг $S$, платёж $x$ после начисления процентов, $n$ лет:</p>
-<div>$$S k^n=x(k^{n-1}+\dots+k+1)=x\frac{k^n-1}{k-1}$$</div>
-<h3>Дифференцированный платёж</h3>
-<p>Долг уменьшается <b>равномерно</b> на $\frac Sn$ в год. Платёж $i$-го года $=\frac Sn+$ проценты на остаток. Сумма выплат:</p>
-<div>$$\text{Всего}=S+\frac{r}{100}\cdot S\cdot\frac{n+1}{2}$$</div>
-<ul><li>Удобно составить таблицу «год — долг до начисления — после начисления — платёж».</li></ul>
+<section id="theory"><h2>Что это и зачем</h2>
+<p>Задачи про <b>вклады</b> (вы кладёте деньги в банк, банк начисляет проценты) и <b>кредиты</b> (вы берёте деньги у банка и возвращаете с процентами).</p>
+<p>На ЕГЭ: только <b>профиль, задание 13</b> — с 2027 г. это задание части 1 с кратким ответом (число), 1 балл. Раньше это была развёрнутая «экономическая задача». Базовому уровню тема не нужна, но первые разделы (проценты) полезны всем.</p>
+<p>Хорошая новость: почти любую задачу можно решить, <b>аккуратно расписав год за годом</b>, что происходит с суммой. Формулы только ускоряют работу.</p>
+<h2>Проценты: основа всего</h2>
+<p><b>Процент</b> — это сотая часть: $1\%=\frac1{100}=0{,}01$.</p>
+<ul><li>Найти $r\%$ от числа $S$: $S\cdot\frac r{100}$. Например, $10\%$ от 2000 — это 200.</li><li><b>Увеличить</b> $S$ на $r\%$: $S+S\cdot\frac r{100}=S\cdot\left(1+\frac r{100}\right)$. Например, 2000 увеличить на 10%: $2000\cdot1{,}1=2200$.</li><li><b>Уменьшить</b> на $r\%$: умножить на $1-\frac r{100}$.</li></ul>
+<p>Число $k=1+\frac r{100}$ — главный герой темы, <b>множитель роста</b>. При $r=10\%$: $k=1{,}1$; при $r=20\%$: $k=1{,}2$; при $r=15\%$: $k=1{,}15$.</p>
+<p>Увеличить на $r\%$ два раза подряд — это умножить на $k^2$, а не прибавить $2r\%$: $1{,}1^2=1{,}21$, то есть рост на 21%, а не на 20%. Это и называется <b>сложные проценты</b>.</p>
+<h2>Вклад</h2>
+<p>Вклад $S_0$ под $r\%$ годовых, проценты в конце каждого года прибавляются к вкладу. Через $n$ лет:</p>
+<div>$$S_n=S_0\cdot k^n,\qquad k=1+\frac r{100}$$</div>
+<ul><li>$S_0$ — начальная сумма;</li><li>$n$ — число лет;</li><li>$S_n$ — сумма через $n$ лет.</li></ul>
+<p>Если вклад пополняют или с него снимают деньги, формула не работает напрямую — расписываем по годам.</p>
+<h2>Кредит: как устроена задача</h2>
+<p>Типичное условие: «каждый январь долг возрастает на $r\%$, с февраля по июнь нужно выплатить часть долга». Значит, каждый год:</p>
+<ol><li>долг умножается на $k$ (начислены проценты);</li><li>из долга вычитается платёж.</li></ol>
+<p>Удобно вести таблицу: «год — долг в начале — долг после начисления — платёж — долг после платежа».</p>
+<p>Есть два основных типа кредитов.</p>
+<h3>Аннуитет: равные платежи</h3>
+<p>Каждый год платёж одинаковый, $x$. Долг $S$, срок $n$ лет. Пишем по годам:</p>
+<ul><li>после 1-го года: $Sk-x$;</li><li>после 2-го: $(Sk-x)k-x=Sk^2-xk-x$;</li><li>после $n$-го долг должен стать 0: $Sk^n-x(k^{n-1}+\dots+k+1)=0$.</li></ul>
+<p>Отсюда:</p>
+<div>$$Sk^n=x\left(k^{n-1}+\dots+k+1\right)=x\cdot\frac{k^n-1}{k-1}$$</div>
+<p>Для двух лет: $Sk^2=x(k+1)$. Для трёх: $Sk^3=x(k^2+k+1)$.</p>
+<h3>Дифференцированный платёж: долг уменьшается равномерно</h3>
+<p>Условие звучит как «долг на июль каждого года должен быть на одну и ту же сумму меньше долга на июль предыдущего года». Значит, долг каждый год уменьшается на $\frac Sn$:</p>
+<div>$$S,\ \frac{n-1}nS,\ \frac{n-2}nS,\ \dots,\ \frac1nS,\ 0$$</div>
+<p>Платёж каждого года = <b>проценты на текущий долг</b> + $\frac Sn$. Платежи разные (в начале больше).</p>
+<p>Общая сумма выплат = сам долг + все проценты. Проценты начисляются на долги $S,\frac{n-1}nS,\dots,\frac1nS$, их сумма равна $S\cdot\frac{n+1}2$. Поэтому:</p>
+<div>$$\text{Всего выплат}=S+\frac r{100}\cdot S\cdot\frac{n+1}2$$</div>
+<p>Переплата (сумма всех процентов) $=\frac r{100}\cdot S\cdot\frac{n+1}2$.</p>
 <h2>Примеры</h2>
-<h3>Пример 1</h3>
-<p>Вклад 100 000 р. под 10% годовых на 2 года: $100\,000\cdot1{,}21=$ <b>121 000</b> р.</p>
-<h3>Пример 2</h3>
-<p>Кредит 1 млн на 2 года под 10%, равные платежи: $1\cdot1{,}21=x(1{,}1+1)$, $x=\frac{1{,}21}{2{,}1}\approx0{,}576$ млн.</p>
-<h3>Пример 3</h3>
-<p>Кредит 1,2 млн на 4 года под 10%, долг уменьшается равномерно: переплата $0{,}1\cdot1{,}2\cdot\frac{5}{2}=0{,}3$ млн, всего <b>1,5</b> млн.</p></section>
+<h3>Пример 1. Простой вклад</h3>
+<p>100 000 р. под 10% годовых на 2 года.</p>
+<p>$k=1{,}1$, $S_2=100\,000\cdot1{,}1^2=100\,000\cdot1{,}21=121\,000$. Ответ: <b>121 000</b> р.</p>
+<h3>Пример 2. Найти ставку</h3>
+<p>Вклад 500 тыс. р. на 3 года, в конце каждого года увеличивается на $r\%$. Через 3 года на счету 665,5 тыс. р. Найдите $r$.</p>
+<p>$500k^3=665{,}5$, $k^3=1{,}331$. Заметим, что $1{,}1^3=1{,}331$ (как $11^3=1331$). Значит $k=1{,}1$, $r=10$. Ответ: <b>10</b>.</p>
+<h3>Пример 3. Вклад с пополнением</h3>
+<p>Вклад 120 млн р. на 3 года, в конце каждого года +15%, в начале каждого года начиная со второго вклад пополняют на 10 млн р. Сколько будет через 3 года?</p>
+<p>Расписываем по годам ($k=1{,}15$):</p>
+<table><thead><tr><th>Год</th><th>В начале года</th><th>В конце года ($\times1{,}15$)</th></tr></thead><tbody><tr><td>1</td><td>120</td><td>$120\cdot1{,}15=138$</td></tr><tr><td>2</td><td>$138+10=148$</td><td>$148\cdot1{,}15=170{,}2$</td></tr><tr><td>3</td><td>$170{,}2+10=180{,}2$</td><td>$180{,}2\cdot1{,}15=207{,}23$</td></tr></tbody></table>
+<p>Ответ: <b>207,23</b> млн р.</p>
+<h3>Пример 4. Равные платежи</h3>
+<p>Кредит 1,1 млн р. на 2 года под 20%, два равных платежа. Найдите платёж.</p>
+<p>$k=1{,}2$, $k^2=1{,}44$. Уравнение: $1{,}1\cdot1{,}44=x(1{,}2+1)$, то есть $1{,}584=2{,}2x$, $x=0{,}72$ млн.</p>
+<p>Проверка по годам (в тыс. р.): $1100\cdot1{,}2=1320$, после платежа $1320-720=600$; $600\cdot1{,}2=720$, после платежа $0$. Ответ: <b>720 000</b> р.</p>
+<h3>Пример 5. Долг уменьшается равномерно</h3>
+<p>Кредит 1,2 млн р. на 4 года под 10%, долг уменьшается равномерно. Сколько всего выплатить?</p>
+<p>Долг на начало каждого года: 1,2; 0,9; 0,6; 0,3 млн. Проценты: $0{,}1\cdot(1{,}2+0{,}9+0{,}6+0{,}3)=0{,}1\cdot3=0{,}3$ млн. Всего $1{,}2+0{,}3=1{,}5$ млн.</p>
+<p>По формуле: $1{,}2+0{,}1\cdot1{,}2\cdot\frac{4+1}2=1{,}2+0{,}3=1{,}5$. Ответ: <b>1,5</b> млн р.</p>
+<h3>Пример 6. Найти срок</h3>
+<p>Кредит 9 млн р. под 20% годовых, долг уменьшается равномерно, всего выплачено 14,4 млн. На сколько лет взят кредит?</p>
+<p>Переплата $14{,}4-9=5{,}4$. По формуле: $0{,}2\cdot9\cdot\frac{n+1}2=5{,}4$, то есть $0{,}9(n+1)=5{,}4$, $n+1=6$, $n=5$. Ответ: <b>5</b> лет.</p>
+<h2>Типичные ошибки</h2>
+<ul><li>Проценты складывают вместо того, чтобы перемножать множители: два раза по 10% — это $\times1{,}21$, а не $+20\%$.</li><li>Пополнение сделали <b>после</b> начисления процентов, хотя по условию оно в начале года (или наоборот). Внимательно читайте, в каком порядке идут события.</li><li>Перепутан тип кредита: «равные платежи» и «долг уменьшается на одну и ту же величину» — это разные схемы.</li><li>Ответ дан не в тех единицах (рубли / тысячи / миллионы).</li></ul>
+<h2>Как проверить себя</h2>
+<p>Распишите по годам таблицу с найденным платежом или ставкой. В конце срока долг должен стать ровно 0 (для кредита), а сумма вклада — совпасть с условием.</p>
+<h2>Алгоритм</h2>
+<ol><li>Найдите $k=1+\frac r{100}$.</li><li>Определите тип: вклад, кредит равными платежами, кредит с равномерным уменьшением долга, или нестандартная схема.</li><li>Запишите хронологию одного года: что раньше — начисление или платёж/пополнение.</li><li>Для стандартной схемы — формула; для нестандартной — таблица по годам.</li><li>Проверьте ответ таблицей и единицы измерения.</li></ol></section>
 <h2>Практика</h2>
 <div class="card"><div class="row" style="margin-top:0"><button type="button" data-level="all" class="on">Все</button><button type="button" data-level="profile">Профиль</button>
 <label class="small"><input type="checkbox" id="onlynew"> только нерешённые</label>
@@ -70,10 +114,6 @@ nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-
 function store(){try{return window.localStorage}catch(e){return null}}
 function loadProg(){try{return JSON.parse(store().getItem('ege-progress')||'{}')}catch(e){return {}}}
 function saveProg(p){try{store().setItem('ege-progress',JSON.stringify(p))}catch(e){}}
-(function(){var b=document.getElementById('theme');if(!b)return;var t=null;try{t=store().getItem('ege-theme')}catch(e){}
-if(t)document.documentElement.dataset.theme=t;
-b.onclick=function(){var dark=matchMedia('(prefers-color-scheme: dark)').matches;var cur=document.documentElement.dataset.theme||(dark?'dark':'light');
-var n=cur==='dark'?'light':'dark';document.documentElement.dataset.theme=n;try{store().setItem('ege-theme',n)}catch(e){}}})();
 
 var TASKS=JSON.parse(document.getElementById('tasks-data').textContent);
 var prog=loadProg(),level='all',onlyNew=false;

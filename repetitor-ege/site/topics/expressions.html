@@ -5,9 +5,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <style>
-:root{--bg:#fafaf7;--fg:#1d1d1b;--muted:#6b6b66;--card:#fff;--line:#e3e2dc;--acc:#2c5fd6;--ok:#1f8a4c;--bad:#c4392f;--warn:#a86a00;--code:#f1f0ea}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}}
-:root[data-theme=dark]{--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
+:root{color-scheme:dark;--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 main{max-width:860px;margin:0 auto;padding:16px}
@@ -32,34 +30,83 @@ button.on{outline:2px solid var(--acc)}
 .task.ok{border-left:4px solid var(--ok)}.task.bad{border-left:4px solid var(--bad)}
 .sol{margin-top:10px;padding:10px;background:var(--code);border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere}
 .bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:6px}.bar>i{display:block;height:100%;background:var(--ok)}
-nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center}
+nav.top{display:flex;gap:4px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:8px}
+nav.top a{text-decoration:none;color:var(--fg);padding:6px 12px;border-radius:8px;border:1px solid transparent;font-size:.95rem}
+nav.top a:hover{border-color:var(--line)}nav.top a[aria-current=page]{background:var(--acc);color:#0e0e0d;font-weight:600}
+@media (max-width:480px){nav.top a{flex:1 1 auto;text-align:center;padding:6px 8px;font-size:.875rem}}
 </style></head><body><main>
-<nav class="top"><a href="../index.html">← Все темы</a><button id="theme" type="button">Тема: светлая/тёмная</button></nav>
+<nav class="top"><a href="../index.html">Темы</a><a href="../plan.html">План подготовки</a><a href="../exam.html">Пробный экзамен</a><a href="../about.html">Об экзамене</a></nav>
 
 <h1>Преобразования выражений</h1>
 <p class="muted">Степени, корни, логарифмы, тригонометрия: вычисление значений.</p>
 <p class="small">Задания ЕГЭ 2027: База: №16; Профиль: №8. Сначала повторите: <a href="arithmetic.html">Числа и вычисления</a></p>
-<section id="theory"><h2>Теория</h2>
-<h3>Степени</h3>
-<div>$$a^m a^n=a^{m+n},\quad \frac{a^m}{a^n}=a^{m-n},\quad (a^m)^n=a^{mn},\quad a^{-n}=\frac1{a^n},\quad a^{\frac mn}=\sqrt[n]{a^m}$$</div>
-<h3>Корни</h3>
-<div>$$\sqrt{ab}=\sqrt a\sqrt b,\quad \sqrt{a^2}=|a|,\quad (\sqrt a)^2=a\ (a\ge0)$$</div>
-<h3>Логарифмы ($a&gt;0,\ a\ne1,\ b,c&gt;0$)</h3>
-<div>$$a^{\log_a b}=b,\quad \log_a(bc)=\log_a b+\log_a c,\quad \log_a\frac bc=\log_a b-\log_a c$$</div>
-<div>$$\log_a b^p=p\log_a b,\quad \log_{a^k}b=\frac1k\log_a b,\quad \log_a b=\frac{\log_c b}{\log_c a}$$</div>
-<h3>Тригонометрия</h3>
-<div>$$\sin^2x+\cos^2x=1,\quad \operatorname{tg}x=\frac{\sin x}{\cos x},\quad 1+\operatorname{tg}^2x=\frac1{\cos^2x}$$</div>
-<div>$$\sin2x=2\sin x\cos x,\quad \cos2x=\cos^2x-\sin^2x=1-2\sin^2x$$</div>
-<ul><li>Формулы приведения: $\sin(\pi-x)=\sin x$, $\cos(\pi-x)=-\cos x$, $\sin(\frac\pi2-x)=\cos x$.</li><li>Знак определяется четвертью угла.</li></ul>
-<h3>Сокращённое умножение</h3>
-<div>$$(a\pm b)^2=a^2\pm2ab+b^2,\quad a^2-b^2=(a-b)(a+b)$$</div>
-<h2>Примеры</h2>
-<h3>Пример 1</h3>
-<p>$\log_3 162-\log_3 2=\log_3 81=4$.</p>
-<h3>Пример 2</h3>
-<p>$\frac{2^{7}\cdot 2^{-3}}{4}=\frac{2^4}{2^2}=4$.</p>
-<h3>Пример 3</h3>
-<p>$\cos\alpha=0{,}6$, $\alpha\in(\frac{3\pi}2;2\pi)$. Тогда $\sin\alpha=-\sqrt{1-0{,}36}=-0{,}8$ (IV четверть).</p></section>
+<section id="theory"><h2>Что это за тема и зачем она нужна</h2>
+<p>Нужно найти значение выражения со степенями, корнями, логарифмами или тригонометрическими функциями. Хитрость в том, что «в лоб» считать долго, а после преобразований по правилам ответ получается простым числом.</p>
+<table><thead><tr><th>Экзамен</th><th>Задание</th><th>Что встречается</th></tr></thead><tbody><tr><td>База</td><td>14</td><td>Обычные вычисления с дробями (см. тему «Числа и вычисления»)</td></tr><tr><td>База</td><td>16</td><td>Степени, корни, иногда логарифмы</td></tr><tr><td>Профиль</td><td>8</td><td>Степени, корни, логарифмы, тригонометрия, дробно-рациональные выражения</td></tr></tbody></table>
+<p>Ответ всегда — целое число или конечная десятичная дробь. Если получилось «некрасиво» — скорее всего, ошибка.</p>
+<h2>Степени</h2>
+<p><b>Что это.</b> $a^n$ (читается «$a$ в степени $n$») — это $a$, умноженное само на себя $n$ раз: $2^3=2\cdot2\cdot2=8$. Число $a$ — <b>основание</b>, $n$ — <b>показатель</b>.</p>
+<p>Правила (все они следуют из определения):</p>
+<table><thead><tr><th>Правило</th><th>Почему</th><th>Пример</th></tr></thead><tbody><tr><td>$a^m\cdot a^n=a^{m+n}$</td><td>считаем общее число множителей</td><td>$2^3\cdot2^4=2^7=128$</td></tr><tr><td>$\frac{a^m}{a^n}=a^{m-n}$</td><td>одинаковые множители сокращаются</td><td>$\frac{5^6}{5^4}=5^2=25$</td></tr><tr><td>$(a^m)^n=a^{mn}$</td><td>$m$ множителей повторили $n$ раз</td><td>$(3^2)^3=3^6=729$</td></tr><tr><td>$(ab)^n=a^nb^n$</td><td>переставляем множители</td><td>$(2\cdot5)^3=8\cdot125=1000$</td></tr><tr><td>$a^0=1$ ($a\ne0$)</td><td>$\frac{a^n}{a^n}=1$</td><td>$7^0=1$</td></tr><tr><td>$a^{-n}=\frac1{a^n}$</td><td>продолжение правила деления</td><td>$2^{-3}=\frac18$</td></tr><tr><td>$a^{\frac mn}=\sqrt[n]{a^m}$</td><td>дробный показатель — корень</td><td>$8^{\frac23}=\sqrt[3]{64}=4$</td></tr></tbody></table>
+<p><b>Главный приём:</b> приводите степени к <b>одному основанию</b>. Например, $4=2^2$, $8=2^3$, $25=5^2$, $27=3^3$, $0{,}2=5^{-1}$.</p>
+<p>Правила работают только при <b>умножении и делении</b>. Для суммы их нет: $2^3+2^4\ne2^7$ (проверьте: $8+16=24$, а $2^7=128$).</p>
+<h2>Корни</h2>
+<p><b>Квадратный корень</b> $\sqrt a$ — это неотрицательное число, квадрат которого равен $a$: $\sqrt{49}=7$, так как $7^2=49$ и $7\ge0$. Из отрицательного числа квадратный корень не извлекается.</p>
+<div>$$\sqrt{ab}=\sqrt a\cdot\sqrt b,\qquad \sqrt{\frac ab}=\frac{\sqrt a}{\sqrt b},\qquad (\sqrt a)^2=a\ (a\ge0),\qquad \sqrt{a^2}=|a|$$</div>
+<p>Почему $\sqrt{a^2}=|a|$: например, $\sqrt{(-3)^2}=\sqrt9=3$, а не $-3$. Модуль $|a|$ — это число без знака минус.</p>
+<p>Приёмы:</p>
+<ul><li><b>вынесение множителя:</b> $\sqrt{50}=\sqrt{25\cdot2}=5\sqrt2$;</li><li><b>внесение под корень:</b> $3\sqrt2=\sqrt{9\cdot2}=\sqrt{18}$;</li><li><b>разность квадратов</b> убирает корни: $(\sqrt{13}-\sqrt7)(\sqrt{13}+\sqrt7)=13-7=6$.</li></ul>
+<p>Полезно помнить квадраты: $11^2=121$, $12^2=144$, $13^2=169$, $14^2=196$, $15^2=225$, $16^2=256$, $17^2=289$, $18^2=324$, $19^2=361$, $25^2=625$.</p>
+<h2>Формулы сокращённого умножения</h2>
+<div>$$(a+b)^2=a^2+2ab+b^2,\qquad (a-b)^2=a^2-2ab+b^2,\qquad a^2-b^2=(a-b)(a+b)$$</div>
+<p>Особенно полезна разность квадратов: $65^2-56^2=(65-56)(65+56)=9\cdot121=1089$.</p>
+<h2>Логарифмы (база иногда, профиль — обязательно)</h2>
+<p><b>Что это.</b> $\log_a b$ — это <b>показатель степени</b>, в которую нужно возвести $a$, чтобы получить $b$. Пример: $\log_2 8=3$, потому что $2^3=8$. $\log_3 81=4$, потому что $3^4=81$. $\log_5\frac1{25}=-2$, потому что $5^{-2}=\frac1{25}$.</p>
+<p>Здесь $a$ — <b>основание</b> ($a&gt;0$, $a\ne1$), $b$ — число под логарифмом ($b&gt;0$). Обозначения: $\lg b=\log_{10}b$, $\ln b=\log_e b$.</p>
+<p>Свойства (для $a&gt;0$, $a\ne1$, $b&gt;0$, $c&gt;0$):</p>
+<table><thead><tr><th>Свойство</th><th>Пример</th></tr></thead><tbody><tr><td>$a^{\log_a b}=b$</td><td>$3^{\log_3 7}=7$</td></tr><tr><td>$\log_a a=1$, $\log_a 1=0$</td><td>$\log_5 5=1$</td></tr><tr><td>$\log_a(bc)=\log_a b+\log_a c$</td><td>$\log_6 4+\log_6 9=\log_6 36=2$</td></tr><tr><td>$\log_a\frac bc=\log_a b-\log_a c$</td><td>$\log_3 162-\log_3 2=\log_3 81=4$</td></tr><tr><td>$\log_a b^p=p\log_a b$</td><td>$\log_2 8^5=5\cdot3=15$</td></tr><tr><td>$\log_{a^k}b=\frac1k\log_a b$</td><td>$\log_{4}8=\frac12\log_2 8=1{,}5$</td></tr><tr><td>$\log_a b=\frac{\log_c b}{\log_c a}$ (переход к новому основанию)</td><td>$\frac{\log_3 64}{\log_3 4}=\log_4 64=3$</td></tr></tbody></table>
+<h2>Тригонометрия (в основном профиль)</h2>
+<p><b>Единичная окружность.</b> Угол $\alpha$ откладывают от положительного направления оси $Ox$ против часовой стрелки. Точка на окружности радиуса 1 имеет координаты $(\cos\alpha;\ \sin\alpha)$: косинус — «по горизонтали», синус — «по вертикали». Тангенс $\operatorname{tg}\alpha=\frac{\sin\alpha}{\cos\alpha}$.</p>
+<p>Углы измеряют в градусах или радианах: $\pi$ радиан $=180^\circ$, значит $\frac\pi6=30^\circ$, $\frac\pi4=45^\circ$, $\frac\pi3=60^\circ$, $\frac\pi2=90^\circ$.</p>
+<table><thead><tr><th>Угол</th><th>$0^\circ$</th><th>$30^\circ$</th><th>$45^\circ$</th><th>$60^\circ$</th><th>$90^\circ$</th></tr></thead><tbody><tr><td>$\sin$</td><td>$0$</td><td>$\frac12$</td><td>$\frac{\sqrt2}2$</td><td>$\frac{\sqrt3}2$</td><td>$1$</td></tr><tr><td>$\cos$</td><td>$1$</td><td>$\frac{\sqrt3}2$</td><td>$\frac{\sqrt2}2$</td><td>$\frac12$</td><td>$0$</td></tr><tr><td>$\operatorname{tg}$</td><td>$0$</td><td>$\frac{\sqrt3}3$</td><td>$1$</td><td>$\sqrt3$</td><td>не существует</td></tr></tbody></table>
+<p><b>Знаки по четвертям:</b> I четверть ($0$ до $\frac\pi2$) — всё положительно; II ($\frac\pi2$ до $\pi$) — синус $+$, косинус $-$; III ($\pi$ до $\frac{3\pi}2$) — синус $-$, косинус $-$, тангенс $+$; IV ($\frac{3\pi}2$ до $2\pi$) — синус $-$, косинус $+$.</p>
+<p>Основные формулы:</p>
+<div>$$\sin^2\alpha+\cos^2\alpha=1,\qquad 1+\operatorname{tg}^2\alpha=\frac1{\cos^2\alpha}$$</div>
+<div>$$\sin2\alpha=2\sin\alpha\cos\alpha,\qquad \cos2\alpha=\cos^2\alpha-\sin^2\alpha=2\cos^2\alpha-1=1-2\sin^2\alpha$$</div>
+<p><b>Формулы приведения</b>, примеры: $\sin(\pi-\alpha)=\sin\alpha$, $\cos(\pi-\alpha)=-\cos\alpha$, $\sin(\frac\pi2-\alpha)=\cos\alpha$, $\cos(\frac\pi2-\alpha)=\sin\alpha$, $\sin(\alpha+2\pi)=\sin\alpha$. Правило: если в формуле $\frac\pi2$ или $\frac{3\pi}2$ — функция меняется на «кофункцию» (синус ↔ косинус), если $\pi$ или $2\pi$ — не меняется; знак ставим тот, какой был у исходной функции в нужной четверти (считая $\alpha$ маленьким острым углом).</p>
+<h2>Разобранные примеры</h2>
+<h3>Пример 1 (база 16, степени)</h3>
+<p>Найдите $5^{0{,}36}\cdot25^{0{,}32}$.</p>
+<ol><li>Приводим к основанию 5: $25=5^2$, значит $25^{0{,}32}=5^{2\cdot0{,}32}=5^{0{,}64}$.</li><li>Умножение — показатели складываем: $5^{0{,}36+0{,}64}=5^1$.</li></ol>
+<p>Ответ: <b>5</b>.</p>
+<h3>Пример 2 (база 16, корень)</h3>
+<p>Найдите $\sqrt{65^2-56^2}$.</p>
+<ol><li>Разность квадратов: $65^2-56^2=(65-56)(65+56)=9\cdot121$.</li><li>$\sqrt{9\cdot121}=3\cdot11=33$.</li></ol>
+<p>Ответ: <b>33</b>.</p>
+<h3>Пример 3 (дробь со степенями)</h3>
+<p>Найдите $\frac{2^7\cdot2^{-3}}{4}$.</p>
+<p>$2^7\cdot2^{-3}=2^{4}$, $4=2^2$, $\frac{2^4}{2^2}=2^2=4$. Ответ: <b>4</b>.</p>
+<h3>Пример 4 (профиль 8, дроби)</h3>
+<p>Найдите $\left(\frac34+2\frac38\right)\cdot25{,}6$.</p>
+<ol><li>$2\frac38=\frac{19}8$, $\frac34=\frac68$, сумма $\frac{25}8$.</li><li>$\frac{25}{8}\cdot25{,}6=25\cdot3{,}2=80$ (сначала $25{,}6:8=3{,}2$).</li></ol>
+<p>Ответ: <b>80</b>.</p>
+<h3>Пример 5 (профиль 8, буквенное выражение)</h3>
+<p>Найдите $\frac{(11a)^2-11a}{11a^2-a}$.</p>
+<ol><li>Числитель: $121a^2-11a=11a(11a-1)$.</li><li>Знаменатель: $11a^2-a=a(11a-1)$.</li><li>Сокращаем на $a(11a-1)$: остаётся $11$.</li></ol>
+<p>Ответ: <b>11</b> (не зависит от $a$ — это типично для таких заданий).</p>
+<h3>Пример 6 (профиль 8, логарифм)</h3>
+<p>Найдите $2^{3+\log_2 5}$.</p>
+<p>$2^{3+\log_2 5}=2^3\cdot2^{\log_2 5}=8\cdot5=40$. Ответ: <b>40</b>.</p>
+<h3>Пример 7 (профиль 8, тригонометрия)</h3>
+<p>Известно $\cos\alpha=0{,}6$ и $\alpha\in\left(\frac{3\pi}2;\ 2\pi\right)$. Найдите $\sin\alpha$.</p>
+<ol><li>Из $\sin^2\alpha+\cos^2\alpha=1$: $\sin^2\alpha=1-0{,}36=0{,}64$, значит $\sin\alpha=0{,}8$ или $-0{,}8$.</li><li>Угол в IV четверти, там синус отрицательный.</li></ol>
+<p>Ответ: <b>−0,8</b>.</p>
+<h2>Типичные ошибки</h2>
+<ul><li>Складывают показатели при <b>сложении</b> степеней: $2^3+2^4\ne2^7$.</li><li>$\sqrt{a+b}\ne\sqrt a+\sqrt b$: $\sqrt{9+16}=5$, а $3+4=7$.</li><li>$(a+b)^2\ne a^2+b^2$ — забывают $2ab$.</li><li>$\log_a(b+c)\ne\log_a b+\log_a c$.</li><li>Забывают про знак, извлекая $\sin$ или $\cos$ через основное тождество.</li><li>$-3^2=-9$, а $(-3)^2=9$ — степень относится только к тому, что стоит прямо перед ней.</li></ul>
+<h2>Как проверить себя</h2>
+<ul><li>Подставьте простое число вместо буквы (например, $a=1$) в исходное выражение и в ответ — результаты должны совпасть.</li><li>Ответ должен быть «красивым»: целым или конечной десятичной дробью.</li><li>Для тригонометрии проверьте знак по четверти.</li></ul>
+<h2>Алгоритм</h2>
+<ol><li>Посмотрите, что в выражении: степени, корни, логарифмы, тригонометрия, буквы.</li><li>Приведите к одному основанию / вынесите общий множитель / найдите формулу (разность квадратов!).</li><li>Упрощайте по шагам, каждый раз применяя одно правило.</li><li>Только в конце подставляйте числа и считайте.</li><li>Проверьте знак и «красоту» ответа.</li></ol></section>
 <h2>Практика</h2>
 <div class="card"><div class="row" style="margin-top:0"><button type="button" data-level="all" class="on">Все</button><button type="button" data-level="base">База</button><button type="button" data-level="profile">Профиль</button>
 <label class="small"><input type="checkbox" id="onlynew"> только нерешённые</label>
@@ -73,10 +120,6 @@ nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-
 function store(){try{return window.localStorage}catch(e){return null}}
 function loadProg(){try{return JSON.parse(store().getItem('ege-progress')||'{}')}catch(e){return {}}}
 function saveProg(p){try{store().setItem('ege-progress',JSON.stringify(p))}catch(e){}}
-(function(){var b=document.getElementById('theme');if(!b)return;var t=null;try{t=store().getItem('ege-theme')}catch(e){}
-if(t)document.documentElement.dataset.theme=t;
-b.onclick=function(){var dark=matchMedia('(prefers-color-scheme: dark)').matches;var cur=document.documentElement.dataset.theme||(dark?'dark':'light');
-var n=cur==='dark'?'light':'dark';document.documentElement.dataset.theme=n;try{store().setItem('ege-theme',n)}catch(e){}}})();
 
 var TASKS=JSON.parse(document.getElementById('tasks-data').textContent);
 var prog=loadProg(),level='all',onlyNew=false;

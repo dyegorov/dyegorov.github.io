@@ -5,9 +5,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <style>
-:root{--bg:#fafaf7;--fg:#1d1d1b;--muted:#6b6b66;--card:#fff;--line:#e3e2dc;--acc:#2c5fd6;--ok:#1f8a4c;--bad:#c4392f;--warn:#a86a00;--code:#f1f0ea}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}}
-:root[data-theme=dark]{--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
+:root{color-scheme:dark;--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 main{max-width:860px;margin:0 auto;padding:16px}
@@ -32,20 +30,72 @@ button.on{outline:2px solid var(--acc)}
 .task.ok{border-left:4px solid var(--ok)}.task.bad{border-left:4px solid var(--bad)}
 .sol{margin-top:10px;padding:10px;background:var(--code);border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere}
 .bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:6px}.bar>i{display:block;height:100%;background:var(--ok)}
-nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center}
+nav.top{display:flex;gap:4px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:8px}
+nav.top a{text-decoration:none;color:var(--fg);padding:6px 12px;border-radius:8px;border:1px solid transparent;font-size:.95rem}
+nav.top a:hover{border-color:var(--line)}nav.top a[aria-current=page]{background:var(--acc);color:#0e0e0d;font-weight:600}
+@media (max-width:480px){nav.top a{flex:1 1 auto;text-align:center;padding:6px 8px;font-size:.875rem}}
 </style></head><body><main>
-<nav class="top"><a href="../index.html">← Все темы</a><button id="theme" type="button">Тема: светлая/тёмная</button></nav>
+<nav class="top"><a href="../index.html">Темы</a><a href="../plan.html">План подготовки</a><a href="../exam.html">Пробный экзамен</a><a href="../about.html">Об экзамене</a></nav>
 
 <h1>Случайные величины и статистика</h1>
 <p class="muted">Распределение, математическое ожидание, дисперсия, стандартное отклонение.</p>
 <p class="small">Задания ЕГЭ 2027: Профиль: №6. Сначала повторите: <a href="probability.html">Теория вероятностей</a></p>
-<section id="theory"><h2>Теория</h2>
-<ul><li>Случайная величина $X$ задаётся <b>распределением</b>: значения $x_i$ и вероятности $p_i$, $\sum p_i=1$.</li><li>Математическое ожидание: $E X=\sum x_ip_i$.</li><li>Дисперсия: $D X=E(X-EX)^2=E X^2-(E X)^2$. Стандартное отклонение $\sigma=\sqrt{DX}$.</li><li>Свойства: $E(aX+b)=aEX+b$, $D(aX+b)=a^2DX$; для независимых $D(X+Y)=DX+DY$; всегда $E(X+Y)=EX+EY$.</li><li>Бернулли с $p$: $EX=p$, $DX=p(1-p)$. Биномиальное ($n$ испытаний): $EX=np$, $DX=np(1-p)$.</li><li>Статистика: среднее, медиана (середина упорядоченного ряда), размах.</li></ul>
-<h2>Примеры</h2>
-<h3>Пример 1</h3>
-<p>$X$: значения $0,1,2$ с вероятностями $0{,}2;\,0{,}5;\,0{,}3$. $EX=0{,}5+0{,}6=$ <b>1,1</b>; $EX^2=0{,}5+1{,}2=1{,}7$; $DX=1{,}7-1{,}21=$ <b>0,49</b>; $\sigma=0{,}7$.</p>
-<h3>Пример 2</h3>
-<p>Монету бросают 100 раз, $X$ — число орлов: $EX=50$, $DX=25$, $\sigma=5$.</p></section>
+<section id="theory"><h2>Что это и зачем</h2>
+<p><b>Профиль, задание 6</b> (новое с 2027 года): случайные величины и статистика. Обычно дают таблицу распределения и просят найти математическое ожидание, дисперсию, стандартное отклонение или недостающую вероятность; бывают задачи про лотереи и игры («выгодно ли покупать билет»), а также про среднее и медиану набора чисел. В базовом экзамене этого задания нет.</p>
+<p>Перед темой полезно повторить «Теорию вероятностей».</p>
+<h2>Случайная величина и её распределение</h2>
+<p><b>Случайная величина</b> $X$ — число, которое зависит от случая. Примеры: очки на кубике; выигрыш в лотерее; число орлов в 10 бросках.</p>
+<p><b>Распределение</b> — таблица: какие значения $x_i$ принимает $X$ и с какими вероятностями $p_i$.</p>
+<table><thead><tr><th>$X$</th><th>$0$</th><th>$1$</th><th>$2$</th></tr></thead><tbody><tr><td>$P$</td><td>$0{,}2$</td><td>$0{,}5$</td><td>$0{,}3$</td></tr></tbody></table>
+<p>Главное правило: <b>сумма всех вероятностей равна 1</b> (что-то одно обязательно произойдёт): $0{,}2+0{,}5+0{,}3=1$. Если одна вероятность в таблице пропущена, её находят как $1-$ сумма остальных.</p>
+<h2>Математическое ожидание — «среднее значение»</h2>
+<div>$$E X=x_1p_1+x_2p_2+\dots+x_np_n$$</div>
+<p>Каждое значение умножаем на его вероятность и складываем. Смысл: если повторять опыт очень много раз, среднее арифметическое результатов будет близко к $EX$.</p>
+<p>Интуиция: игра, где с вероятностью $\frac12$ получаешь 100 рублей, а с вероятностью $\frac12$ — ничего. В среднем за игру выходит $100\cdot\frac12+0\cdot\frac12=50$ рублей. Именно столько разумно заплатить за участие.</p>
+<p>Для таблицы выше: $EX=0\cdot0{,}2+1\cdot0{,}5+2\cdot0{,}3=1{,}1$.</p>
+<h2>Дисперсия и стандартное отклонение — «разброс»</h2>
+<p>Ожидание говорит, где «центр», но не говорит, насколько значения разбросаны. Например, $X$ всегда равно 5, а $Y$ равно 0 или 10 с вероятностями по $\frac12$: у обеих среднее 5, но $Y$ «скачет» сильнее.</p>
+<p><b>Дисперсия</b> — среднее значение квадрата отклонения от ожидания:</p>
+<div>$$D X=E\big(X-EX\big)^2=\sum (x_i-EX)^2p_i$$</div>
+<p>Часто удобнее равносильная формула:</p>
+<div>$$D X=E(X^2)-(EX)^2,\qquad E(X^2)=x_1^2p_1+x_2^2p_2+\dots$$</div>
+<p><b>Стандартное (среднеквадратичное) отклонение</b> $\sigma=\sqrt{DX}$ — разброс в тех же единицах, что и сама величина.</p>
+<p>Для $Y$ из примера: $DY=(0-5)^2\cdot\frac12+(10-5)^2\cdot\frac12=25$, $\sigma=5$. Для $X\equiv5$: $DX=0$.</p>
+<p>Дисперсия никогда не бывает отрицательной.</p>
+<h2>Свойства (экономят время)</h2>
+<ul><li>$E(aX+b)=a\,EX+b$ — если все значения увеличить в $a$ раз и прибавить $b$, среднее изменится так же.</li><li>$D(aX+b)=a^2\,DX$ — сдвиг на $b$ разброс не меняет, а растяжение в $a$ раз увеличивает дисперсию в $a^2$ раз; $\sigma$ — в $|a|$ раз.</li><li>$E(X+Y)=EX+EY$ — всегда. $D(X+Y)=DX+DY$ — только для <b>независимых</b> $X$ и $Y$.</li><li>Число успехов в $n$ независимых испытаниях с вероятностью успеха $p$ (биномиальное распределение): $EX=np$, $DX=np(1-p)$.</li></ul>
+<h2>Статистика набора чисел</h2>
+<p>Для набора (выборки) чисел:</p>
+<ul><li><b>Среднее арифметическое</b> — сумма, делённая на количество.</li><li><b>Медиана</b> — число посередине <b>упорядоченного</b> набора; если чисел чётное количество — среднее двух средних.</li><li><b>Размах</b> — наибольшее минус наименьшее.</li><li><b>Дисперсия набора</b> — среднее квадратов отклонений от среднего; <b>стандартное отклонение</b> — корень из неё.</li></ul>
+<h2>Разобранные примеры</h2>
+<h3>Пример 1 (лёгкий, ожидание по таблице)</h3>
+<table><thead><tr><th>$X$</th><th>$-4$</th><th>$0$</th><th>$1$</th><th>$3$</th></tr></thead><tbody><tr><td>$P$</td><td>$0{,}2$</td><td>$0{,}1$</td><td>$0{,}4$</td><td>$0{,}3$</td></tr></tbody></table>
+<ol><li>Проверка: $0{,}2+0{,}1+0{,}4+0{,}3=1$ — таблица корректна.</li><li>$EX=-4\cdot0{,}2+0\cdot0{,}1+1\cdot0{,}4+3\cdot0{,}3=-0{,}8+0+0{,}4+0{,}9=0{,}5$.</li></ol>
+<p>Ответ: <b>0,5</b>. Не забудьте минус у $-4$.</p>
+<h3>Пример 2 (недостающая вероятность)</h3>
+<p>$X$ принимает значения $1$, $2$, $5$ с вероятностями $0{,}3$, $p$, $0{,}2$. Найдите $p$ и $EX$.</p>
+<ol><li>$p=1-0{,}3-0{,}2=0{,}5$.</li><li>$EX=1\cdot0{,}3+2\cdot0{,}5+5\cdot0{,}2=0{,}3+1+1=2{,}3$.</li></ol>
+<p>Ответ: $p=0{,}5$, $EX=$ <b>2,3</b>.</p>
+<h3>Пример 3 (дисперсия и отклонение)</h3>
+<p>Для распределения $0,1,2$ с вероятностями $0{,}2;\ 0{,}5;\ 0{,}3$ найдите $DX$ и $\sigma$.</p>
+<ol><li>$EX=1{,}1$ (посчитано выше).</li><li>$E(X^2)=0^2\cdot0{,}2+1^2\cdot0{,}5+2^2\cdot0{,}3=0{,}5+1{,}2=1{,}7$.</li><li>$DX=1{,}7-1{,}1^2=1{,}7-1{,}21=0{,}49$.</li><li>$\sigma=\sqrt{0{,}49}=0{,}7$.</li></ol>
+<p>Проверка по первой формуле: $(0-1{,}1)^2\cdot0{,}2+(1-1{,}1)^2\cdot0{,}5+(2-1{,}1)^2\cdot0{,}3=0{,}242+0{,}005+0{,}243=0{,}49$ — совпало.</p>
+<h3>Пример 4 (свойства)</h3>
+<p>Для той же $X$ найдите $E(2X+3)$ и $D(2X+3)$.</p>
+<p>$E(2X+3)=2\cdot1{,}1+3=5{,}2$; $D(2X+3)=2^2\cdot0{,}49=1{,}96$ (тройка не влияет на разброс).</p>
+<h3>Пример 5 (лотерея, уровень ЕГЭ)</h3>
+<p>Выпущено 1000 билетов по 50 рублей, проигрышных нет. На 700 билетов выигрыш 20 рублей, на 250 — 60 рублей, на 45 — 200 рублей, на 5 — 1000 рублей. На сколько рублей цена билета больше математического ожидания выигрыша?</p>
+<ol><li>Проверка: $700+250+45+5=1000$.</li><li>Вероятности: $0{,}7$; $0{,}25$; $0{,}045$; $0{,}005$.</li><li>$EX=20\cdot0{,}7+60\cdot0{,}25+200\cdot0{,}045+1000\cdot0{,}005=14+15+9+5=43$.</li><li>$50-43=7$.</li></ol>
+<p>Ответ: <b>7</b>. Смысл: в среднем покупатель теряет 7 рублей на билете.</p>
+<h3>Пример 6 (статистика)</h3>
+<p>Набор: $9,\ 2,\ 4,\ 6,\ 4$. Найдите среднее, медиану, размах и дисперсию.</p>
+<ol><li>Упорядочим: $2,4,4,6,9$.</li><li>Среднее: $\frac{2+4+4+6+9}5=\frac{25}5=5$.</li><li>Медиана — третье число: $4$. Размах: $9-2=7$.</li><li>Отклонения от среднего: $-3,-1,-1,1,4$; квадраты: $9,1,1,1,16$, сумма $28$; дисперсия $\frac{28}5=5{,}6$.</li></ol>
+<h3>Пример 7 (биномиальное, только профиль)</h3>
+<p>Монету бросают 100 раз, $X$ — число орлов. $EX=100\cdot0{,}5=50$, $DX=100\cdot0{,}5\cdot0{,}5=25$, $\sigma=5$.</p>
+<h2>Типичные ошибки</h2>
+<ul><li>Сумма вероятностей в таблице не равна 1 — значит, ошибка при чтении условия или в подсчёте.</li><li>В $E(X^2)$ возводят в квадрат вероятности вместо значений.</li><li>Путают $E(X^2)$ и $(EX)^2$.</li><li>Теряют знак у отрицательных значений.</li><li>Медиану ищут в неупорядоченном наборе.</li><li>Дисперсия получилась отрицательной — точно ошибка.</li></ul>
+<h2>Алгоритм</h2>
+<ol><li>Составить (или проверить) таблицу распределения: значения и вероятности, сумма вероятностей $=1$.</li><li>$EX=\sum x_ip_i$.</li><li>Если нужна дисперсия: $E(X^2)=\sum x_i^2p_i$, затем $DX=E(X^2)-(EX)^2$, $\sigma=\sqrt{DX}$.</li><li>Для $aX+b$ и сумм — применить свойства, не пересчитывая таблицу.</li><li>Проверить: $EX$ лежит между наименьшим и наибольшим значением, $DX\ge0$.</li></ol></section>
 <h2>Практика</h2>
 <div class="card"><div class="row" style="margin-top:0"><button type="button" data-level="all" class="on">Все</button><button type="button" data-level="profile">Профиль</button>
 <label class="small"><input type="checkbox" id="onlynew"> только нерешённые</label>
@@ -59,10 +109,6 @@ nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-
 function store(){try{return window.localStorage}catch(e){return null}}
 function loadProg(){try{return JSON.parse(store().getItem('ege-progress')||'{}')}catch(e){return {}}}
 function saveProg(p){try{store().setItem('ege-progress',JSON.stringify(p))}catch(e){}}
-(function(){var b=document.getElementById('theme');if(!b)return;var t=null;try{t=store().getItem('ege-theme')}catch(e){}
-if(t)document.documentElement.dataset.theme=t;
-b.onclick=function(){var dark=matchMedia('(prefers-color-scheme: dark)').matches;var cur=document.documentElement.dataset.theme||(dark?'dark':'light');
-var n=cur==='dark'?'light':'dark';document.documentElement.dataset.theme=n;try{store().setItem('ege-theme',n)}catch(e){}}})();
 
 var TASKS=JSON.parse(document.getElementById('tasks-data').textContent);
 var prog=loadProg(),level='all',onlyNew=false;

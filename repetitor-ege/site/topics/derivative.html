@@ -5,9 +5,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <style>
-:root{--bg:#fafaf7;--fg:#1d1d1b;--muted:#6b6b66;--card:#fff;--line:#e3e2dc;--acc:#2c5fd6;--ok:#1f8a4c;--bad:#c4392f;--warn:#a86a00;--code:#f1f0ea}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}}
-:root[data-theme=dark]{--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
+:root{color-scheme:dark;--bg:#161615;--fg:#e9e8e3;--muted:#9b9a93;--card:#20201e;--line:#34332f;--acc:#7aa2ff;--ok:#4cc27f;--bad:#ff7a6e;--warn:#e0a640;--code:#2a2a27}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 main{max-width:860px;margin:0 auto;padding:16px}
@@ -32,30 +30,80 @@ button.on{outline:2px solid var(--acc)}
 .task.ok{border-left:4px solid var(--ok)}.task.bad{border-left:4px solid var(--bad)}
 .sol{margin-top:10px;padding:10px;background:var(--code);border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere}
 .bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:6px}.bar>i{display:block;height:100%;background:var(--ok)}
-nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center}
+nav.top{display:flex;gap:4px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:8px}
+nav.top a{text-decoration:none;color:var(--fg);padding:6px 12px;border-radius:8px;border:1px solid transparent;font-size:.95rem}
+nav.top a:hover{border-color:var(--line)}nav.top a[aria-current=page]{background:var(--acc);color:#0e0e0d;font-weight:600}
+@media (max-width:480px){nav.top a{flex:1 1 auto;text-align:center;padding:6px 8px;font-size:.875rem}}
 </style></head><body><main>
-<nav class="top"><a href="../index.html">← Все темы</a><button id="theme" type="button">Тема: светлая/тёмная</button></nav>
+<nav class="top"><a href="../index.html">Темы</a><a href="../plan.html">План подготовки</a><a href="../exam.html">Пробный экзамен</a><a href="../about.html">Об экзамене</a></nav>
 
 <h1>Производная и первообразная</h1>
 <p class="muted">Геометрический и физический смысл, исследование функций, первообразная.</p>
 <p class="small">Задания ЕГЭ 2027: База: №7; Профиль: №9. Сначала повторите: <a href="functions.html">Функции и графики</a></p>
-<section id="theory"><h2>Теория</h2>
-<h3>Таблица производных</h3>
-<div>$$(x^n)'=nx^{n-1},\ (e^x)'=e^x,\ (\ln x)'=\frac1x,\ (\sin x)'=\cos x,\ (\cos x)'=-\sin x$$</div>
-<div>$$(uv)'=u'v+uv',\quad \left(\frac uv\right)'=\frac{u'v-uv'}{v^2},\quad (f(g(x)))'=f'(g)\cdot g'$$</div>
-<h3>Смысл</h3>
-<ul><li><b>Геометрический</b>: $f'(x_0)=k=\operatorname{tg}\alpha$ — угловой коэффициент касательной. Касательная: $y=f(x_0)+f'(x_0)(x-x_0)$.</li><li><b>Физический</b>: $v(t)=x'(t)$, $a(t)=v'(t)$.</li><li>$f'&gt;0$ — функция возрастает; $f'&lt;0$ — убывает; точка экстремума — $f'$ меняет знак.</li><li>На графике производной: точки максимума $f$ — где $f'$ меняет знак с $+$ на $-$.</li></ul>
-<h3>Первообразная</h3>
-<p>$F'(x)=f(x)$. Площадь под графиком: $\int_a^b f(x)\,dx=F(b)-F(a)$.</p>
-<h3>Наибольшее/наименьшее на отрезке</h3>
-<p>Найти критические точки внутри отрезка, вычислить $f$ в них и на концах, выбрать.</p>
+<section id="theory"><h2>Что это и зачем</h2>
+<p><b>Производная</b> показывает, <b>как быстро меняется функция</b>. Обозначается $f'(x)$ (читается «эф штрих от икс»).</p>
+<p>Интуиция через движение. Пусть $x(t)$ — сколько метров проехала машина к моменту $t$ секунд. Тогда <b>скорость</b> — это производная пути: $v(t)=x'(t)$. Если за секунду путь вырос на 20 м, скорость около 20 м/с.</p>
+<p>Интуиция через график. Если приложить к графику в точке <b>касательную</b> (прямую, которая «прикасается» к графику, повторяя его направление), то производная — это <b>крутизна</b> этой прямой, её угловой коэффициент $k$.</p>
+<ul><li>$f'(x)&gt;0$ — функция в этой точке <b>возрастает</b> (график идёт вверх);</li><li>$f'(x)&lt;0$ — функция <b>убывает</b>;</li><li>$f'(x)=0$ — касательная горизонтальна: обычно это вершина «горки» или дно «ямки».</li></ul>
+<p>На ЕГЭ:</p>
+<ul><li><b>База, задание 7</b> — по графику функции (или её производной) сопоставить точки и знаки/значения производной.</li><li><b>Профиль, задание 9</b> — физический смысл (скорость), касательная, чтение графика функции или графика производной, первообразная.</li></ul>
+<h2>Таблица производных</h2>
+<p>Здесь $C$ — число (константа), $n$ — показатель степени.</p>
+<table><thead><tr><th>Функция</th><th>Производная</th><th>Пример</th></tr></thead><tbody><tr><td>$C$</td><td>$0$</td><td>$(5)'=0$</td></tr><tr><td>$x$</td><td>$1$</td><td></td></tr><tr><td>$x^n$</td><td>$nx^{n-1}$</td><td>$(x^3)'=3x^2$</td></tr><tr><td>$\sqrt x$</td><td>$\frac1{2\sqrt x}$</td><td></td></tr><tr><td>$\frac1x$</td><td>$-\frac1{x^2}$</td><td></td></tr><tr><td>$e^x$</td><td>$e^x$</td><td></td></tr><tr><td>$a^x$</td><td>$a^x\ln a$</td><td>$(2^x)'=2^x\ln2$</td></tr><tr><td>$\ln x$</td><td>$\frac1x$</td><td></td></tr><tr><td>$\sin x$</td><td>$\cos x$</td><td></td></tr><tr><td>$\cos x$</td><td>$-\sin x$</td><td></td></tr><tr><td>$\operatorname{tg}x$</td><td>$\frac1{\cos^2x}$</td><td></td></tr></tbody></table>
+<h2>Правила дифференцирования</h2>
+<p>Здесь $u$ и $v$ — функции от $x$.</p>
+<div>$$(u+v)'=u'+v',\qquad (Cu)'=Cu'$$</div>
+<div>$$(uv)'=u'v+uv',\qquad \left(\frac uv\right)'=\frac{u'v-uv'}{v^2}$$</div>
+<p><b>Сложная функция</b> («функция от функции»): производная внешней функции, умноженная на производную внутренней:</p>
+<div>$$\big(f(g(x))\big)'=f'(g(x))\cdot g'(x)$$</div>
+<p>Примеры:</p>
+<ul><li>$(6t^2-48t+17)'=12t-48$ (каждое слагаемое отдельно, число 17 даёт 0);</li><li>$(xe^x)'=1\cdot e^x+x\cdot e^x=(x+1)e^x$;</li><li>$\left(\frac x{x+1}\right)'=\frac{1\cdot(x+1)-x\cdot1}{(x+1)^2}=\frac1{(x+1)^2}$;</li><li>$(\sin3x)'=\cos3x\cdot3=3\cos3x$;</li><li>$\big((2x+1)^5\big)'=5(2x+1)^4\cdot2=10(2x+1)^4$.</li></ul>
+<h2>Геометрический смысл: касательная</h2>
+<div>$$f'(x_0)=k=\operatorname{tg}\alpha$$</div>
+<ul><li>$x_0$ — точка касания;</li><li>$k$ — угловой коэффициент касательной;</li><li>$\alpha$ — угол между касательной и положительным направлением оси $Ox$.</li></ul>
+<p>Уравнение касательной: $y=f(x_0)+f'(x_0)(x-x_0)$.</p>
+<p>Как найти $k$ по рисунку: выберите на касательной две точки в узлах сетки, $k=\frac{\Delta y}{\Delta x}$ — «на сколько клеток вверх, делённое на сколько клеток вправо». Если прямая идёт вниз — $k$ отрицательный.</p>
+<p>Полезные ориентиры: $\alpha=45^\circ\Rightarrow k=1$; круче — $k&gt;1$; положе — $0&lt;k&lt;1$; горизонтальная — $k=0$.</p>
+<p><b>Параллельные прямые имеют одинаковый угловой коэффициент.</b> Касательная параллельна прямой $y=6$ (горизонтальной) $\iff f'(x_0)=0$. Касательная параллельна $y=-2x-11$ $\iff f'(x_0)=-2$.</p>
+<h2>Физический смысл</h2>
+<p>Если $x(t)$ — координата точки, то скорость $v(t)=x'(t)$, ускорение $a(t)=v'(t)$.</p>
+<h2>Как читать графики: функция или производная?</h2>
+<p>Первым делом смотрите <b>подпись</b>: на рисунке $y=f(x)$ или $y=f'(x)$. Это разные задачи.</p>
+<table><thead><tr><th>Что спрашивают</th><th>По графику $f(x)$</th><th>По графику $f'(x)$</th></tr></thead><tbody><tr><td>где $f$ возрастает</td><td>где график идёт вверх</td><td>где график <b>выше</b> оси $Ox$</td></tr><tr><td>где $f'&lt;0$</td><td>где график идёт вниз</td><td>где график <b>ниже</b> оси $Ox$</td></tr><tr><td>точки максимума $f$</td><td>вершины «горок»</td><td>где $f'$ пересекает ось, переходя с $+$ на $-$</td></tr><tr><td>точки минимума $f$</td><td>дно «ямок»</td><td>где $f'$ пересекает ось, переходя с $-$ на $+$</td></tr><tr><td>касательная параллельна $y=c$</td><td>горки + ямки</td><td>точки, где $f'=0$</td></tr><tr><td>касательная параллельна $y=kx+m$</td><td>—</td><td>точки пересечения графика $f'$ с прямой $y=k$</td></tr></tbody></table>
+<p><b>Точка экстремума</b> — общее название точек максимума и минимума. В ней производная меняет знак.</p>
+<h2>Первообразная (профиль)</h2>
+<p>$F(x)$ — <b>первообразная</b> для $f(x)$, если $F'(x)=f(x)$. То есть это обратная операция: по производной восстановить функцию. Первообразных бесконечно много — они отличаются на число $C$.</p>
+<table><thead><tr><th>$f(x)$</th><th>$F(x)$</th></tr></thead><tbody><tr><td>$x^n$ ($n\ne-1$)</td><td>$\frac{x^{n+1}}{n+1}+C$</td></tr><tr><td>$\frac1x$</td><td>$\ln|x|+C$</td></tr><tr><td>$e^x$</td><td>$e^x+C$</td></tr><tr><td>$\sin x$</td><td>$-\cos x+C$</td></tr><tr><td>$\cos x$</td><td>$\sin x+C$</td></tr></tbody></table>
+<p><b>Площадь</b> под графиком $f(x)\ge0$ от $a$ до $b$ (формула Ньютона–Лейбница):</p>
+<div>$$S=\int_a^bf(x)\,dx=F(b)-F(a)$$</div>
+<p>Если на рисунке дан график <b>первообразной</b> $F(x)$, то $f(x)=F'(x)$: нули $f$ — это горки и ямки графика $F$, а $f&gt;0$ там, где $F$ возрастает.</p>
 <h2>Примеры</h2>
-<h3>Пример 1</h3>
-<p>$x(t)=6t^2-48t+17$, $v(t)=12t-48$, $v(9)=$ <b>60</b> м/с.</p>
-<h3>Пример 2</h3>
-<p>Касательная к графику в точке $x_0$ проходит через $(0;1)$ и $(4;9)$: $f'(x_0)=\frac{9-1}{4}=$ <b>2</b>.</p>
-<h3>Пример 3</h3>
-<p>$y=x^3-3x+2$ на $[0;2]$: $y'=3x^2-3=0$ при $x=1$. $y(0)=2$, $y(1)=0$, $y(2)=4$. Наименьшее — <b>0</b>.</p></section>
+<h3>Пример 1. Скорость</h3>
+<p>$x(t)=6t^2-48t+17$. Найдите скорость при $t=9$ с.</p>
+<p>$v(t)=x'(t)=12t-48$. $v(9)=108-48=60$. Ответ: <b>60</b> м/с.</p>
+<h3>Пример 2. Скорость, кубический закон</h3>
+<p>$x(t)=\frac12t^3-3t^2+2t$. Найдите скорость при $t=6$.</p>
+<p>$v(t)=\frac32t^2-6t+2$. $v(6)=\frac32\cdot36-36+2=54-36+2=20$. Ответ: <b>20</b>.</p>
+<h3>Пример 3. Касательная по рисунку</h3>
+<p>Касательная к графику в точке $x_0$ проходит через точки $(0;1)$ и $(4;9)$. Найдите $f'(x_0)$.</p>
+<p>$f'(x_0)=k=\frac{9-1}{4-0}=2$. Ответ: <b>2</b>.</p>
+<h3>Пример 4. Задание 7 базы</h3>
+<p>На графике функции отмечены точки, проведены касательные; нужно сопоставить точки со значениями производной $-4$, $3$, $\frac23$, $-0{,}5$. Рассуждаем по крутизне: где функция идёт вверх — положительные значения ($3$ — круто, $\frac23$ — полого), где вниз — отрицательные ($-4$ — круто, $-0{,}5$ — полого). Точные вычисления обычно не нужны.</p>
+<h3>Пример 5. График производной</h3>
+<p>Дан график $f'(x)$. Сколько точек, где касательная к графику $f$ параллельна прямой $y=-2x-11$?</p>
+<p>Угловой коэффициент прямой равен $-2$, значит ищем точки, где $f'(x)=-2$. Проводим на рисунке горизонтальную прямую $y=-2$ и считаем точки её пересечения с графиком $f'$. Их число — ответ.</p>
+<h3>Пример 6. Площадь (первообразная)</h3>
+<p>Найдите площадь под графиком $f(x)=3x^2$ на отрезке $[1;2]$.</p>
+<p>Первообразная $F(x)=x^3$ (проверка: $(x^3)'=3x^2$). $S=F(2)-F(1)=8-1=7$. Ответ: <b>7</b>.</p>
+<h3>Пример 7. Наименьшее значение на отрезке (профиль)</h3>
+<p>Отдельного такого задания в 2027 г. нет, но приём нужен в заданиях 17 и 19. Найдите наименьшее значение $y=x^3-3x+2$ на $[0;2]$.</p>
+<p>$y'=3x^2-3=0$ при $x=\pm1$; в отрезок попадает $x=1$. Считаем значения в нём и на концах: $y(0)=2$, $y(1)=1-3+2=0$, $y(2)=8-6+2=4$. Наименьшее — <b>0</b>.</p>
+<h2>Типичные ошибки</h2>
+<ul><li>Перепутан график функции и график производной.</li><li>Посчитаны точки, где $f'=0$, а спрашивали точки, где $f'&gt;0$ (или наоборот).</li><li>Знак углового коэффициента: прямая идёт вниз — $k&lt;0$.</li><li>$(\cos x)'=-\sin x$ — минус часто теряется.</li><li>В сложной функции забыли умножить на производную внутренней части.</li><li>В вопросе «сумма целых точек» включили концы интервала, которые не входят.</li></ul>
+<h2>Как проверить себя</h2>
+<ul><li>Для скорости: подставьте соседние моменты времени в $x(t)$ — изменение пути должно быть близко к найденной скорости.</li><li>Для первообразной: продифференцируйте $F$ — должна получиться $f$.</li></ul>
+<h2>Алгоритм</h2>
+<ol><li>Прочитайте подпись к графику: $f$, $f'$ или $F$.</li><li>Переведите вопрос на язык знаков: «возрастает» — $f'&gt;0$; «касательная параллельна $y=kx+m$» — $f'=k$; «экстремум» — $f'$ меняет знак.</li><li>Если дана формула — найдите производную по таблице и правилам.</li><li>Ответьте на вопрос по рисунку или подстановкой.</li></ol></section>
 <h2>Практика</h2>
 <div class="card"><div class="row" style="margin-top:0"><button type="button" data-level="all" class="on">Все</button><button type="button" data-level="base">База</button><button type="button" data-level="profile">Профиль</button>
 <label class="small"><input type="checkbox" id="onlynew"> только нерешённые</label>
@@ -69,10 +117,6 @@ nav.top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-
 function store(){try{return window.localStorage}catch(e){return null}}
 function loadProg(){try{return JSON.parse(store().getItem('ege-progress')||'{}')}catch(e){return {}}}
 function saveProg(p){try{store().setItem('ege-progress',JSON.stringify(p))}catch(e){}}
-(function(){var b=document.getElementById('theme');if(!b)return;var t=null;try{t=store().getItem('ege-theme')}catch(e){}
-if(t)document.documentElement.dataset.theme=t;
-b.onclick=function(){var dark=matchMedia('(prefers-color-scheme: dark)').matches;var cur=document.documentElement.dataset.theme||(dark?'dark':'light');
-var n=cur==='dark'?'light':'dark';document.documentElement.dataset.theme=n;try{store().setItem('ege-theme',n)}catch(e){}}})();
 
 var TASKS=JSON.parse(document.getElementById('tasks-data').textContent);
 var prog=loadProg(),level='all',onlyNew=false;
