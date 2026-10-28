@@ -166,7 +166,8 @@ function finish(timeUp){if(!S||S.finished)return;creditTask();S.acc=elapsed();S.
 
 function record(){var r=score(D.levels[S.level],D.tasks,S),h=lget(HKEY,[]);
   var e={id:S.id,date:(function(d){function z(x){return (x<10?'0':'')+x}return d.getFullYear()+'-'+z(d.getMonth()+1)+'-'+z(d.getDate())+' '+z(d.getHours())+':'+z(d.getMinutes())})(new Date(S.id)),level:S.level,variant:S.variant,practice:S.practice,
-    primary:r.primary,max:r.max,test:r.test,grade:r.grade,time:S.acc,pending:r.pending};
+    primary:r.primary,max:r.max,test:r.test,grade:r.grade,time:S.acc,pending:r.pending,
+    miss:r.rows.filter(function(x){return x.pts<x.max}).map(function(x){return x.n})};
   h=h.filter(function(x){return x.id!==S.id});h.unshift(e);lset(HKEY,h.slice(0,50))}
 
 function showResult(){$('exam').hidden=true;$('setup').hidden=true;$('result').hidden=false;
@@ -208,6 +209,7 @@ $('finish').onclick=function(){var L=D.levels[S.level],empty=S.ids.filter(functi
 $('pause').onclick=function(){if(!S.practice)return;if(S.since){creditTask();S.acc=elapsed();S.since=null;S.taskSince=null}else{S.since=now();S.taskSince=now()}save();tick();
   $('pause').textContent=S.since?'Пауза':'Продолжить';$('task').style.visibility=S.since?'':'hidden'};
 $('again').onclick=home;$('abort').onclick=function(){if(confirm('Прервать попытку без сохранения?')){clearInterval(timer);home()}};
+(function(){var m=/[?&]level=(base|profile)/.exec(location.search);if(m){var r=document.querySelector('input[name=lv][value='+m[1]+']');if(r)r.checked=true}})();
 $('vrand').onclick=function(){$('variant').value=1+Math.floor(Math.random()*999999)};
 function boot(){if(S&&S.finished)showResult();else if(S){if(S.practice&&!S.since){run();$('pause').textContent='Продолжить';$('task').style.visibility='hidden'}else run()}else home()}
 if(document.readyState==='complete')boot();else window.addEventListener('load',boot);
